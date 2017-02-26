@@ -1,0 +1,18 @@
+
+Zimmer und Eigenschaften
+use team_blue;
+
+select room.name,room.description,room_attribute.attribute from room
+inner join attribute_room
+on room.id = attribute_room.room_id
+inner join room_attribute
+on attribute_room.room_attribute_id = room_attribute.id;
+
+Buchungsübersicht
+use team_blue;
+
+SELECT booking.id, person.forename,person.surname,booking.checkin,booking.checkout,booking.canceled,booking_person.isResponsible FROM booking
+inner join booking_person
+on booking.id = booking_person.booking_id
+inner join person
+on booking_person.person_id = person.id;
