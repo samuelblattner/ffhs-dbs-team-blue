@@ -42,7 +42,7 @@ INSERT INTO `team_blue`.`person_phone` (`person_id`, `phone_number_id`) VALUES (
 INSERT INTO `team_blue`.`person_phone` (`person_id`, `phone_number_id`) VALUES ('4', '5');
 
 
-INSERT INTO `team_blue`.`address` (`person_id`, `line1`, `city`, `zip`, `country`) VALUES ('1', 'Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
 
 
@@ -490,16 +490,16 @@ INSERT INTO `team_blue`.`company` (`name`, `company_type_id`) VALUES ('R A C E E
 
 
 
-INSERT INTO `team_blue`.`address` (`person_id`, `company_id`, `line1`, `city`, `zip`, `country`) VALUES ('8', '1', 'Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
-INSERT INTO `team_blue`.`address` (`person_id`, `company_id`, `line1`, `city`, `zip`, `country`) VALUES ('9', '2', 'Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
-INSERT INTO `team_blue`.`address` (`person_id`, `company_id`, `line1`, `city`, `zip`, `country`) VALUES ('10', '3', 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
-INSERT INTO `team_blue`.`address` (`person_id`, `company_id`, `line1`, `city`, `zip`, `country`) VALUES ('11', '4', 'Grüningerstrasse 11', 'Saanen', '3792', 'Schweiz');
-INSERT INTO `team_blue`.`address` (`person_id`, `company_id`, `line1`, `city`, `zip`, `country`) VALUES ('12', '5', 'Südbahnstrasse 3', 'Schattdorf', 'Schweiz', 'Schweiz');
-INSERT INTO `team_blue`.`address` (`company_id`, `line1`, `city`, `zip`, `country`) VALUES ('6', '5959 Arcu. Road', 'Chiusa Sclafani', 'N9C 8Y3', 'Kuwait');
-INSERT INTO `team_blue`.`address` (`company_id`, `line1`, `city`, `zip`, `country`) VALUES ('7', '8260 Egestas St.', 'Kingston-on-Thames', '728785', 'Western Sahara');
-INSERT INTO `team_blue`.`address` (`company_id`, `line1`, `city`, `zip`, `country`) VALUES ('8', '220-781 Elementum Rd.', 'Colombo', 'M9 5KU', 'United States');
-INSERT INTO `team_blue`.`address` (`company_id`, `line1`, `city`, `zip`, `country`) VALUES ('9', 'Ap #830-3755 Enim Road', 'Eschwege', '765826', 'Maldives');
-INSERT INTO `team_blue`.`address` (`company_id`, `line1`, `city`, `zip`, `country`) VALUES ('10', 'Ap #779-2776 Est Street', 'Laakirchen', '08655', 'Jordan');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ( 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Grüningerstrasse 11', 'Saanen', '3792', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Südbahnstrasse 3', 'Schattdorf', 'Schweiz', 'Schweiz');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('5959 Arcu. Road', 'Chiusa Sclafani', 'N9C 8Y3', 'Kuwait');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('8260 Egestas St.', 'Kingston-on-Thames', '728785', 'Western Sahara');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('220-781 Elementum Rd.', 'Colombo', 'M9 5KU', 'United States');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #830-3755 Enim Road', 'Eschwege', '765826', 'Maldives');
+INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #779-2776 Est Street', 'Laakirchen', '08655', 'Jordan');
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #593-145 Rutrum St.', 'Maasmechelen', '3042', 'Central African Republic');
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('300-7397 Pede. Ave', 'Whitehaven', '45654-078', 'Norway');
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 142, 6179 Ac Rd.', 'Saint-Prime', '683059', 'Guinea');
