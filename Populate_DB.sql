@@ -584,4 +584,91 @@ INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('P
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #797-7872 Commodo Rd.', 'St. Austell', 'K4 5SJ', 'Samoa');
 INSERT INTO `team_blue`.`address` (`line1`, `city`, `zip`, `country`) VALUES ('6505 Nec Ave', 'Cadiz', '1508', 'Isle of Man');
 
+INSERT INTO `team_blue`.`person_address` (`address_id`, `person_id`) VALUES ('1', '1');
+INSERT INTO `team_blue`.`person_address` (`address_id`, `person_id`) VALUES ('2', '2');
+INSERT INTO `team_blue`.`person_address` (`address_id`, `person_id`) VALUES ('3', '3');
+INSERT INTO `team_blue`.`person_address` (`address_id`, `person_id`) VALUES ('4', '4');
+INSERT INTO `team_blue`.`person_address` (`address_id`, `person_id`) VALUES ('5', '5');
+
+
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Corner Suite', 'Unsere 4 Corner Suiten erwarten Sie mit einem einladenden Schlafbereich mit modernem und geräumigen Bad sowie einem abtrennbaren Salon mit einer Sitzgruppe um einen klassischen Tisch. Auf 50 m2 vereinen sich geschmackvolle Materialien und Textilien zu einem harmonischen Gesamtbild. Ein besonderes Glanzlicht setzt der Kronleuchter des Wohnzimmers, das über eine separate Gästetoilette verfügt. Sie haben von hier einen herrlichen Ausblick auf den Vierwaldstättersee und das Alpenpanorama. Die Corner Suite ist wahlweise mit Twin- oder Doppelbett buchbar.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Suite of Arts', 'Unsere Suite of Arts ist ein echtes Kunstwerk in sich selbst. Reproduktionen von Miró, Kandinsky und Chagall schmücken die Wände, Designmöbel und Unikate aus den 60er- und 70er-Jahren geben ihr einen besonderen Charakter mit unaufdringlicher Extravaganz. Auf 75 m² verfügen Sie über ein Schlafzimmer mit Doppelbett und geräumigem Badezimmer, dazu über einen Salon, der ein Unikat darstellt in seiner Verbindung von Wohlfühlatmosphäre und künstlerischen Akzenten. Die Fensterfronten eröffnen den uneingeschränkten Blick auf die Leuchtenstadt, den Vierwaldstättersee und die Zentralschweizer Bergwelt.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Palace Suite', 'Unsere Suite der Extraklasse. Sie verfügt über zwei grosszügige Schlafzimmer mit geräumigen Bädern als Rückzugsorte. Dazu bietet sie ein separates Wohn- und Esszimmer sowie eine mit einer Lounge und Sitzgelegenheiten möblierte Terrasse. Der Blick auf den Vierwaldstättersee, die Leuchtenstadt und die Berge ist einmalig, genau wie die PALACE Suite. Auf insgesamt 125 m² können Sie hier ein luxuriöses Erlebnis geniessen, zu dem kontemporäre Möbel, wertvolles Parkett und ausgewählte Textilien und Materialien beitragen. Die Suite ist wahlweise mit Twin- oder Doppelbett buchbar.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Junior Suite', 'Unsere 23 Junior Suiten bieten Platz. Weit ist der Blick auf den See, die Leuchtenstadt Luzern und in die Berge. Die harmonische Farbkombination des modern-eleganten Designs lädt zum Verweilen ein. Wir haben die Junior Suite mit Möbeln aus Tulpenholz, Palisander oder Olivenesche ausgestattet. Die hellen Räume werden zusätzlich mit Lampen beschienen, die von einem Light Designer aus Lyon exklusiv für das PALACE LUZERN kreiert wurden. Auf einem dezent gemusterten hochwertigen Teppich finden ein bequemes Bett (wahlweise Twin- oder Doppelbett) und eine Sitzgruppe auf insgesamt 42 m² platz. Ein geräumiges und modernes Badezimmer rundet das Wohngefühl von behaglichem Luxus ab.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Familien Zimmer', 'Unsere Zimmer für die ganze Familie mit grosszügiger Raumgestaltung in attraktiven Farben. Auf 50 m² sind sie mit einer Sitzgruppe ausgestattet, die zu einem Bett ausgezogen werden kann, dazu mit einem bequemen Bett (wahlweise Twin- oder Doppelbett) für die Eltern. In dieser behaglichen und hellen Atmosphäre ist genügend Platz zum Spielen für die Kinder, und auch das Badezimmer ist so ausgestattet, dass alle ihren Platz finden. Die Familienzimmer verfügen über einen faszinierenden Blick auf den Vierwaldstättersee und das Zentralschweizer Bergpanorama. Selbstverständlich bieten wir spezielle Kindermenus an, die von unserem Room Service auch im Zimmer serviert werden.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Superior Zimmer', 'Alle Superior Zimmer bieten einen atemberaubenden Blick auf den Vierwaldstättersee, das Zentralschweizer Bergpanorama und die Leuchtenstadt Luzern. Sie sind mit einer Sitzgruppe, einem Schreibtisch und wahlweise einem Twin- oder Doppelbett ausgestattet. Auf 35 m² sind die grosszügig gestalteten Zimmer im klassisch-stilvollen Grandhotel-Interieur gehalten. Eine dezent-moderne Farbgestaltung und ausgewählte Textilien schaffen eine behagliche Atmosphäre, ergänzt um ein modernes Badezimmer und einen sehr geräumigen Kleiderschrank im Entrée. Sie sind für eine oder zwei Personen geeignet.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Standard Zimmer', 'Unsere Standard Zimmer empfangen Sie auf 25 m² mit klassischem Interieur in einer behaglichen Wohnatmosphäre. Ein charmantes Design mit edlen Materialien in warmen Farben lädt in diesen hellen Räumen zum Verweilen und Entspannen ein. Von klassisch-elegant über Art Deco bis künstlerisch modern stehen Ihnen in diesen 32 Zimmern verschiedene Stilrichtungen zur Auswahl. Die Zimmer verfügen entweder über Stadt- oder Seeblick; letztere Zimmer verfügen zusätzlich über einen Balkon, von dem sich der Ausblick auf den Vierwaldtstättersee, die Leuchtenstadt Luzern und das Bergpanorama geniessen lässt. Das Zimmer ist wahlweise mit Twin- oder Doppelbett buchbar und für eine oder zwei Personen geeignet.');
+INSERT INTO `team_blue`.`room` (`name`, `description`) VALUES ('Deluxe Zimmer', 'Die Deluxe Zimmer haben wir in der besten Tradition des PALACE LUZERN im Belle Epoque Stil gehalten. Die elegant-dezente Kombination von stilechten Texturen, Materialien und Möbeln schafft eine Wohlfühlatmosphäre mit ihrer modernen Interpretation einer glorreichen Geschichtsepoche. Auf 35 m² verfügen Sie über eine Sitzgruppe, einen Schreibtisch und wahlweise über ein Twin- oder Doppelbett. Die Deluxe Zimmer verfügen über einen Balkon und eine atemberaubende Aussicht auf den Vierwaldstättersee, die Leuchtenstadt Luzern und das Zentralschweizer Bergpanorama.');
+
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Ausblick: Seeblick');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 35 m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Ausblick: Stadtblick');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 25 m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 50m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin und 1 Sofa');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene & 2 Kinder');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 40 m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Ausblick: See und Alpen');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 1 King');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Belegung: 4 Erwachsene oder 2 Erwachsene & 2 Kinder');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 100-150 m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 2 King oder Twin');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Grösse: 42 m²');
+INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 1 King oder Twin');
+
+
+
+INSERT INTO `team_blue`.`booking` (`responsible_guest`, `checkin`, `checkout`, `canceled`) VALUES ('6', '2017-03-15', '2017-03-30', '0');
+
+INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('6', '1');
+INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('7', '1');
+INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('8', '1');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '11');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '7');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '12');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '4');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '11');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '10');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '12');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '4');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '11');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '14');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '15');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '13');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '1');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '16');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '17');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '4');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '1');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '7');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '8');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '9');
+
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '1');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '2');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '3');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '4');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '5');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '6');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '3');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '4');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '1');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '2');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '3');
+INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '4');
+
+INSERT INTO `team_blue`.`booking_room` (`booking_id`, `room_id`) VALUES ('1', '1');
+
+
+
+
+
+
 
