@@ -620,9 +620,9 @@ INSERT INTO `team_blue`.`room_attribute` (`attribute`) VALUES ('Bett: 1 King ode
 
 
 
-INSERT INTO `team_blue`.`booking` (`responsible_guest`, `checkin`, `checkout`, `canceled`) VALUES ('6', '2017-03-15', '2017-03-30', '0');
+INSERT INTO `team_blue`.`booking` (`checkin`, `checkout`, `canceled`) VALUES ('2017-03-15', '2017-03-30', '0');
 
-INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('6', '1');
+INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('6', '1','1');
 INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('7', '1');
 INSERT INTO `team_blue`.`booking_person` (`person_id`, `booking_id`) VALUES ('8', '1');
 
@@ -665,6 +665,8 @@ INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES
 INSERT INTO `team_blue`.`attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '4');
 
 INSERT INTO `team_blue`.`booking_room` (`booking_id`, `room_id`) VALUES ('1', '1');
+
+
 
 
 
