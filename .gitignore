@@ -1,0 +1,3 @@
+#Ignore MySQL Workbench temporary file
+
+*.mwb.bak
