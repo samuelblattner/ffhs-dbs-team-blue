@@ -27,7 +27,7 @@ and the MySQL server is available at ``86.119.36.10`` on port ``41337``.
  1. Restart server <br> ``shutdown -r now``
  1. Install MySQL server <br> ``apt install mysql-server``
  1. Change port of MySQL server <br> ``nano /etc/mysql/mysql.conf.d/mysqld.cnf``
-    1. Change ``port    3369`` to ``port    41337``
+    1. Change ``port    3306`` to ``port    41337``
     1. Comment out ``bind_address``
  1. Restart MySQL server <br> ``service mysql restart``
  1. Create MySQL user databases and accounts <br> ``mysql -p`` and run
