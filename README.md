@@ -14,6 +14,7 @@ Table names | Singular of entity type, lower case | ``person``, ``house``, ..
 Join table names | Names of participating entity types, joined by an underscore | ``person_company``
 Primary key | Use ``id`` | ``id``
 Foreign key | Related table name with a ``_id`` postfix | ``person_id``
+Constraint names | Use the this pattern ``{tablename}_{columnname(s)}_{suffix}``. The following suffixes should be used: <ul><li>``pk`` for primary keys</li><li>``fk`` for foreign keys</li><li>``idx`` for indexes</li><li>``uniq`` for unique keys</li><li>``check`` for check constraints</li><li>``seq`` for sequence numbers</li></li><ul> | ``person_person_type_id_fk`` |
 
 ## Test server
 The test server provides an MySQL database, which can be used for the group tasks. This server is hosted at SWITCHengines 
