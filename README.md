@@ -2,7 +2,7 @@
 This repository contains the project and task of the module DBS (Datenbanksysteme) at FFHS. 
 
 ## Conventions
-Everything in this repository should follow this conventions.
+Everything in this repository should follow these conventions.
 
 ### Naming
  - English language is used for all names
@@ -51,3 +51,63 @@ and the MySQL server is available at ``86.119.36.10`` on port ``41337``.
  1. Create a new security group <br> ``security group create mysql``
  1. Open port ``41337`` in security group <br> ``security group rule create --dst-port 41337 mysql``
  1. Apply security group to server instance <br> ``server add security group dbs mysql``
+ 
+### Task Requirements / Checklist
+
+#### Notizen des ersten Treffens
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0001 | ✔ | Solved by fields 'forename', 'surname' and 'email' in table 'person'. | Die Zusammenarbeit mit den beliebten Online-Buchungsplattformen hat sich bewährt. Der Buchungsvorgang ist sehr einfach: Der Gast muss nur Vor- und Familienname sowie die E-Mail-Adresse angeben. Das Sternenblick lässt Stornierung ohne Kostenfolge zu.
+0002 | ? | How are contact persons at travel agencies and normal hotel guests told apart? Both are stored in the 'people' table...   | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
+0003 | ? | There are no status fields telling if a present or email have been submitted to the guest. Should we ignore this?| Zum Geburtstag erhalten die Gäste jeweils eine Gratulation per E-Mail. Und Gäste, welche an Ihrem Geburtstag im Hotel sind, erhalten ein kleines Geschenk.
+
+#### Notizen des zweiten Treffens
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0101 | ? | Shouldn't an 'employee' entity reference a 'person_id' instead of a 'person' reference an 'employee_id' as it is currently the case? See: https://moodle.ffhs.ch/mod/page/view.php?id=228273 | Auch die Mitarbeiter des Hotels dürfen mit Familie und Verwandten das Hotel benutzen und erhalten dabei Sonderkonditionen.
+0102 | ✔ | Solved by the 'employing_company' field in the 'booking' table that references the company of a guest at the time of the booking. | Zudem ist es in den vergangenen Jahren gelungen, immer wieder mit Firmen zusammenzuarbeiten, welche für ihre Mitarbeitenden Geschäftsreisen in die Gegend buchen. Die Geschäftsreisenden kommen dann gerne als Privatpersonen wieder und bringen ihre Familien mit.
+
+#### Notizen Telefonat nach dem zweiten Treffen
+"Aurelia zählt die folgenden Angaben auf, welche sie in den bisher vorhandenen Adressdateien und Tabellen auffinden konnte."
+
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0201 | ✔ | Solved by the field 'email' in table 'person' | E-Mail-Adresse
+0202 | ✔ | Solved by the field 'birthday' in table 'person' | Geburtsjahr
+0203 | ✔ | Solved by the relation 'person_phone' and the table 'phone_number' | Telefonnummer, manchmal mehr als eine Nummer. Am wichtigsten ist die mobile Nummer, um den Gast auch unterwegs erreichen zu können.
+0204 | ? | Currently solved with a fixed amount of address lines. This does not account for addresses with more lines. Shouldn't we just provide one textfield that can store line breaks?| Eine Adresse kann mehrere Zeilen haben. Internationale Adressen können sehr umständlich formuliert sein.
+0205 | ✔ | Solved by the field 'zip' in table 'address'. ZIP validation happens on application layer. | Postleitzahl - auch international (man habe viele Gäste aus Grossbritannien)
+0206 | ✔ | Solved by the field 'city' in table 'address' | Ortschaft
+0207 | ✔ | Solved by the field 'country' in table 'address' | Land
+0208 | x | A language field is missing! | Sprache
+0209 | ✔ | Solved by the fields 'social_insurance_number' (mandatory) and 'legacy_social_insurance_number' (optional) | AHV-Nummer, aber nur bei Mitarbeitern. Bei einigen auch noch die alte AHV-Nummer
+0200 | ✔ | Whatever this means ... | Von vielen Gästen gibt es keine genaue Adresse
+0210 | ✔ | Solved by the FK relation 'contact_person_id' in table 'company' | Und bei Reisebüros braucht es noch die Ansprechperson.
+
+#### E-Mail von Aurelia
+
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0301 | ? | | Wir haben Einzel- und Doppelzimmer. Dabei vermeiden wir es möglichst, Doppelzimmer durch Einzelpersonen zu belegen.
+0302 | ? | | Bei den Doppelzimmern haben wir Zimmer mit getrennten Betten und Zimmer mit Queen-Size-Betten.
+0303 | ? | | In der Hochzeit-Suite ist ein King-Size-Bett.
+0304 | ? | | Wir haben Zimmer mit Bad/WC und andere Zimmer mit Dusche/WC. Im "Blauen Salon" haben wir sogar einen Wirlpool und eine Dusche.
+0305 | ? | | Die meisten Zimmer haben eine Minibar.
+0306 | ? | | Wir bauen ja gerade die Dépendance. Bei Reisegruppen wollen wir darauf achten, dass alle entweder im Haupttrakt oder in der Dépendance untergebracht sind.
+0307 | ? | | Einige der Gäste achten bei der Buchung vor allem auf den Blick auf die Alpen.
+0308 | ? | | Für einige Gäste ist das Stockwerk sehr wichtig. Manche wollen möglichst weit unten wohnen und andere bevorzugen die oberen Stockwerke.
+0309 | ? | | Wir haben ausschliesslich Nichtraucher-Zimmer.
+
+#### Notizen zum dritten Treffen
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0401 | ? | | Mitarbeiter können auch Gäste sein und erhalten dann Sonderkonditionen für sich und ihre Begleitpersonen.
+0402 | ? | | Die Zusammenarbeit mit Reisebüros hat sich bewährt. Luzius möchte eine Übersicht erhalten, welches Reisebüro pro Jahr wieviele Übernachtungen bringt. Er trägt sich mit dem Gedanken, besonders guten Reisebüros Rabatt zu geben, oder auch besonders guten Mitarbeitern in Reisebüros zum Geburtstag eine kleine Aufmerksamkeit zu schicken. Aurelia fragt sich, woher sie das Geburtsdatum erfahren solle ...
+0403 | ? | | Zur Buchung braucht man eigentlich nur die Angaben zur Person, sowie die E-Mail-Adresse. Aurelia meint, es wäre zeitgemässer, auch die Kreditkarte bei der Buchung zu verlangen. Auf den Online-Plattformen sei das üblich. Luzius meint, wir sollten das vorsehen (es solle aber vorerst nicht eine unbedingt notwendige Angabe sein).
+0404 | ? | | Bei der Buchung muss natürlich klar sein, ob das Hotel überhaupt Platz hat für die Übernachtung. Das Hotel hat 30 Zimmer mit verschiedenster Ausstattung. Aurelia hat ja dazu eine E-Mail geschickt.
+0405 | ? | | Luzius ist stolz auf die Einzelzimmer, welche ebenso geräumig sind, wie die Doppelzimmer.
+0406 | ? | | Aurelia weist darauf hin, dass Reisebüros oft anfragen, ob das Hotel Platz für eine Reisegruppe hätte. Dabei wird nur die Anzahl der Gäste genannt. Wenn Platz vorhanden ist, dann teilt das Reisebüro die Gäste selbst auf die Zimmer auf. Die Aufteilung wird dann beim Check-In eingetragen.
+0407 | ? | | Gerade die Reisebüros aus Fernost fragen für eine Gruppe mehrfach an. Und es kommt auch vor, dass Reisebüros für mehrere Gruppen anfragen. Da gilt es, diese Anfragen sorgfältig auseinander zu halten. Dass nach ein- bis zwei Tagen bei Reisebüro nachgefragt wird, ob die Buchung zu Stande kommen wird, hält Aurelia für selbstverständlich. Sie führt auch fein säuberlich Buch darüber, welche Anfragen zu welcher Buchung geführt haben. Das hilft ihr, einzuschätzen, wie wahrscheinlich eine Anfrage des jeweiligen Reisebüros zu einer Buchung führen wird.
+0408 | ? | | Luzius berichtet, dass, das Hotel momentan durch einen Anbau erweitert wird.
+0409 | ? | | Bei einer Buchung muss das Anreise-Datum und das Abreise-Datum angegeben werden.
+0410 | ? | | Das Preismodell werden wir später untersuchen.
