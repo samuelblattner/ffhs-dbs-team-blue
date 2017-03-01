@@ -59,22 +59,22 @@ robin | ejNT3~K:8x*N | starview_robin
  1. Open port ``41337`` in security group <br> ``security group rule create --dst-port 41337 mysql``
  1. Apply security group to server instance <br> ``server add security group dbs mysql``
  
-### Task Requirements / Checklist
+## Task Requirements / Checklist
 
-#### Notizen des ersten Treffens
+### Notizen des ersten Treffens
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0001 | ✔ | Solved by fields 'forename', 'surname' and 'email' in table 'person'. | Die Zusammenarbeit mit den beliebten Online-Buchungsplattformen hat sich bewährt. Der Buchungsvorgang ist sehr einfach: Der Gast muss nur Vor- und Familienname sowie die E-Mail-Adresse angeben. Das Sternenblick lässt Stornierung ohne Kostenfolge zu.
 0002 | ✔ | Travel Agencies and their employees can be stored as such using the 'company_type' table. | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
 0003 | ? | There are no status fields telling if a present or email have been submitted to the guest. Should we ignore this? | Zum Geburtstag erhalten die Gäste jeweils eine Gratulation per E-Mail. Und Gäste, welche an Ihrem Geburtstag im Hotel sind, erhalten ein kleines Geschenk.
 
-#### Notizen des zweiten Treffens
+### Notizen des zweiten Treffens
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0101 | ? | Shouldn't an 'employee' entity reference a 'person_id' instead of a 'person' reference an 'employee_id' as it is currently the case? See: https://moodle.ffhs.ch/mod/page/view.php?id=228273 | Auch die Mitarbeiter des Hotels dürfen mit Familie und Verwandten das Hotel benutzen und erhalten dabei Sonderkonditionen.
 0102 | ✔ | Solved by the 'employing_company' field in the 'booking' table that references the company of a guest at the time of the booking. | Zudem ist es in den vergangenen Jahren gelungen, immer wieder mit Firmen zusammenzuarbeiten, welche für ihre Mitarbeitenden Geschäftsreisen in die Gegend buchen. Die Geschäftsreisenden kommen dann gerne als Privatpersonen wieder und bringen ihre Familien mit.
 
-#### Notizen Telefonat nach dem zweiten Treffen
+### Notizen Telefonat nach dem zweiten Treffen
 "Aurelia zählt die folgenden Angaben auf, welche sie in den bisher vorhandenen Adressdateien und Tabellen auffinden konnte."
 
 ID | Status | Comment | Original Text
@@ -91,7 +91,7 @@ ID | Status | Comment | Original Text
 0200 | ✔ | Whatever this means ... | Von vielen Gästen gibt es keine genaue Adresse
 0210 | ✔ | Solved by the FK relation 'contact_person_id' in table 'company' | Und bei Reisebüros braucht es noch die Ansprechperson.
 
-#### E-Mail von Aurelia
+### E-Mail von Aurelia
 
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
@@ -105,7 +105,7 @@ ID | Status | Comment | Original Text
 0308 | ✔ | Solved by the 'room_attribute' table | Für einige Gäste ist das Stockwerk sehr wichtig. Manche wollen möglichst weit unten wohnen und andere bevorzugen die oberen Stockwerke.
 0309 | ✔ | irrelevant for db| Wir haben ausschliesslich Nichtraucher-Zimmer.
 
-#### Notizen zum dritten Treffen
+### Notizen zum dritten Treffen
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0401 | ✔ | Duplicate of #0101 | Mitarbeiter können auch Gäste sein und erhalten dann Sonderkonditionen für sich und ihre Begleitpersonen.
