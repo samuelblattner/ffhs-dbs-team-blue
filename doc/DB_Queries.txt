@@ -1,6 +1,7 @@
 
 Zimmer und Eigenschaften
-use team_blue;
+========================
+use starview;
 
 select room.name,room.description,room_attribute.attribute from room
 inner join attribute_room
@@ -9,10 +10,39 @@ inner join room_attribute
 on attribute_room.room_attribute_id = room_attribute.id;
 
 Buchungsübersicht
-use team_blue;
-
-SELECT booking.id, person.forename,person.surname,booking.checkin,booking.checkout,booking.canceled,booking_person.isResponsible FROM booking
+=================
+use starview;
+SELECT booking.id, person.forename,person.surname,booking.checkin,booking.checkout,booking.canceled,booking_person.isResponsible,payment_card.number FROM booking
 inner join booking_person
 on booking.id = booking_person.booking_id
 inner join person
-on booking_person.person_id = person.id;
+on booking_person.person_id = person.id
+inner join payment_card
+on booking_person.payment_card_id = payment_card.id;
+
+
+Anzahl vermittelte Buchungen pro Reisebüro
+==========================================
+use starview;
+select count(booking.id) 'Anzahl Buchungen', company.name from booking
+inner join company
+on booking.referring_company = company.id
+where booking.canceled='0'
+group by company.name
+order by count(booking.id) desc
+;
+
+
+Anzahl vermittelte Buchungen pro Person
+=======================================
+use starview;
+
+select count(booking.id) as 'Anzahl vermittelte Buchungen',person.forename,person.surname,person.birthday,company.name from booking
+inner join person
+on booking.referring_person = person.id
+inner join company
+on booking.referring_company = company.id
+where booking.canceled=0
+group by person.id
+order by count(booking.id)
+;
