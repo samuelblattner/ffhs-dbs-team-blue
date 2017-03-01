@@ -22,6 +22,34 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05','3');
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
 
+INSERT INTO `language` (`id`, `language`) VALUES ('1', 'Arabisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('2', 'Belgisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('3', 'Deutsch');
+INSERT INTO `language` (`id`, `language`) VALUES ('4', 'Englisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('5', 'Französisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('6', 'Holländisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('7', 'Italienisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('8', 'Polnisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('9', 'Russisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('10', 'Spanisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('11', 'Tschechisch');
+
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');;
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '5', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '7', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '1', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '9', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '11', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '4', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '3', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '7', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '19', '0');
 
 INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
 

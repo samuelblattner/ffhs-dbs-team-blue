@@ -86,7 +86,7 @@ ID | Status | Comment | Original Text
 0205 | ✔ | Solved by the field 'zip' in table 'address'. ZIP validation happens on application layer. | Postleitzahl - auch international (man habe viele Gäste aus Grossbritannien)
 0206 | ✔ | Solved by the field 'city' in table 'address' | Ortschaft
 0207 | ✔ | Solved by the field 'country' in table 'address' | Land
-0208 | x | A language field is missing! | Sprache
+0208 | ✔ | Solved by the language and person_language table | Sprache
 0209 | ✔ | Solved by the fields 'social_insurance_number' (mandatory) and 'legacy_social_insurance_number' (optional) | AHV-Nummer, aber nur bei Mitarbeitern. Bei einigen auch noch die alte AHV-Nummer
 0200 | ✔ | Whatever this means ... | Von vielen Gästen gibt es keine genaue Adresse
 0210 | ✔ | Solved by the FK relation 'contact_person_id' in table 'company' | Und bei Reisebüros braucht es noch die Ansprechperson.

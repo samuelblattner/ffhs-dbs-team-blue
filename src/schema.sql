@@ -53,6 +53,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `language`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `language` (
+  `id` INT NOT NULL,
+  `language` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `person_language`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `person_language` (
+  `person_id` INT NOT NULL,
+  `language_id` INT NOT NULL,
+  `is_preferred` TINYINT(1) NULL,
+  PRIMARY KEY (`person_id`, `language_id`),
+  INDEX `fk_language_idx` (`language_id` ASC),
+  CONSTRAINT `fk_person`
+    FOREIGN KEY (`person_id`)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_language`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `company_type`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `company_type` (
