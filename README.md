@@ -20,6 +20,13 @@ Constraint names | Use the this pattern ``{tablename}_{columnname(s)}_{suffix}``
 The test server provides an MySQL database, which can be used for the group tasks. This server is hosted at SWITCHengines 
 and the MySQL server is available at ``86.119.36.10`` on port ``41337``.
 
+Username | Password | Databases
+--- | --- | ---
+andre | ZlazuLJQg~j* | starview_andre
+thomas | uvh*F?OVl^C4 | starview_thomas
+samuel | 3T*frriskXm4 | starview_samuel
+robin | ejNT3~K:8x*N | starview_robin
+
 ### Setup
  1. Create a new server instance at SWITCHengines <br> ``server create --flavor c1.medium --image "Ubuntu Xenial 16.04 (SWITCHengines)" --key-name robin dbs``
  1. Assign a public ip address <br> ``floating ip create public`` <br> ``server add floating ip dbs 86.119.36.10``
