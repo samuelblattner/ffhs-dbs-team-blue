@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `social_insurance_number` VARCHAR(13) NOT NULL,
   `employee_type_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `social_insurance_number_UNIQUE` (`social_insurance_number` ASC),
-  UNIQUE INDEX `legacy_social_insurance_number_UNIQUE` (`legacy_social_insurance_number` ASC),
-  INDEX `fk_employee_employee_type1_idx` (`employee_type_id` ASC),
-  CONSTRAINT `fk_employee_employee_type_id`
+  UNIQUE INDEX `employee_social_insurance_number_uniq` (`social_insurance_number` ASC),
+  UNIQUE INDEX `employee_legacy_social_insurance_number_uniq` (`legacy_social_insurance_number` ASC),
+  INDEX `employee_employee_type_id_idx` (`employee_type_id` ASC),
+  CONSTRAINT `employee_employee_type_id_fk`
     FOREIGN KEY (`employee_type_id`)
     REFERENCES `employee_type` (`id`)
     ON DELETE NO ACTION
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `person` (
   `birthday` DATE NULL,
   `employee_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_person_employee1_idx` (`employee_id` ASC),
-  CONSTRAINT `fk_person_employee1`
+  INDEX `person_employee_id_idx` (`employee_id` ASC),
+  CONSTRAINT `person_employee_id_fk`
     FOREIGN KEY (`employee_id`)
     REFERENCES `employee` (`id`)
     ON DELETE NO ACTION
@@ -71,15 +71,15 @@ CREATE TABLE IF NOT EXISTS `company` (
   `contact_person_id` INT NULL,
   `company_type_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
-  INDEX `fk_company_person_idx` (`contact_person_id` ASC),
-  INDEX `fk_company_company_type1_idx` (`company_type_id` ASC),
-  CONSTRAINT `fk_company_person_id`
+  UNIQUE INDEX `company_name_uniq` (`name` ASC),
+  INDEX `contact_person_id_idx` (`contact_person_id` ASC),
+  INDEX `company_company_type_id_idx` (`company_type_id` ASC),
+  CONSTRAINT `company_person_id_fk`
     FOREIGN KEY (`contact_person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_company_company_type_id`
+  CONSTRAINT `company_company_type_id_fk`
     FOREIGN KEY (`company_type_id`)
     REFERENCES `company_type` (`id`)
     ON DELETE NO ACTION
@@ -94,14 +94,14 @@ CREATE TABLE IF NOT EXISTS `person_company` (
   `person_id` INT NOT NULL,
   `company_id` INT NOT NULL,
   PRIMARY KEY (`person_id`, `company_id`),
-  INDEX `fk_people_company_company_idx` (`company_id` ASC),
-  INDEX `fk_people_company_people_idx` (`person_id` ASC),
-  CONSTRAINT `fk_person_company_company_id`
+  INDEX `person_company_company_id_idx` (`company_id` ASC),
+  INDEX `person_company_people_id_idx` (`person_id` ASC),
+  CONSTRAINT `person_company_company_id_fk`
     FOREIGN KEY (`company_id`)
     REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_person_company_person_id`
+  CONSTRAINT `person_company_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `phone_number` (
   `phone_number_type_id` INT NOT NULL,
   `number` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_phoneNr_phoneNrType1_idx` (`phone_number_type_id` ASC),
-  CONSTRAINT `fk_phone_number_phone_number_type_id`
+  INDEX `phone_number_phone_number_type_id_idx` (`phone_number_type_id` ASC),
+  CONSTRAINT `phone_number_phone_number_type_id_fk`
     FOREIGN KEY (`phone_number_type_id`)
     REFERENCES `phone_number_type` (`id`)
     ON DELETE NO ACTION
@@ -143,13 +143,13 @@ CREATE TABLE IF NOT EXISTS `person_phone` (
   `person_id` INT NOT NULL,
   `phone_number_id` INT NOT NULL,
   PRIMARY KEY (`person_id`, `phone_number_id`),
-  INDEX `fk_table1_phoneNr1_idx` (`phone_number_id` ASC),
-  CONSTRAINT `fk_person_phone_person_id`
+  INDEX `person_phone_phone_number_id_idx` (`phone_number_id` ASC),
+  CONSTRAINT `person_phone_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_person_phone_phone_number_id`
+  CONSTRAINT `person_phone_phone_number_id_fk`
     FOREIGN KEY (`phone_number_id`)
     REFERENCES `phone_number` (`id`)
     ON DELETE NO ACTION
@@ -178,24 +178,44 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `booking` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `employing_company` INT NULL,
-  `referring_company` INT NULL,
+  employing_company_id INT NULL,
+  referring_company_id INT NULL,
+  referring_person_id INT NULL,
   `checkin` DATE NULL,
   `checkout` DATE NULL,
   `canceled` TINYINT(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  INDEX `fk_booking_company2_idx` (`referring_company` ASC),
-  INDEX `fk_booking_company1_idx` (`employing_company` ASC),
-  CONSTRAINT `fk_booking_referring_company`
-    FOREIGN KEY (`referring_company`)
+  INDEX `booking_referring_company_id_idx` (referring_company_id ASC),
+  INDEX `booking_employing_company_id_idx` (employing_company_id ASC),
+  INDEX `booking_referring_person_id_idx` (referring_person_id ASC),
+  CONSTRAINT `booking_referring_company_id_fk`
+    FOREIGN KEY (referring_company_id)
     REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_booking_employing_company`
-    FOREIGN KEY (`employing_company`)
+  CONSTRAINT `booking_employing_company_id_fk`
+    FOREIGN KEY (employing_company_id)
     REFERENCES `company` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `booking_referring_person_id_fk`
+    FOREIGN KEY (referring_person_id)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `payment_card`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `payment_card` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `number` VARCHAR(45) NOT NULL,
+  `expirationdate` VARCHAR(7) NOT NULL,
+  `company` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -206,17 +226,24 @@ CREATE TABLE IF NOT EXISTS `booking_person` (
   `person_id` INT NOT NULL,
   `booking_id` INT NOT NULL,
   `isResponsible` TINYINT(1) NULL DEFAULT 0,
+  `payment_card_id` INT NULL,
   PRIMARY KEY (`person_id`, `booking_id`),
-  INDEX `fk_booking_people_booking1_idx` (`booking_id` ASC),
-  INDEX `fk_booking_people_people1_idx` (`person_id` ASC),
-  CONSTRAINT `fk_booking_people_booking1`
+  INDEX `booking_person_booking_id_idx` (`booking_id` ASC),
+  INDEX `booking_person_person_id_idx` (`person_id` ASC),
+  INDEX `booking_person_payment_card_id_idx` (`payment_card_id` ASC),
+  CONSTRAINT `booking_person_booking_id_fk`
     FOREIGN KEY (`booking_id`)
     REFERENCES `booking` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_booking_people_people1`
+  CONSTRAINT `booking_person_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `booking_person_payment_card_id_fk`
+    FOREIGN KEY (`payment_card_id`)
+    REFERENCES `payment_card` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -241,8 +268,8 @@ CREATE TABLE IF NOT EXISTS `picture` (
   `room_id` INT NOT NULL,
   `link_to_picture` VARCHAR(1024) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_picture_room1_idx` (`room_id` ASC),
-  CONSTRAINT `fk_picture_room_id`
+  INDEX `picture_room_id_idx` (`room_id` ASC),
+  CONSTRAINT `picture_room_id_fk`
     FOREIGN KEY (`room_id`)
     REFERENCES `room` (`id`)
     ON DELETE NO ACTION
@@ -257,13 +284,13 @@ CREATE TABLE IF NOT EXISTS `booking_room` (
   `booking_id` INT NOT NULL,
   `room_id` INT NOT NULL,
   PRIMARY KEY (`booking_id`, `room_id`),
-  INDEX `fk_booking_room_room1_idx` (`room_id` ASC),
-  CONSTRAINT `booking_room_booking_id`
+  INDEX `booking_room_room_id_idx` (`room_id` ASC),
+  CONSTRAINT `booking_room_booking_id_fk`
     FOREIGN KEY (`booking_id`)
     REFERENCES `booking` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `booking_room_room_id`
+  CONSTRAINT `booking_room_room_id_fk`
     FOREIGN KEY (`room_id`)
     REFERENCES `room` (`id`)
     ON DELETE NO ACTION
@@ -288,13 +315,13 @@ CREATE TABLE IF NOT EXISTS `attribute_room` (
   `room_id` INT NOT NULL,
   `room_attribute_id` INT NOT NULL,
   PRIMARY KEY (`room_id`, `room_attribute_id`),
-  INDEX `fk_attribute_room_room1_idx` (`room_id` ASC),
-  CONSTRAINT `fk_attribute_room_room_attribute_id`
+  INDEX `attribute_room_room_id_idx` (`room_id` ASC),
+  CONSTRAINT `attribute_room_room_attribute_id_fk`
     FOREIGN KEY (`room_attribute_id`)
     REFERENCES `room_attribute` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_attribute_room_room_id`
+  CONSTRAINT `attribute_room_room_id_fk`
     FOREIGN KEY (`room_id`)
     REFERENCES `room` (`id`)
     ON DELETE NO ACTION
@@ -308,15 +335,15 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `person_address` (
   `address_id` INT NOT NULL,
   `person_id` INT NOT NULL,
-  INDEX `fk_person_address_address1_idx` (`address_id` ASC),
-  INDEX `fk_person_address_person1_idx` (`person_id` ASC),
+  INDEX `person_address_address_id_idx` (`address_id` ASC),
+  INDEX `person_address_person_id_idx` (`person_id` ASC),
   PRIMARY KEY (`address_id`, `person_id`),
-  CONSTRAINT `fk_person_address_address1`
+  CONSTRAINT `person_address_address_id_fk`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_person_address_person1`
+  CONSTRAINT `person_address_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
@@ -330,15 +357,15 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `company_address` (
   `address_id` INT NOT NULL,
   `company_id` INT NOT NULL,
-  INDEX `fk_company_address_address1_idx` (`address_id` ASC),
-  INDEX `fk_company_address_company1_idx` (`company_id` ASC),
+  INDEX `company_address_address_id_idx` (`address_id` ASC),
+  INDEX `company_address_company_id_idx` (`company_id` ASC),
   PRIMARY KEY (`address_id`, `company_id`),
-  CONSTRAINT `fk_company_address_address1`
+  CONSTRAINT `company_address_address_id_fk`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_company_address_company1`
+  CONSTRAINT `company_address_company_id_fk`
     FOREIGN KEY (`company_id`)
     REFERENCES `company` (`id`)
     ON DELETE NO ACTION
