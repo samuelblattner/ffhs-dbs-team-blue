@@ -1,7 +1,3 @@
-DROP SCHEMA starview;
-CREATE SCHEMA starview1;
-use starview1;
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -74,13 +70,13 @@ CREATE TABLE IF NOT EXISTS `person_language` (
   `language_id` INT NOT NULL,
   `is_preferred` TINYINT(1) NULL,
   PRIMARY KEY (`person_id`, `language_id`),
-  INDEX `fk_language_idx` (`language_id` ASC),
-  CONSTRAINT `fk_person`
+  INDEX `language_id_idx` (`language_id` ASC),
+  CONSTRAINT `person_language_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_language`
+  CONSTRAINT `person_language_language_id_fk`
     FOREIGN KEY (`language_id`)
     REFERENCES `language` (`id`)
     ON DELETE NO ACTION
@@ -221,8 +217,8 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   `issued` DATE NOT NULL,
   `cancelled` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_person_idx` (`person_id` ASC),
-  CONSTRAINT `fk_person`
+  INDEX `person_id_idx` (`person_id` ASC),
+  CONSTRAINT `inquiry_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
