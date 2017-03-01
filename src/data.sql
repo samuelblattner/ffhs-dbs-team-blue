@@ -23,9 +23,6 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) 
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
 
 
-
-
-
 INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
 
 INSERT INTO `phone_number_type` (`name`) VALUES ('Mobil');
