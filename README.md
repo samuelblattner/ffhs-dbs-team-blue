@@ -95,26 +95,26 @@ ID | Status | Comment | Original Text
 
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
-0301 | ? | | Wir haben Einzel- und Doppelzimmer. Dabei vermeiden wir es möglichst, Doppelzimmer durch Einzelpersonen zu belegen.
-0302 | ? | | Bei den Doppelzimmern haben wir Zimmer mit getrennten Betten und Zimmer mit Queen-Size-Betten.
-0303 | ? | | In der Hochzeit-Suite ist ein King-Size-Bett.
-0304 | ? | | Wir haben Zimmer mit Bad/WC und andere Zimmer mit Dusche/WC. Im "Blauen Salon" haben wir sogar einen Wirlpool und eine Dusche.
-0305 | ? | | Die meisten Zimmer haben eine Minibar.
-0306 | ? | | Wir bauen ja gerade die Dépendance. Bei Reisegruppen wollen wir darauf achten, dass alle entweder im Haupttrakt oder in der Dépendance untergebracht sind.
-0307 | ? | | Einige der Gäste achten bei der Buchung vor allem auf den Blick auf die Alpen.
-0308 | ? | | Für einige Gäste ist das Stockwerk sehr wichtig. Manche wollen möglichst weit unten wohnen und andere bevorzugen die oberen Stockwerke.
-0309 | ? | | Wir haben ausschliesslich Nichtraucher-Zimmer.
+0301 | ✔ | Solved by the 'room_attribute' table | Wir haben Einzel- und Doppelzimmer. Dabei vermeiden wir es möglichst, Doppelzimmer durch Einzelpersonen zu belegen.
+0302 | ✔ | Solved by the 'room_attribute' table | Bei den Doppelzimmern haben wir Zimmer mit getrennten Betten und Zimmer mit Queen-Size-Betten.
+0303 | ✔ | Solved by the 'room_attribute' table | In der Hochzeit-Suite ist ein King-Size-Bett.
+0304 | ✔ | Solved by the 'room_attribute' table | Wir haben Zimmer mit Bad/WC und andere Zimmer mit Dusche/WC. Im "Blauen Salon" haben wir sogar einen Wirlpool und eine Dusche.
+0305 | ✔ | Solved by the 'room_attribute' table | Die meisten Zimmer haben eine Minibar.
+0306 | ? | Probably solved by 'room_attribute' where the building to which a booked room belongs could be stored. However, it would probably be more concise if we used a proper 'building' or 'hotel' entity type... | Wir bauen ja gerade die Dépendance. Bei Reisegruppen wollen wir darauf achten, dass alle entweder im Haupttrakt oder in der Dépendance untergebracht sind.
+0307 | ✔ | Solved by the 'room_attribute' table | Einige der Gäste achten bei der Buchung vor allem auf den Blick auf die Alpen.
+0308 | ✔ | Solved by the 'room_attribute' table | Für einige Gäste ist das Stockwerk sehr wichtig. Manche wollen möglichst weit unten wohnen und andere bevorzugen die oberen Stockwerke.
+0309 | ✔ | irrelevant for db| Wir haben ausschliesslich Nichtraucher-Zimmer.
 
 #### Notizen zum dritten Treffen
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
-0401 | ? | | Mitarbeiter können auch Gäste sein und erhalten dann Sonderkonditionen für sich und ihre Begleitpersonen.
-0402 | ? | | Die Zusammenarbeit mit Reisebüros hat sich bewährt. Luzius möchte eine Übersicht erhalten, welches Reisebüro pro Jahr wieviele Übernachtungen bringt. Er trägt sich mit dem Gedanken, besonders guten Reisebüros Rabatt zu geben, oder auch besonders guten Mitarbeitern in Reisebüros zum Geburtstag eine kleine Aufmerksamkeit zu schicken. Aurelia fragt sich, woher sie das Geburtsdatum erfahren solle ...
-0403 | ? | | Zur Buchung braucht man eigentlich nur die Angaben zur Person, sowie die E-Mail-Adresse. Aurelia meint, es wäre zeitgemässer, auch die Kreditkarte bei der Buchung zu verlangen. Auf den Online-Plattformen sei das üblich. Luzius meint, wir sollten das vorsehen (es solle aber vorerst nicht eine unbedingt notwendige Angabe sein).
-0404 | ? | | Bei der Buchung muss natürlich klar sein, ob das Hotel überhaupt Platz hat für die Übernachtung. Das Hotel hat 30 Zimmer mit verschiedenster Ausstattung. Aurelia hat ja dazu eine E-Mail geschickt.
-0405 | ? | | Luzius ist stolz auf die Einzelzimmer, welche ebenso geräumig sind, wie die Doppelzimmer.
-0406 | ? | | Aurelia weist darauf hin, dass Reisebüros oft anfragen, ob das Hotel Platz für eine Reisegruppe hätte. Dabei wird nur die Anzahl der Gäste genannt. Wenn Platz vorhanden ist, dann teilt das Reisebüro die Gäste selbst auf die Zimmer auf. Die Aufteilung wird dann beim Check-In eingetragen.
-0407 | ? | | Gerade die Reisebüros aus Fernost fragen für eine Gruppe mehrfach an. Und es kommt auch vor, dass Reisebüros für mehrere Gruppen anfragen. Da gilt es, diese Anfragen sorgfältig auseinander zu halten. Dass nach ein- bis zwei Tagen bei Reisebüro nachgefragt wird, ob die Buchung zu Stande kommen wird, hält Aurelia für selbstverständlich. Sie führt auch fein säuberlich Buch darüber, welche Anfragen zu welcher Buchung geführt haben. Das hilft ihr, einzuschätzen, wie wahrscheinlich eine Anfrage des jeweiligen Reisebüros zu einer Buchung führen wird.
-0408 | ? | | Luzius berichtet, dass, das Hotel momentan durch einen Anbau erweitert wird.
-0409 | ? | | Bei einer Buchung muss das Anreise-Datum und das Abreise-Datum angegeben werden.
-0410 | ? | | Das Preismodell werden wir später untersuchen.
+0401 | ✔ | Duplicate of #0101 | Mitarbeiter können auch Gäste sein und erhalten dann Sonderkonditionen für sich und ihre Begleitpersonen.
+0402 | ? | Partial duplicate of #0002| Die Zusammenarbeit mit Reisebüros hat sich bewährt. Luzius möchte eine Übersicht erhalten, welches Reisebüro pro Jahr wieviele Übernachtungen bringt. Er trägt sich mit dem Gedanken, besonders guten Reisebüros Rabatt zu geben, oder auch besonders guten Mitarbeitern in Reisebüros zum Geburtstag eine kleine Aufmerksamkeit zu schicken. Aurelia fragt sich, woher sie das Geburtsdatum erfahren solle ...
+0403 | x | Optional Credit Card field missing | Zur Buchung braucht man eigentlich nur die Angaben zur Person, sowie die E-Mail-Adresse. Aurelia meint, es wäre zeitgemässer, auch die Kreditkarte bei der Buchung zu verlangen. Auf den Online-Plattformen sei das üblich. Luzius meint, wir sollten das vorsehen (es solle aber vorerst nicht eine unbedingt notwendige Angabe sein).
+0404 | ? | Could probably be solved by SELECTing all 'room' entities that don't have any 'booking' where booking.checkin < now() and booking.checkout > now(). However, maybe it's more efficient to add a 'occupied' property to the room entity type.| Bei der Buchung muss natürlich klar sein, ob das Hotel überhaupt Platz hat für die Übernachtung. Das Hotel hat 30 Zimmer mit verschiedenster Ausstattung. Aurelia hat ja dazu eine E-Mail geschickt.
+0405 | ✔ | Room size can be stored in 'room_attribute' | Luzius ist stolz auf die Einzelzimmer, welche ebenso geräumig sind, wie die Doppelzimmer.
+0406 | ? | Can be solved with #0404 | Aurelia weist darauf hin, dass Reisebüros oft anfragen, ob das Hotel Platz für eine Reisegruppe hätte. Dabei wird nur die Anzahl der Gäste genannt. Wenn Platz vorhanden ist, dann teilt das Reisebüro die Gäste selbst auf die Zimmer auf. Die Aufteilung wird dann beim Check-In eingetragen.
+0407 | x | We need a table for 'inquiry' | Gerade die Reisebüros aus Fernost fragen für eine Gruppe mehrfach an. Und es kommt auch vor, dass Reisebüros für mehrere Gruppen anfragen. Da gilt es, diese Anfragen sorgfältig auseinander zu halten. Dass nach ein- bis zwei Tagen bei Reisebüro nachgefragt wird, ob die Buchung zu Stande kommen wird, hält Aurelia für selbstverständlich. Sie führt auch fein säuberlich Buch darüber, welche Anfragen zu welcher Buchung geführt haben. Das hilft ihr, einzuschätzen, wie wahrscheinlich eine Anfrage des jeweiligen Reisebüros zu einer Buchung führen wird.
+0408 | ? | Duplicate of #0306 | Luzius berichtet, dass, das Hotel momentan durch einen Anbau erweitert wird.
+0409 | ✔ | Solved by the fields 'checkin' and 'checkout' in table 'booking' | Bei einer Buchung muss das Anreise-Datum und das Abreise-Datum angegeben werden.
+0410 | ✔ | Ok ...| Das Preismodell werden wir später untersuchen.
