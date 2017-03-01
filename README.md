@@ -66,7 +66,7 @@ ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0001 | ✔ | Solved by fields 'forename', 'surname' and 'email' in table 'person'. | Die Zusammenarbeit mit den beliebten Online-Buchungsplattformen hat sich bewährt. Der Buchungsvorgang ist sehr einfach: Der Gast muss nur Vor- und Familienname sowie die E-Mail-Adresse angeben. Das Sternenblick lässt Stornierung ohne Kostenfolge zu.
 0002 | ✔ | Travel Agencies and their employees can be stored as such using the 'company_type' table. | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
-0003 | ? | There are no status fields telling if a present or email have been submitted to the guest. Should we ignore this?| Zum Geburtstag erhalten die Gäste jeweils eine Gratulation per E-Mail. Und Gäste, welche an Ihrem Geburtstag im Hotel sind, erhalten ein kleines Geschenk.
+0003 | ? | There are no status fields telling if a present or email have been submitted to the guest. Should we ignore this? | Zum Geburtstag erhalten die Gäste jeweils eine Gratulation per E-Mail. Und Gäste, welche an Ihrem Geburtstag im Hotel sind, erhalten ein kleines Geschenk.
 
 #### Notizen des zweiten Treffens
 ID | Status | Comment | Original Text
@@ -82,7 +82,7 @@ ID | Status | Comment | Original Text
 0201 | ✔ | Solved by the field 'email' in table 'person' | E-Mail-Adresse
 0202 | ✔ | Solved by the field 'birthday' in table 'person' | Geburtsjahr
 0203 | ✔ | Solved by the relation 'person_phone' and the table 'phone_number' | Telefonnummer, manchmal mehr als eine Nummer. Am wichtigsten ist die mobile Nummer, um den Gast auch unterwegs erreichen zu können.
-0204 | ? | Currently solved with a fixed amount of address lines. This does not account for addresses with more lines. Shouldn't we just provide one textfield that can store line breaks?| Eine Adresse kann mehrere Zeilen haben. Internationale Adressen können sehr umständlich formuliert sein.
+0204 | ✔ | Solved by the field 'street', which is a text field, so it can contain any type of street name. | Eine Adresse kann mehrere Zeilen haben. Internationale Adressen können sehr umständlich formuliert sein.
 0205 | ✔ | Solved by the field 'zip' in table 'address'. ZIP validation happens on application layer. | Postleitzahl - auch international (man habe viele Gäste aus Grossbritannien)
 0206 | ✔ | Solved by the field 'city' in table 'address' | Ortschaft
 0207 | ✔ | Solved by the field 'country' in table 'address' | Land

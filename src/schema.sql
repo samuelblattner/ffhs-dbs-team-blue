@@ -194,9 +194,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `address` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `line1` VARCHAR(45) NULL,
-  `line2` VARCHAR(45) NULL,
-  `line3` VARCHAR(45) NULL,
+  `street` TEXT NULL,
   `city` VARCHAR(45) NULL,
   `zip` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
