@@ -1,3 +1,7 @@
+DROP SCHEMA starview;
+CREATE SCHEMA starview1;
+use starview1;
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -206,6 +210,27 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `inquiry`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `inquiry` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `from` VARCHAR(45) NOT NULL,
+  `to` VARCHAR(45) NOT NULL,
+  `num_persons` INT UNSIGNED NOT NULL,
+  `person_id` INT NOT NULL,
+  `issued` DATE NOT NULL,
+  `cancelled` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_person_idx` (`person_id` ASC),
+  CONSTRAINT `fk_person`
+    FOREIGN KEY (`person_id`)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `booking`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `booking` (
@@ -216,6 +241,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `checkin` DATE NULL,
   `checkout` DATE NULL,
   `canceled` TINYINT(1) NULL DEFAULT 0,
+  `referring_inquiry` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `booking_referring_company_id_idx` (referring_company_id ASC),
   INDEX `booking_employing_company_id_idx` (employing_company_id ASC),
@@ -233,6 +259,11 @@ CREATE TABLE IF NOT EXISTS `booking` (
   CONSTRAINT `booking_referring_person_id_fk`
     FOREIGN KEY (referring_person_id)
     REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inquiry`
+    FOREIGN KEY (referring_inquiry)
+    REFERENCES `inquiry` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
