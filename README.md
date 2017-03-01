@@ -120,4 +120,4 @@ ID | Status | Comment | Original Text
 0407 | ✔ | Solved by table 'inquiry' | Gerade die Reisebüros aus Fernost fragen für eine Gruppe mehrfach an. Und es kommt auch vor, dass Reisebüros für mehrere Gruppen anfragen. Da gilt es, diese Anfragen sorgfältig auseinander zu halten. Dass nach ein- bis zwei Tagen bei Reisebüro nachgefragt wird, ob die Buchung zu Stande kommen wird, hält Aurelia für selbstverständlich. Sie führt auch fein säuberlich Buch darüber, welche Anfragen zu welcher Buchung geführt haben. Das hilft ihr, einzuschätzen, wie wahrscheinlich eine Anfrage des jeweiligen Reisebüros zu einer Buchung führen wird.
 0408 | ? | Duplicate of #0306 | Luzius berichtet, dass, das Hotel momentan durch einen Anbau erweitert wird.
 0409 | ✔ | Solved by the fields 'checkin' and 'checkout' in table 'booking' | Bei einer Buchung muss das Anreise-Datum und das Abreise-Datum angegeben werden.
-0410 | ✔ | Ok ...| Das Preismodell werden wir später untersuchen.
+0410 | ✔✔✔   | Ok ...| Das Preismodell werden wir später untersuchen.
