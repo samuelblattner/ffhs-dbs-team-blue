@@ -65,7 +65,7 @@ robin | ejNT3~K:8x*N | starview_robin
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0001 | ✔ | Solved by fields 'forename', 'surname' and 'email' in table 'person'. | Die Zusammenarbeit mit den beliebten Online-Buchungsplattformen hat sich bewährt. Der Buchungsvorgang ist sehr einfach: Der Gast muss nur Vor- und Familienname sowie die E-Mail-Adresse angeben. Das Sternenblick lässt Stornierung ohne Kostenfolge zu.
-0002 | ? | How are contact persons at travel agencies and normal hotel guests told apart? Both are stored in the 'people' table...   | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
+0002 | ✔ | Travel Agencies and their employees can be stored as such using the 'company_type' table. | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
 0003 | ? | There are no status fields telling if a present or email have been submitted to the guest. Should we ignore this?| Zum Geburtstag erhalten die Gäste jeweils eine Gratulation per E-Mail. Und Gäste, welche an Ihrem Geburtstag im Hotel sind, erhalten ein kleines Geschenk.
 
 #### Notizen des zweiten Treffens
