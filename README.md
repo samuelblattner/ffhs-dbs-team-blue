@@ -74,7 +74,7 @@ ID | Status | Comment | Original Text
 ### Notizen des zweiten Treffens
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
-0101 | ? | Shouldn't an 'employee' entity reference a 'person_id' instead of a 'person' reference an 'employee_id' as it is currently the case? See: https://moodle.ffhs.ch/mod/page/view.php?id=228273 | Auch die Mitarbeiter des Hotels dürfen mit Familie und Verwandten das Hotel benutzen und erhalten dabei Sonderkonditionen.
+0101 | ✔ | Shouldn't an 'employee' entity reference a 'person_id' instead of a 'person' reference an 'employee_id' as it is currently the case? See: https://moodle.ffhs.ch/mod/page/view.php?id=228273 <br> **Yes, this is implemented like this now.**| Auch die Mitarbeiter des Hotels dürfen mit Familie und Verwandten das Hotel benutzen und erhalten dabei Sonderkonditionen.
 0102 | ✔ | Solved by the 'employing_company' field in the 'booking' table that references the company of a guest at the time of the booking. | Zudem ist es in den vergangenen Jahren gelungen, immer wieder mit Firmen zusammenzuarbeiten, welche für ihre Mitarbeitenden Geschäftsreisen in die Gegend buchen. Die Geschäftsreisenden kommen dann gerne als Privatpersonen wieder und bringen ihre Familien mit.
 
 ### Notizen Telefonat nach dem zweiten Treffen

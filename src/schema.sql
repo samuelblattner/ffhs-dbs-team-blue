@@ -20,13 +20,20 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `legacy_social_insurance_number` VARCHAR(11) NULL,
   `social_insurance_number` VARCHAR(13) NOT NULL,
   `employee_type_id` INT NOT NULL,
+  `person_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `employee_social_insurance_number_uniq` (`social_insurance_number` ASC),
   UNIQUE INDEX `employee_legacy_social_insurance_number_uniq` (`legacy_social_insurance_number` ASC),
   INDEX `employee_employee_type_id_idx` (`employee_type_id` ASC),
+  INDEX `employee_person_id_idx` (`person_id` ASC),
   CONSTRAINT `employee_employee_type_id_fk`
     FOREIGN KEY (`employee_type_id`)
     REFERENCES `employee_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `employee_person_id_fk`
+    FOREIGN KEY (`person_id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -42,13 +49,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `email` VARCHAR(254) NULL,
   `birthday` DATE NULL,
   `employee_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `person_employee_id_idx` (`employee_id` ASC),
-  CONSTRAINT `person_employee_id_fk`
-    FOREIGN KEY (`employee_id`)
-    REFERENCES `employee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
