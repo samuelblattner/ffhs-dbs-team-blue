@@ -11,12 +11,12 @@ INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 4');
 
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15','1');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15');
 
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18','2');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18');
 
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15','3');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05','3');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05');
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Rebbecca','Didio','rebbecca.didio@didio.com.au','1964-09-14');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Stevie','Hallo','stevie.hallo@hotmail.com','1959-10-23');
@@ -297,25 +297,24 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Alexi
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Princess','Saffo','princess_saffo@hotmail.com','1998-09-29');
 
 
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Ashton','Sutherburg','asutherburg@gmail.com','1984-09-13', '1');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Elmer','Redlon','elmer@hotmail.com','1981-04-26', '2');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Aliza','Akiyama','aliza@yahoo.com','1967-04-18', '3');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Ora','Handrick','ora.handrick@gmail.com','1952-01-21', '4');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Brent','Ahlborn','bahlborn@ahlborn.com.au','1997-12-25', '5');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Tora','Telch','tora@telch.net.au','1941-02-19', '6');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Hildred','Eilbeck','hildred_eilbeck@eilbeck.net.au','1978-10-26', '7');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Dante','Freiman','dante_freiman@freiman.net.au','1980-04-02', '8');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Emmanuel','Avera','emmanuel@yahoo.com','1972-03-28', '9');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Keshia','Wasp','kwasp@wasp.net.au','1951-01-31', '10');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Sherman','Mahmud','sherman@mahmud.com.au','1957-02-27', '11');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Lore','Brothers','lore@hotmail.com','1954-10-22', '12');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Shawn','Weibe','shawn@hotmail.com','1940-01-14', '13');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Karima','Cheever','karima_cheever@hotmail.com','1995-07-31', '14');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Francesco','Kloos','fkloos@kloos.com.au','1948-03-27', '15');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('King','Picton','king@hotmail.com','1995-04-01', '16');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Mica','Simco','msimco@gmail.com','1981-01-09', '17');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Lamonica','Princiotta','lamonica@hotmail.com','1944-09-23', '18');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Curtis','Ware','curtis@ware.net.au','1993-10-11', '19');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Ashton','Sutherburg','asutherburg@gmail.com','1984-09-13');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Elmer','Redlon','elmer@hotmail.com','1981-04-26');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Aliza','Akiyama','aliza@yahoo.com','1967-04-18');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Ora','Handrick','ora.handrick@gmail.com','1952-01-21');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Brent','Ahlborn','bahlborn@ahlborn.com.au','1997-12-25');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Tora','Telch','tora@telch.net.au','1941-02-19');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Hildred','Eilbeck','hildred_eilbeck@eilbeck.net.au','1978-10-26');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Dante','Freiman','dante_freiman@freiman.net.au','1980-04-02');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Emmanuel','Avera','emmanuel@yahoo.com','1972-03-28');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Keshia','Wasp','kwasp@wasp.net.au','1951-01-31');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Sherman','Mahmud','sherman@mahmud.com.au','1957-02-27');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Lore','Brothers','lore@hotmail.com','1954-10-22');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Shawn','Weibe','shawn@hotmail.com','1940-01-14');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Karima','Cheever','karima_cheever@hotmail.com','1995-07-31');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Francesco','Kloos','fkloos@kloos.com.au','1948-03-27');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('King','Picton','king@hotmail.com','1995-04-01');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mica','Simco','msimco@gmail.com','1981-01-09');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Lamonica','Princiotta','lamonica@hotmail.com','1944-09-23');
 
 INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
 

@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS `person` (
   `surname` VARCHAR(50) NULL,
   `email` VARCHAR(254) NULL,
   `birthday` DATE NULL,
-  `employee_id` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
