@@ -1,7 +1,5 @@
 -- USE `starview`;
 
-USE starview_new;
-
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1');
 
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 2');

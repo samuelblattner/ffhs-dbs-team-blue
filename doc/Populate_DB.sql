@@ -1,7 +1,5 @@
 -- USE `starview`;
 
-use starview_new;
-
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1');
 
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 2');
@@ -11,12 +9,6 @@ INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 3');
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 4');
 
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
-
-
-
-
-
-
 
 
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
