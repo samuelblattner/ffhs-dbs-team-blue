@@ -1,5 +1,7 @@
 -- USE `starview`;
 
+USE starview_new;
+
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1');
 
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 2');
@@ -8,12 +10,9 @@ INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 3');
 
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 4');
 
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`) VALUES ('12345678901', '1234567890123', '1');
 
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`) VALUES ('23456789012', '2345678901234', '3');
-
-INSERT INTO `employee` (`social_insurance_number`, `employee_type_id`) VALUES ('3456789012345', '3');
-
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15','1');
 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18','2');
@@ -21,87 +20,6 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15','3');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05','3');
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
-
-INSERT INTO `language` (`id`, `language`) VALUES ('1', 'Arabisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('2', 'Belgisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('3', 'Deutsch');
-INSERT INTO `language` (`id`, `language`) VALUES ('4', 'Englisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('5', 'Französisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('6', 'Holländisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('7', 'Italienisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('8', 'Polnisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('9', 'Russisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('10', 'Spanisch');
-INSERT INTO `language` (`id`, `language`) VALUES ('11', 'Tschechisch');
-
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');;
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '5', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '4', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '3', '1');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '4', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '7', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '3', '1');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '4', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '1', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '9', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '11', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '4', '1');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '3', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '7', '0');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '3', '1');
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '19', '0');
-
-INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
-
-INSERT INTO `phone_number_type` (`name`) VALUES ('Mobil');
-
-INSERT INTO `phone_number_type` (`name`) VALUES ('Geschäft');
-
-INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('2', '123412431241');
-INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('1', '129837419274');
-INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '385293875398');
-INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '098034532545');
-INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '123482390535');
-
-INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('1', '2');
-INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('2', '3');
-INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('3', '4');
-INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('4', '5');
-
-
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
-
-
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('98120150910', '3955731427349', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('11071804293', '8814910594771', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('26425829140', '4467830161295', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('63700816357', '9006021087102', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('32928719112', '5885399947139', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('99178642270', '7871375194733', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('84176100120', '6684817766592', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('62235755443', '5083014864110', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('92975788874', '2401097650959', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('26232155861', '5096539536063', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('64603497658', '8943682385830', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('88416931227', '6959873162776', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('70280746925', '4536817216486', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('65583714356', '4207796567367', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('83150161564', '1071363594231', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('96498746078', '8409041101977', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('24340590391', '1869691448092', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('40375797767', '1295834051432', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('24856429504', '1690292730919', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('25327471852', '3547410475947', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('44905979650', '2711186460434', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('17999494144', '2665215419380', '1');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('25472181296', '5267834960935', '4');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('21819933262', '8918357124645', '3');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('40996687009', '8967158225929', '2');
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`) VALUES ('87514473779', '1561580626092', '4');
-
-
-
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Rebbecca','Didio','rebbecca.didio@didio.com.au','1964-09-14');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Stevie','Hallo','stevie.hallo@hotmail.com','1959-10-23');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mariko','Stayer','mariko_stayer@hotmail.com','1953-09-09');
@@ -401,6 +319,83 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Lamonica','Princiotta','lamonica@hotmail.com','1944-09-23', '18');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`,`employee_id`) VALUES ('Curtis','Ware','curtis@ware.net.au','1993-10-11', '19');
 
+INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
+
+INSERT INTO `phone_number_type` (`name`) VALUES ('Mobil');
+
+INSERT INTO `phone_number_type` (`name`) VALUES ('Geschäft');
+
+INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('2', '123412431241');
+INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('1', '129837419274');
+INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '385293875398');
+INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '098034532545');
+INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('3', '123482390535');
+
+INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('1', '2');
+INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('2', '3');
+INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('3', '4');
+INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('4', '5');
+
+
+
+INSERT INTO `language` (`id`, `language`) VALUES ('1', 'Arabisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('2', 'Belgisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('3', 'Deutsch');
+INSERT INTO `language` (`id`, `language`) VALUES ('4', 'Englisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('5', 'Französisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('6', 'Holländisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('7', 'Italienisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('8', 'Polnisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('9', 'Russisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('10', 'Spanisch');
+INSERT INTO `language` (`id`, `language`) VALUES ('11', 'Tschechisch');
+
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');;
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '5', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '7', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '4', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '1', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '9', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('3', '11', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '4', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '3', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('4', '7', '0');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '3', '1');
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('5', '10', '0');
+
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('98120150910', '3955731427349', '1', 1);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('11071804293', '8814910594771', '2', 2);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('26425829140', '4467830161295', '3', 3);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('63700816357', '9006021087102', '4', 4);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('32928719112', '5885399947139', '4', 5);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('99178642270', '7871375194733', '2', 6);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('84176100120', '6684817766592', '3', 7);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('62235755443', '5083014864110', '4', 8);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('92975788874', '2401097650959', '2', 9);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('26232155861', '5096539536063', '1', 10);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('64603497658', '8943682385830', '2', 11);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('88416931227', '6959873162776', '4', 12);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('70280746925', '4536817216486', '3', 13);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('65583714356', '4207796567367', '2', 14);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('83150161564', '1071363594231', '4', 15);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('96498746078', '8409041101977', '1', 16);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('24340590391', '1869691448092', '1', 17);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('40375797767', '1295834051432', '2', 18);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('24856429504', '1690292730919', '3', 19);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('25327471852', '3547410475947', '3', 20);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('44905979650', '2711186460434', '1', 21);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('17999494144', '2665215419380', '1', 22);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('25472181296', '5267834960935', '4', 23);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('21819933262', '8918357124645', '3', 24);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('40996687009', '8967158225929', '2', 25);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('87514473779', '1561580626092', '4', 26);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('12345678901', '1234567890123', '1', 27);
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('23456789012', '2345678901234', '3', 28);
+INSERT INTO `employee` (`social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('3456789012345', '3', 29);
 
 INSERT INTO `company_type` (`name`) VALUES ('Reisebüro');
 INSERT INTO `company_type` (`name`) VALUES ('Andere');
@@ -517,99 +512,99 @@ INSERT INTO `company` (`name`, `company_type_id`) VALUES ('R A C E Enterprises I
 
 
 
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ( 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Grüningerstrasse 11', 'Saanen', '3792', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Südbahnstrasse 3', 'Schattdorf', 'Schweiz', 'Schweiz');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('5959 Arcu. Road', 'Chiusa Sclafani', 'N9C 8Y3', 'Kuwait');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('8260 Egestas St.', 'Kingston-on-Thames', '728785', 'Western Sahara');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('220-781 Elementum Rd.', 'Colombo', 'M9 5KU', 'United States');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #830-3755 Enim Road', 'Eschwege', '765826', 'Maldives');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #779-2776 Est Street', 'Laakirchen', '08655', 'Jordan');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #593-145 Rutrum St.', 'Maasmechelen', '3042', 'Central African Republic');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('300-7397 Pede. Ave', 'Whitehaven', '45654-078', 'Norway');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 142, 6179 Ac Rd.', 'Saint-Prime', '683059', 'Guinea');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #164-6566 Eu Rd.', 'Heist-aan-Zee', '82162', 'Albania');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #505-5520 Sagittis Road', 'Kavaratti', '85-332', 'Guinea');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #647-6985 Duis Road', 'Osasco', '82898', 'Saint Kitts and Nevis');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 534, 4952 Sem. St.', 'Heerlen', '6009', 'Guyana');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('629-6447 Enim Rd.', 'Ponoka', '42695', 'Syria');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('424-8652 Donec St.', 'Dollard-des-Ormeaux', '44109', 'Costa Rica');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 227, 9459 Nec Ave', 'Paulatuk', '086812', 'Bouvet Island');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('9088 Lorem Road', 'Yumbel', '68335', 'Bosnia and Herzegovina');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #570-6032 Posuere Road', 'Gravilias', '20708-356', 'Gibraltar');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('9228 Vitae Road', 'Reus', '45722-817', 'Congo, the Democratic Republic of the');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 165, 7475 Ac St.', 'Tongerlo', '74173', 'Australia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('6956 Sit Rd.', 'Chaudfontaine', '06-054', 'El Salvador');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #831-8669 Rutrum, St.', 'Olinda', '327762', 'Denmark');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('988-1485 Sit Rd.', 'Ipatinga', '99754', 'Norway');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('658-3272 Fringilla Road', 'Owen Sound', '68092', 'Czech Republic');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('6960 Erat Ave', 'Pichilemu', '237056', 'Turkey');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 653, 8071 Erat, Rd.', 'Liers', '8718', 'Senegal');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #963-2437 Fermentum St.', 'Mission', '91116-469', 'Australia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('613-9775 Aliquet. Avenue', 'Sorga', '671097', 'Russian Federation');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('7979 Tristique Av.', 'Laurencekirk', '3373', 'Czech Republic');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 566, 6147 Tempus Rd.', 'Perpignan', '9237', 'Reunion');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('4668 Dignissim St.', 'San Benedetto del Tronto', '07256', 'Jordan');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('526-6896 Id, Street', 'Atlanta', '45712', 'Mauritius');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #968-3031 A Ave', 'Fraser-Fort George', '2428', 'Mali');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('8316 Nascetur Av.', 'Sant Omero', '06886', 'Suriname');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #893-1725 Ridiculus Rd.', 'Oelegem', '10156', 'Saint Vincent and The Grenadines');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #115-8046 Arcu. Avenue', 'Cheyenne', '18122', 'Iraq');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('4883 Gravida Road', 'Cellara', '70889', 'Armenia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #510-7091 Aliquam St.', 'Tambaram', '33475', 'Viet Nam');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 746, 3134 A, St.', 'Penrith', '26299', 'Antigua and Barbuda');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #332-9065 Lectus Rd.', 'Montbliart', '176062', 'Slovenia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('8597 Ut Ave', 'Polino', 'N3M 1W3', 'Gibraltar');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('1872 Amet Av.', 'Konin', '0505', 'Saint Martin');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #196-7021 Eros. St.', 'Tarragona', '17109-718', 'Italy');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #207-5950 Volutpat. St.', 'Vitry-sur-Seine', '09818', 'Taiwan');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('326 Sodales St.', 'Nadrin', '61207', 'Eritrea');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 687, 6352 Pharetra St.', 'Sant Agata Bolognese', '54-531', 'Thailand');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('227-8020 Ut Ave', 'Nadrin', '68600', 'United States');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('615-9073 Tristique Avenue', 'Lakeland County', '8652LQ', 'Turkey');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 247, 3030 Nec St.', 'Moerbeke', '31893', 'Norway');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #145-2155 Id, St.', 'Profondeville', '26547-900', 'Seychelles');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('784-5263 Dui. Road', 'Patan', '230797', 'Eritrea');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('468-8403 Risus. Road', 'Baie-Comeau', '6360', 'Gibraltar');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('6944 Dui. Street', 'Auburn', '6062', 'Lesotho');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 344, 8966 Justo. Road', 'Appels', '48724', 'Liechtenstein');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('563-2499 Ipsum Av.', 'Lourdes', '7329', 'New Zealand');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('229-4777 Ut Rd.', 'Northumberland', '92-937', 'Grenada');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('890-7163 Eros Street', 'Newport', '3289', 'Nigeria');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('246-6234 Tortor. Rd.', 'Bellevue', '90756', 'Malta');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #336-3100 Magna. Rd.', 'Bajardo', '39248-996', 'Bangladesh');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 144, 3187 Mollis Ave', 'Salt Spring Island', '766220', 'Saudi Arabia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 808, 4471 Egestas Road', 'Zielona Gara', '908674', 'Honduras');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 527, 2707 Mauris St.', 'Columbus', '42229', 'Malawi');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('9675 Enim. St.', 'Grand-Manil', '2378', 'American Samoa');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 888, 9098 Metus Road', 'Flanu', '171578', 'Macedonia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('690-6466 Erat. Street', 'Kakisa', '8658', 'Niue');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('816-6195 Erat St.', 'Burlington', '00976', 'Peru');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #644-9665 Mauris Street', 'Reims', '84733', 'Dominica');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('9028 Et Rd.', 'Chesapeake', '42226', 'Slovakia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('644-1791 Convallis St.', 'Monticelli dOngina', '20826', 'Cambodia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('774-6055 Vitae St.', 'Nurda', '58738', 'Bonaire, Sint Eustatius and Saba');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('626-7282 Risus. Street', 'Villa Alegre', '45301', 'Sao Tome and Principe');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #673-1104 Mi St.', 'Paulatuk', '756825', 'Cayman Islands');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 864, 7185 Vulputate, Rd.', 'Jefferson City', '8058QB', 'Czech Republic');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('421-3421 Dui St.', 'Verdun', '6721', 'Hungary');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('414-4783 Sit Rd.', 'Graz', 'B3J 4V8', 'British Indian Ocean Territory');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 552, 4115 Lacus. Av.', 'Mariquina', '90450', 'Kazakhstan');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('6707 Elit. Street', 'Marchihue', '01119', 'Aruba');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #995-9267 Integer Rd.', 'Gulfport', '43862', 'Kuwait');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('182-7868 Consectetuer Av.', 'Sutton', '7999', 'Virgin Islands, United States');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('9713 Fusce Ave', 'Fontanigorda', '9275', 'Slovenia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 627, 2877 Nec, Rd.', 'West Valley City', '31960', 'India');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #562-8188 Cras St.', 'Hatfield', '10615', 'Uruguay');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('794-7626 Suspendisse Rd.', 'Ramara', '04121', 'Sweden');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 195, 4731 Tincidunt Rd.', 'Sale', 'H8C 5TB', 'Bosnia and Herzegovina');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 334, 6262 Ipsum. Street', 'Westrem', '1221', 'Luxembourg');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #368-6825 Enim, St.', 'Ellikom', '42870-766', 'Liberia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('P.O. Box 809, 5547 Aenean Ave', 'Carleton', '76118', 'Malaysia');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('Ap #797-7872 Commodo Rd.', 'St. Austell', 'K4 5SJ', 'Samoa');
-INSERT INTO `address` (`line1`, `city`, `zip`, `country`) VALUES ('6505 Nec Ave', 'Cadiz', '1508', 'Isle of Man');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ( 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Grüningerstrasse 11', 'Saanen', '3792', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Südbahnstrasse 3', 'Schattdorf', 'Schweiz', 'Schweiz');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('5959 Arcu. Road', 'Chiusa Sclafani', 'N9C 8Y3', 'Kuwait');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8260 Egestas St.', 'Kingston-on-Thames', '728785', 'Western Sahara');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('220-781 Elementum Rd.', 'Colombo', 'M9 5KU', 'United States');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #830-3755 Enim Road', 'Eschwege', '765826', 'Maldives');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #779-2776 Est Street', 'Laakirchen', '08655', 'Jordan');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #593-145 Rutrum St.', 'Maasmechelen', '3042', 'Central African Republic');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('300-7397 Pede. Ave', 'Whitehaven', '45654-078', 'Norway');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 142, 6179 Ac Rd.', 'Saint-Prime', '683059', 'Guinea');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #164-6566 Eu Rd.', 'Heist-aan-Zee', '82162', 'Albania');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #505-5520 Sagittis Road', 'Kavaratti', '85-332', 'Guinea');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #647-6985 Duis Road', 'Osasco', '82898', 'Saint Kitts and Nevis');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 534, 4952 Sem. St.', 'Heerlen', '6009', 'Guyana');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('629-6447 Enim Rd.', 'Ponoka', '42695', 'Syria');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('424-8652 Donec St.', 'Dollard-des-Ormeaux', '44109', 'Costa Rica');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 227, 9459 Nec Ave', 'Paulatuk', '086812', 'Bouvet Island');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9088 Lorem Road', 'Yumbel', '68335', 'Bosnia and Herzegovina');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #570-6032 Posuere Road', 'Gravilias', '20708-356', 'Gibraltar');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9228 Vitae Road', 'Reus', '45722-817', 'Congo, the Democratic Republic of the');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 165, 7475 Ac St.', 'Tongerlo', '74173', 'Australia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6956 Sit Rd.', 'Chaudfontaine', '06-054', 'El Salvador');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #831-8669 Rutrum, St.', 'Olinda', '327762', 'Denmark');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('988-1485 Sit Rd.', 'Ipatinga', '99754', 'Norway');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('658-3272 Fringilla Road', 'Owen Sound', '68092', 'Czech Republic');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6960 Erat Ave', 'Pichilemu', '237056', 'Turkey');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 653, 8071 Erat, Rd.', 'Liers', '8718', 'Senegal');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #963-2437 Fermentum St.', 'Mission', '91116-469', 'Australia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('613-9775 Aliquet. Avenue', 'Sorga', '671097', 'Russian Federation');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('7979 Tristique Av.', 'Laurencekirk', '3373', 'Czech Republic');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 566, 6147 Tempus Rd.', 'Perpignan', '9237', 'Reunion');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('4668 Dignissim St.', 'San Benedetto del Tronto', '07256', 'Jordan');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('526-6896 Id, Street', 'Atlanta', '45712', 'Mauritius');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #968-3031 A Ave', 'Fraser-Fort George', '2428', 'Mali');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8316 Nascetur Av.', 'Sant Omero', '06886', 'Suriname');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #893-1725 Ridiculus Rd.', 'Oelegem', '10156', 'Saint Vincent and The Grenadines');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #115-8046 Arcu. Avenue', 'Cheyenne', '18122', 'Iraq');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('4883 Gravida Road', 'Cellara', '70889', 'Armenia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #510-7091 Aliquam St.', 'Tambaram', '33475', 'Viet Nam');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 746, 3134 A, St.', 'Penrith', '26299', 'Antigua and Barbuda');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #332-9065 Lectus Rd.', 'Montbliart', '176062', 'Slovenia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8597 Ut Ave', 'Polino', 'N3M 1W3', 'Gibraltar');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('1872 Amet Av.', 'Konin', '0505', 'Saint Martin');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #196-7021 Eros. St.', 'Tarragona', '17109-718', 'Italy');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #207-5950 Volutpat. St.', 'Vitry-sur-Seine', '09818', 'Taiwan');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('326 Sodales St.', 'Nadrin', '61207', 'Eritrea');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 687, 6352 Pharetra St.', 'Sant Agata Bolognese', '54-531', 'Thailand');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('227-8020 Ut Ave', 'Nadrin', '68600', 'United States');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('615-9073 Tristique Avenue', 'Lakeland County', '8652LQ', 'Turkey');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 247, 3030 Nec St.', 'Moerbeke', '31893', 'Norway');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #145-2155 Id, St.', 'Profondeville', '26547-900', 'Seychelles');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('784-5263 Dui. Road', 'Patan', '230797', 'Eritrea');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('468-8403 Risus. Road', 'Baie-Comeau', '6360', 'Gibraltar');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6944 Dui. Street', 'Auburn', '6062', 'Lesotho');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 344, 8966 Justo. Road', 'Appels', '48724', 'Liechtenstein');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('563-2499 Ipsum Av.', 'Lourdes', '7329', 'New Zealand');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('229-4777 Ut Rd.', 'Northumberland', '92-937', 'Grenada');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('890-7163 Eros Street', 'Newport', '3289', 'Nigeria');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('246-6234 Tortor. Rd.', 'Bellevue', '90756', 'Malta');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #336-3100 Magna. Rd.', 'Bajardo', '39248-996', 'Bangladesh');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 144, 3187 Mollis Ave', 'Salt Spring Island', '766220', 'Saudi Arabia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 808, 4471 Egestas Road', 'Zielona Gara', '908674', 'Honduras');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 527, 2707 Mauris St.', 'Columbus', '42229', 'Malawi');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9675 Enim. St.', 'Grand-Manil', '2378', 'American Samoa');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 888, 9098 Metus Road', 'Flanu', '171578', 'Macedonia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('690-6466 Erat. Street', 'Kakisa', '8658', 'Niue');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('816-6195 Erat St.', 'Burlington', '00976', 'Peru');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #644-9665 Mauris Street', 'Reims', '84733', 'Dominica');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9028 Et Rd.', 'Chesapeake', '42226', 'Slovakia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('644-1791 Convallis St.', 'Monticelli dOngina', '20826', 'Cambodia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('774-6055 Vitae St.', 'Nurda', '58738', 'Bonaire, Sint Eustatius and Saba');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('626-7282 Risus. Street', 'Villa Alegre', '45301', 'Sao Tome and Principe');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #673-1104 Mi St.', 'Paulatuk', '756825', 'Cayman Islands');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 864, 7185 Vulputate, Rd.', 'Jefferson City', '8058QB', 'Czech Republic');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('421-3421 Dui St.', 'Verdun', '6721', 'Hungary');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('414-4783 Sit Rd.', 'Graz', 'B3J 4V8', 'British Indian Ocean Territory');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 552, 4115 Lacus. Av.', 'Mariquina', '90450', 'Kazakhstan');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6707 Elit. Street', 'Marchihue', '01119', 'Aruba');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #995-9267 Integer Rd.', 'Gulfport', '43862', 'Kuwait');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('182-7868 Consectetuer Av.', 'Sutton', '7999', 'Virgin Islands, United States');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9713 Fusce Ave', 'Fontanigorda', '9275', 'Slovenia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 627, 2877 Nec, Rd.', 'West Valley City', '31960', 'India');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #562-8188 Cras St.', 'Hatfield', '10615', 'Uruguay');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('794-7626 Suspendisse Rd.', 'Ramara', '04121', 'Sweden');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 195, 4731 Tincidunt Rd.', 'Sale', 'H8C 5TB', 'Bosnia and Herzegovina');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 334, 6262 Ipsum. Street', 'Westrem', '1221', 'Luxembourg');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #368-6825 Enim, St.', 'Ellikom', '42870-766', 'Liberia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 809, 5547 Aenean Ave', 'Carleton', '76118', 'Malaysia');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #797-7872 Commodo Rd.', 'St. Austell', 'K4 5SJ', 'Samoa');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6505 Nec Ave', 'Cadiz', '1508', 'Isle of Man');
 
 INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('1', '1');
 INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('2', '2');
