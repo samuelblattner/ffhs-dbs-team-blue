@@ -8,16 +8,18 @@ INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 3');
 
 INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 4');
 
+INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
+
 
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
+
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15');
 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18');
 
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05');
-INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Rebbecca','Didio','rebbecca.didio@didio.com.au','1964-09-14');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Stevie','Hallo','stevie.hallo@hotmail.com','1959-10-23');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mariko','Stayer','mariko_stayer@hotmail.com','1953-09-09');
@@ -296,7 +298,6 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Annet
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Alexis','Morguson','amorguson@morguson.com.au','1944-02-05');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Princess','Saffo','princess_saffo@hotmail.com','1998-09-29');
 
-
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Ashton','Sutherburg','asutherburg@gmail.com','1984-09-13');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Elmer','Redlon','elmer@hotmail.com','1981-04-26');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Aliza','Akiyama','aliza@yahoo.com','1967-04-18');
@@ -335,6 +336,7 @@ INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('4', '5');
 
 
 
+
 INSERT INTO `language` (`id`, `language`) VALUES ('1', 'Arabisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('2', 'Belgisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('3', 'Deutsch');
@@ -347,7 +349,7 @@ INSERT INTO `language` (`id`, `language`) VALUES ('9', 'Russisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('10', 'Spanisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('11', 'Tschechisch');
 
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');;
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '5', '0');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '4', '0');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '3', '1');
@@ -392,7 +394,8 @@ INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_numb
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`,  `employee_type_id`, `person_id`) VALUES ('87514473779', '1561580626092', '4', 26);
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('12345678901', '1234567890123', '1', 27);
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('23456789012', '2345678901234', '3', 28);
-INSERT INTO `employee` (`social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('3456789012345', '3', 29);
+
+
 
 INSERT INTO `company_type` (`name`) VALUES ('Reisebüro');
 INSERT INTO `company_type` (`name`) VALUES ('Andere');
@@ -619,23 +622,23 @@ INSERT INTO `room` (`name`, `description`) VALUES ('Superior Zimmer', 'Alle Supe
 INSERT INTO `room` (`name`, `description`) VALUES ('Standard Zimmer', 'Unsere Standard Zimmer empfangen Sie auf 25 m² mit klassischem Interieur in einer behaglichen Wohnatmosphäre. Ein charmantes Design mit edlen Materialien in warmen Farben lädt in diesen hellen Räumen zum Verweilen und Entspannen ein. Von klassisch-elegant über Art Deco bis künstlerisch modern stehen Ihnen in diesen 32 Zimmern verschiedene Stilrichtungen zur Auswahl. Die Zimmer verfügen entweder über Stadt- oder Seeblick; letztere Zimmer verfügen zusätzlich über einen Balkon, von dem sich der Ausblick auf den Vierwaldtstättersee, die Leuchtenstadt Luzern und das Bergpanorama geniessen lässt. Das Zimmer ist wahlweise mit Twin- oder Doppelbett buchbar und für eine oder zwei Personen geeignet.');
 INSERT INTO `room` (`name`, `description`) VALUES ('Deluxe Zimmer', 'Die Deluxe Zimmer haben wir in der besten Tradition des PALACE LUZERN im Belle Epoque Stil gehalten. Die elegant-dezente Kombination von stilechten Texturen, Materialien und Möbeln schafft eine Wohlfühlatmosphäre mit ihrer modernen Interpretation einer glorreichen Geschichtsepoche. Auf 35 m² verfügen Sie über eine Sitzgruppe, einen Schreibtisch und wahlweise über ein Twin- oder Doppelbett. Die Deluxe Zimmer verfügen über einen Balkon und eine atemberaubende Aussicht auf den Vierwaldstättersee, die Leuchtenstadt Luzern und das Zentralschweizer Bergpanorama.');
 
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: Seeblick');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 35 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: Stadtblick');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 25 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 50m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin und 1 Sofa');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene & 2 Kinder');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 40 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: See und Alpen');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 4 Erwachsene oder 2 Erwachsene & 2 Kinder');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 100-150 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 2 King oder Twin');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 42 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: Seeblick');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 35 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder 2 Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 2 Erwachsene');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: Stadtblick');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 25 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 50m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder 2 Twin und 1 Sofa');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 2 Erwachsene & 2 Kinder');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 40 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: See und Alpen');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 4 Erwachsene oder 2 Erwachsene & 2 Kinder');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 100-150 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 2 King oder Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 42 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder Twin');
 
 
 
@@ -687,43 +690,43 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('23', '12','1');
 
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '7');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '12');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '7');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '12');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '10');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '12');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '10');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '12');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '14');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '15');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '13');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '14');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '15');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '13');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '16');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '17');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '16');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '17');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '7');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '8');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '9');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '7');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '8');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '9');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '2');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '4');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '5');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '6');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '4');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '2');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '2');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '5');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '6');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '2');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '4');
 
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('1', '1');
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('2', '2');

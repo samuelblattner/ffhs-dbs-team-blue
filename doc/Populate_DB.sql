@@ -349,7 +349,7 @@ INSERT INTO `language` (`id`, `language`) VALUES ('9', 'Russisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('10', 'Spanisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('11', 'Tschechisch');
 
-INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');;
+INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '3', '1');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '5', '0');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('1', '4', '0');
 INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUES ('2', '3', '1');
@@ -622,23 +622,23 @@ INSERT INTO `room` (`name`, `description`) VALUES ('Superior Zimmer', 'Alle Supe
 INSERT INTO `room` (`name`, `description`) VALUES ('Standard Zimmer', 'Unsere Standard Zimmer empfangen Sie auf 25 m² mit klassischem Interieur in einer behaglichen Wohnatmosphäre. Ein charmantes Design mit edlen Materialien in warmen Farben lädt in diesen hellen Räumen zum Verweilen und Entspannen ein. Von klassisch-elegant über Art Deco bis künstlerisch modern stehen Ihnen in diesen 32 Zimmern verschiedene Stilrichtungen zur Auswahl. Die Zimmer verfügen entweder über Stadt- oder Seeblick; letztere Zimmer verfügen zusätzlich über einen Balkon, von dem sich der Ausblick auf den Vierwaldtstättersee, die Leuchtenstadt Luzern und das Bergpanorama geniessen lässt. Das Zimmer ist wahlweise mit Twin- oder Doppelbett buchbar und für eine oder zwei Personen geeignet.');
 INSERT INTO `room` (`name`, `description`) VALUES ('Deluxe Zimmer', 'Die Deluxe Zimmer haben wir in der besten Tradition des PALACE LUZERN im Belle Epoque Stil gehalten. Die elegant-dezente Kombination von stilechten Texturen, Materialien und Möbeln schafft eine Wohlfühlatmosphäre mit ihrer modernen Interpretation einer glorreichen Geschichtsepoche. Auf 35 m² verfügen Sie über eine Sitzgruppe, einen Schreibtisch und wahlweise über ein Twin- oder Doppelbett. Die Deluxe Zimmer verfügen über einen Balkon und eine atemberaubende Aussicht auf den Vierwaldstättersee, die Leuchtenstadt Luzern und das Zentralschweizer Bergpanorama.');
 
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: Seeblick');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 35 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: Stadtblick');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 25 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 50m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder 2 Twin und 1 Sofa');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 2 Erwachsene & 2 Kinder');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 40 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Ausblick: See und Alpen');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Belegung: 4 Erwachsene oder 2 Erwachsene & 2 Kinder');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 100-150 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 2 King oder Twin');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Grösse: 42 m²');
-INSERT INTO `room_attribute` (`attribute`) VALUES ('Bett: 1 King oder Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: Seeblick');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 35 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder 2 Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 2 Erwachsene');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: Stadtblick');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 25 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 50m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder 2 Twin und 1 Sofa');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 2 Erwachsene & 2 Kinder');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 40 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Ausblick: See und Alpen');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King');
+INSERT INTO `attribute` (`description`) VALUES ('Belegung: 4 Erwachsene oder 2 Erwachsene & 2 Kinder');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 100-150 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 2 King oder Twin');
+INSERT INTO `attribute` (`description`) VALUES ('Grösse: 42 m²');
+INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder Twin');
 
 
 
@@ -690,43 +690,43 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('23', '12','1');
 
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '7');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '12');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('1', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '7');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '12');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '10');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '12');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('2', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '10');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '12');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('2', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '11');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '14');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '15');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('3', '13');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '11');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '14');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '15');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('3', '13');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '16');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '17');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('4', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '16');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '17');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('4', '4');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '7');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '8');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('5', '9');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '7');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '8');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('5', '9');
 
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '2');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('6', '4');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '5');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '6');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('7', '4');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '1');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '2');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '3');
-INSERT INTO `attribute_room` (`room_id`, `room_attribute_id`) VALUES ('8', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '2');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('6', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '5');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '6');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('7', '4');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '1');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '2');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '3');
+INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('8', '4');
 
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('1', '1');
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('2', '2');
