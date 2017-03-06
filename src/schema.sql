@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema starview
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
-USE `starview` ;
+-- CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
+-- USE `starview` ;
 
 -- -----------------------------------------------------
--- Table `starview`.`address`
+-- Table `address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`address` (
+CREATE TABLE IF NOT EXISTS `address` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `street` TEXT NULL DEFAULT NULL,
   `city` VARCHAR(45) NULL DEFAULT NULL,
@@ -33,9 +33,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`attribute`
+-- Table `attribute`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`attribute` (
+CREATE TABLE IF NOT EXISTS `attribute` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
@@ -44,9 +44,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`room`
+-- Table `room`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`room` (
+CREATE TABLE IF NOT EXISTS `room` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `description` TEXT NULL DEFAULT NULL,
@@ -56,9 +56,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`attribute_room`
+-- Table `attribute_room`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`attribute_room` (
+CREATE TABLE IF NOT EXISTS `attribute_room` (
   `room_id` INT(11) NOT NULL,
   `attribute_id` INT(11) NOT NULL,
   PRIMARY KEY (`room_id`, `attribute_id`),
@@ -66,12 +66,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`attribute_room` (
   INDEX `attribute_room_room_attribute_id_fk` (`attribute_id` ASC),
   CONSTRAINT `attribute_room_room_attribute_id_fk`
     FOREIGN KEY (`attribute_id`)
-    REFERENCES `starview`.`attribute` (`id`)
+    REFERENCES `attribute` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `attribute_room_room_id_fk`
     FOREIGN KEY (`room_id`)
-    REFERENCES `starview`.`room` (`id`)
+    REFERENCES `room` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -79,9 +79,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`company_type`
+-- Table `company_type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`company_type` (
+CREATE TABLE IF NOT EXISTS `company_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -90,9 +90,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`person`
+-- Table `person`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`person` (
+CREATE TABLE IF NOT EXISTS `person` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `forename` VARCHAR(50) NULL DEFAULT NULL,
   `surname` VARCHAR(50) NULL DEFAULT NULL,
@@ -104,9 +104,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`company`
+-- Table `company`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`company` (
+CREATE TABLE IF NOT EXISTS `company` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NULL DEFAULT NULL,
   `contact_person_id` INT(11) NULL DEFAULT NULL,
@@ -117,12 +117,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`company` (
   INDEX `company_company_type_id_idx` (`company_type_id` ASC),
   CONSTRAINT `company_company_type_id_fk`
     FOREIGN KEY (`company_type_id`)
-    REFERENCES `starview`.`company_type` (`id`)
+    REFERENCES `company_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `company_person_id_fk`
     FOREIGN KEY (`contact_person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -130,9 +130,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`inquiry`
+-- Table `inquiry`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`inquiry` (
+CREATE TABLE IF NOT EXISTS `inquiry` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `from` VARCHAR(45) NOT NULL,
   `to` VARCHAR(45) NOT NULL,
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `starview`.`inquiry` (
   INDEX `person_id_idx` (`person_id` ASC),
   CONSTRAINT `inquiry_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -152,9 +152,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`booking`
+-- Table `booking`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`booking` (
+CREATE TABLE IF NOT EXISTS `booking` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `employing_company_id` INT(11) NULL DEFAULT NULL,
   `referring_company_id` INT(11) NULL DEFAULT NULL,
@@ -170,22 +170,22 @@ CREATE TABLE IF NOT EXISTS `starview`.`booking` (
   INDEX `fk_inquiry` (`referring_inquiry` ASC),
   CONSTRAINT `booking_employing_company_id_fk`
     FOREIGN KEY (`employing_company_id`)
-    REFERENCES `starview`.`company` (`id`)
+    REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_referring_company_id_fk`
     FOREIGN KEY (`referring_company_id`)
-    REFERENCES `starview`.`company` (`id`)
+    REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_referring_person_id_fk`
     FOREIGN KEY (`referring_person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_inquiry`
     FOREIGN KEY (`referring_inquiry`)
-    REFERENCES `starview`.`inquiry` (`id`)
+    REFERENCES `inquiry` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -193,9 +193,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`payment_card`
+-- Table `payment_card`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`payment_card` (
+CREATE TABLE IF NOT EXISTS `payment_card` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `number` VARCHAR(45) NOT NULL,
   `expirationdate` VARCHAR(7) NOT NULL,
@@ -207,9 +207,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`booking_person`
+-- Table `booking_person`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`booking_person` (
+CREATE TABLE IF NOT EXISTS `booking_person` (
   `person_id` INT(11) NOT NULL,
   `booking_id` INT(11) NOT NULL,
   `isResponsible` TINYINT(1) NULL DEFAULT '0',
@@ -220,17 +220,17 @@ CREATE TABLE IF NOT EXISTS `starview`.`booking_person` (
   INDEX `booking_person_payment_card_id_idx` (`payment_card_id` ASC),
   CONSTRAINT `booking_person_booking_id_fk`
     FOREIGN KEY (`booking_id`)
-    REFERENCES `starview`.`booking` (`id`)
+    REFERENCES `booking` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_person_payment_card_id_fk`
     FOREIGN KEY (`payment_card_id`)
-    REFERENCES `starview`.`payment_card` (`id`)
+    REFERENCES `payment_card` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_person_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -238,21 +238,21 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`booking_room`
+-- Table `booking_room`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`booking_room` (
+CREATE TABLE IF NOT EXISTS `booking_room` (
   `booking_id` INT(11) NOT NULL,
   `room_id` INT(11) NOT NULL,
   PRIMARY KEY (`booking_id`, `room_id`),
   INDEX `booking_room_room_id_idx` (`room_id` ASC),
   CONSTRAINT `booking_room_booking_id_fk`
     FOREIGN KEY (`booking_id`)
-    REFERENCES `starview`.`booking` (`id`)
+    REFERENCES `booking` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_room_room_id_fk`
     FOREIGN KEY (`room_id`)
-    REFERENCES `starview`.`room` (`id`)
+    REFERENCES `room` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -260,9 +260,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`company_address`
+-- Table `company_address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`company_address` (
+CREATE TABLE IF NOT EXISTS `company_address` (
   `address_id` INT(11) NOT NULL,
   `company_id` INT(11) NOT NULL,
   PRIMARY KEY (`address_id`, `company_id`),
@@ -270,12 +270,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`company_address` (
   INDEX `company_address_company_id_idx` (`company_id` ASC),
   CONSTRAINT `company_address_address_id_fk`
     FOREIGN KEY (`address_id`)
-    REFERENCES `starview`.`address` (`id`)
+    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `company_address_company_id_fk`
     FOREIGN KEY (`company_id`)
-    REFERENCES `starview`.`company` (`id`)
+    REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -283,9 +283,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`employee_type`
+-- Table `employee_type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`employee_type` (
+CREATE TABLE IF NOT EXISTS `employee_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -294,9 +294,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`employee`
+-- Table `employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`employee` (
+CREATE TABLE IF NOT EXISTS `employee` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `legacy_social_insurance_number` VARCHAR(11) NULL DEFAULT NULL,
   `social_insurance_number` VARCHAR(13) NOT NULL,
@@ -310,12 +310,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`employee` (
   PRIMARY KEY (`id`, `person_id`),
   CONSTRAINT `employee_employee_type_id_fk`
     FOREIGN KEY (`employee_type_id`)
-    REFERENCES `starview`.`employee_type` (`id`)
+    REFERENCES `employee_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `employee_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -323,9 +323,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`language`
+-- Table `language`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`language` (
+CREATE TABLE IF NOT EXISTS `language` (
   `id` INT(11) NOT NULL,
   `language` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
@@ -334,9 +334,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`person_address`
+-- Table `person_address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`person_address` (
+CREATE TABLE IF NOT EXISTS `person_address` (
   `address_id` INT(11) NOT NULL,
   `person_id` INT(11) NOT NULL,
   PRIMARY KEY (`address_id`, `person_id`),
@@ -344,12 +344,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`person_address` (
   INDEX `person_address_person_id_idx` (`person_id` ASC),
   CONSTRAINT `person_address_address_id_fk`
     FOREIGN KEY (`address_id`)
-    REFERENCES `starview`.`address` (`id`)
+    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `person_address_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -357,9 +357,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`person_company`
+-- Table `person_company`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`person_company` (
+CREATE TABLE IF NOT EXISTS `person_company` (
   `person_id` INT(11) NOT NULL,
   `company_id` INT(11) NOT NULL,
   PRIMARY KEY (`person_id`, `company_id`),
@@ -367,12 +367,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`person_company` (
   INDEX `person_company_people_id_idx` (`person_id` ASC),
   CONSTRAINT `person_company_company_id_fk`
     FOREIGN KEY (`company_id`)
-    REFERENCES `starview`.`company` (`id`)
+    REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `person_company_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -380,9 +380,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`person_language`
+-- Table `person_language`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`person_language` (
+CREATE TABLE IF NOT EXISTS `person_language` (
   `person_id` INT(11) NOT NULL,
   `language_id` INT(11) NOT NULL,
   `is_preferred` TINYINT(1) NULL DEFAULT NULL,
@@ -390,12 +390,12 @@ CREATE TABLE IF NOT EXISTS `starview`.`person_language` (
   INDEX `language_id_idx` (`language_id` ASC),
   CONSTRAINT `person_language_language_id_fk`
     FOREIGN KEY (`language_id`)
-    REFERENCES `starview`.`language` (`id`)
+    REFERENCES `language` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `person_language_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -403,9 +403,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`phone_number_type`
+-- Table `phone_number_type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`phone_number_type` (
+CREATE TABLE IF NOT EXISTS `phone_number_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -414,9 +414,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`phone_number`
+-- Table `phone_number`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`phone_number` (
+CREATE TABLE IF NOT EXISTS `phone_number` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `phone_number_type_id` INT(11) NOT NULL,
   `number` VARCHAR(45) NULL DEFAULT NULL,
@@ -424,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `starview`.`phone_number` (
   INDEX `phone_number_phone_number_type_id_idx` (`phone_number_type_id` ASC),
   CONSTRAINT `phone_number_phone_number_type_id_fk`
     FOREIGN KEY (`phone_number_type_id`)
-    REFERENCES `starview`.`phone_number_type` (`id`)
+    REFERENCES `phone_number_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -432,21 +432,21 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`person_phone`
+-- Table `person_phone`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`person_phone` (
+CREATE TABLE IF NOT EXISTS `person_phone` (
   `person_id` INT(11) NOT NULL,
   `phone_number_id` INT(11) NOT NULL,
   PRIMARY KEY (`person_id`, `phone_number_id`),
   INDEX `person_phone_phone_number_id_idx` (`phone_number_id` ASC),
   CONSTRAINT `person_phone_person_id_fk`
     FOREIGN KEY (`person_id`)
-    REFERENCES `starview`.`person` (`id`)
+    REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `person_phone_phone_number_id_fk`
     FOREIGN KEY (`phone_number_id`)
-    REFERENCES `starview`.`phone_number` (`id`)
+    REFERENCES `phone_number` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -454,9 +454,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `starview`.`picture`
+-- Table `picture`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `starview`.`picture` (
+CREATE TABLE IF NOT EXISTS `picture` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `room_id` INT(11) NOT NULL,
   `link_to_picture` VARCHAR(1024) NULL DEFAULT NULL,
@@ -464,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `starview`.`picture` (
   INDEX `picture_room_id_idx` (`room_id` ASC),
   CONSTRAINT `picture_room_id_fk`
     FOREIGN KEY (`room_id`)
-    REFERENCES `starview`.`room` (`id`)
+    REFERENCES `room` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
