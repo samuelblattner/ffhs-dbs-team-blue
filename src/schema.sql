@@ -272,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `inquiry_room` (
   INDEX `inquiry_room_room_id_idx` (`room_id` ASC),
   CONSTRAINT `inquiry_room_inquiry_id_fk`
     FOREIGN KEY (`inquiry_id`)
-    REFERENCES `booking` (`id`)
+    REFERENCES `inquiry` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `inquiry_room_room_id_fk`
