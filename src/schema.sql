@@ -80,13 +80,33 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `room_type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `room_type` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(100) NULL DEFAULT NULL,
+  `maximum_number_of_guests` INT(2) UNSIGNED NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `room`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `room` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `description` TEXT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  `room_type_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `room_room_type_id_idx` (`room_type_id` ASC),
+  CONSTRAINT `room_room_type_id_fk`
+    FOREIGN KEY (`room_type_id`)
+    REFERENCES `room_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
