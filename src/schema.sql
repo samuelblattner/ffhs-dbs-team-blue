@@ -90,15 +90,33 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `gender`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gender` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `person`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `person` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `gender_id` INT(11) NULL DEFAULT NULL,
   `forename` VARCHAR(50) NULL DEFAULT NULL,
   `surname` VARCHAR(50) NULL DEFAULT NULL,
   `email` VARCHAR(254) NULL DEFAULT NULL,
   `birthday` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `person_gender_id_idx` (`gender_id` ASC),
+  CONSTRAINT `person_gender_id_fk`
+    FOREIGN KEY (`gender_id`)
+    REFERENCES `gender` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 

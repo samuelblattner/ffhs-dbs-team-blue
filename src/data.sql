@@ -1,24 +1,20 @@
 -- USE `starview`;
 
-INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1');
+INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1'),
+                                            ('Funktionsstufe 2'),
+                                            ('Funktionsstufe 3'),
+                                            ('Funktionsstufe 4');
 
-INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 2');
+INSERT INTO `gender` (`name`) VALUES  ('männlich'),
+                                      ('weiblich');
 
-INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 3');
-
-INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 4');
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz'),
+                                                                  ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
 
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
-
-
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
-
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15');
-
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18');
-
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15');
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`, `gender_id`) VALUES  ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15', 1),
+                                                                                    ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18', 1),
+                                                                                    ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15', 2);
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Rebbecca','Didio','rebbecca.didio@didio.com.au','1964-09-14');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Stevie','Hallo','stevie.hallo@hotmail.com','1959-10-23');
@@ -297,7 +293,6 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Charl
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Annette','Breyer','abreyer@hotmail.com','1951-08-11');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Alexis','Morguson','amorguson@morguson.com.au','1944-02-05');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Princess','Saffo','princess_saffo@hotmail.com','1998-09-29');
-
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Ashton','Sutherburg','asutherburg@gmail.com','1984-09-13');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Elmer','Redlon','elmer@hotmail.com','1981-04-26');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Aliza','Akiyama','aliza@yahoo.com','1967-04-18');
@@ -317,11 +312,7 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('King'
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mica','Simco','msimco@gmail.com','1981-01-09');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Lamonica','Princiotta','lamonica@hotmail.com','1944-09-23');
 
-INSERT INTO `phone_number_type` (`name`) VALUES ('Festnetz');
-
-INSERT INTO `phone_number_type` (`name`) VALUES ('Mobil');
-
-INSERT INTO `phone_number_type` (`name`) VALUES ('Geschäft');
+INSERT INTO `phone_number_type` (`name`) VALUES ('Privat'), ('Mobil'), ('Geschäft');
 
 INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('2', '123412431241');
 INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('1', '129837419274');
@@ -333,9 +324,6 @@ INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('1', '2');
 INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('2', '3');
 INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('3', '4');
 INSERT INTO `person_phone` (`person_id`, `phone_number_id`) VALUES ('4', '5');
-
-
-
 
 INSERT INTO `language` (`id`, `language`) VALUES ('1', 'Arabisch');
 INSERT INTO `language` (`id`, `language`) VALUES ('2', 'Belgisch');
@@ -395,12 +383,8 @@ INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_numb
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('12345678901', '1234567890123', '1', 27);
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('23456789012', '2345678901234', '3', 28);
 
-
-
 INSERT INTO `company_type` (`name`) VALUES ('Reisebüro');
 INSERT INTO `company_type` (`name`) VALUES ('Andere');
-
-
 
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Harry Kolb AG', '1');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Travelpoint Müller', '1');
@@ -510,8 +494,6 @@ INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Electra Gear Divsn Re
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Sparta Home Center', '2');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('R A C E Enterprises Inc', '2');
 
-
-
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
 INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ( 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
@@ -612,7 +594,6 @@ INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('3', '3');
 INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('4', '4');
 INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('5', '5');
 
-
 INSERT INTO `room` (`name`, `description`) VALUES ('Corner Suite', 'Unsere 4 Corner Suiten erwarten Sie mit einem einladenden Schlafbereich mit modernem und geräumigen Bad sowie einem abtrennbaren Salon mit einer Sitzgruppe um einen klassischen Tisch. Auf 50 m2 vereinen sich geschmackvolle Materialien und Textilien zu einem harmonischen Gesamtbild. Ein besonderes Glanzlicht setzt der Kronleuchter des Wohnzimmers, das über eine separate Gästetoilette verfügt. Sie haben von hier einen herrlichen Ausblick auf den Vierwaldstättersee und das Alpenpanorama. Die Corner Suite ist wahlweise mit Twin- oder Doppelbett buchbar.');
 INSERT INTO `room` (`name`, `description`) VALUES ('Suite of Arts', 'Unsere Suite of Arts ist ein echtes Kunstwerk in sich selbst. Reproduktionen von Miró, Kandinsky und Chagall schmücken die Wände, Designmöbel und Unikate aus den 60er- und 70er-Jahren geben ihr einen besonderen Charakter mit unaufdringlicher Extravaganz. Auf 75 m² verfügen Sie über ein Schlafzimmer mit Doppelbett und geräumigem Badezimmer, dazu über einen Salon, der ein Unikat darstellt in seiner Verbindung von Wohlfühlatmosphäre und künstlerischen Akzenten. Die Fensterfronten eröffnen den uneingeschränkten Blick auf die Leuchtenstadt, den Vierwaldstättersee und die Zentralschweizer Bergwelt.');
 INSERT INTO `room` (`name`, `description`) VALUES ('Palace Suite', 'Unsere Suite der Extraklasse. Sie verfügt über zwei grosszügige Schlafzimmer mit geräumigen Bädern als Rückzugsorte. Dazu bietet sie ein separates Wohn- und Esszimmer sowie eine mit einer Lounge und Sitzgelegenheiten möblierte Terrasse. Der Blick auf den Vierwaldstättersee, die Leuchtenstadt und die Berge ist einmalig, genau wie die PALACE Suite. Auf insgesamt 125 m² können Sie hier ein luxuriöses Erlebnis geniessen, zu dem kontemporäre Möbel, wertvolles Parkett und ausgewählte Textilien und Materialien beitragen. Die Suite ist wahlweise mit Twin- oder Doppelbett buchbar.');
@@ -639,8 +620,6 @@ INSERT INTO `attribute` (`description`) VALUES ('Grösse: 100-150 m²');
 INSERT INTO `attribute` (`description`) VALUES ('Bett: 2 King oder Twin');
 INSERT INTO `attribute` (`description`) VALUES ('Grösse: 42 m²');
 INSERT INTO `attribute` (`description`) VALUES ('Bett: 1 King oder Twin');
-
-
 
 INSERT INTO `booking` (`checkin`, `checkout`, `canceled`) VALUES ('2017-03-15', '2017-03-30', '0');
 INSERT INTO `booking` (`checkin`, `checkout`, `canceled`) VALUES ('2017-03-18', '2017-04-03', '0');
@@ -678,7 +657,6 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('12', '2');
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('13', '3','1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('14', '13');
 
-
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('15', '4','1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('16', '5','1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('17', '6','1');
@@ -688,7 +666,6 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('21', '10','1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('22', '11','1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('23', '12','1');
-
 
 INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '11');
 INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES ('1', '7');
@@ -732,7 +709,6 @@ INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('1', '1');
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('2', '2');
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES ('3', '3');
 
-
 UPDATE `booking` SET `referring_company_id`='1' WHERE `id`='1';
 UPDATE `booking` SET `referring_company_id`='2' WHERE `id`='2';
 UPDATE `booking` SET `referring_company_id`='1' WHERE `id`='3';
@@ -753,7 +729,6 @@ INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('105', '5');
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('106', '4');
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('106', '3');
 
-
 UPDATE `booking` SET `referring_person_id`='100' WHERE `id`='1';
 UPDATE `booking` SET `referring_person_id`='101' WHERE `id`='2';
 UPDATE `booking` SET `referring_person_id`='101' WHERE `id`='3';
@@ -766,15 +741,6 @@ UPDATE `booking` SET `referring_person_id`='107' WHERE `id`='8';
 INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES ('3455345343454', '03-18', 'MASTERCARD', 'Hans Meier');
 INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES ('786423459865', '04-19', 'Visa', 'Tania Meier');
 
-
 UPDATE `booking_person` SET `payment_card_id`='1' WHERE `person_id`='6' and`booking_id`='1';
 UPDATE `booking_person` SET `payment_card_id`='1' WHERE `person_id`='9' and`booking_id`='2';
 UPDATE `booking_person` SET `payment_card_id`='2' WHERE `person_id`='11' and`booking_id`='2';
-
-
-
-
-
-
-
-
