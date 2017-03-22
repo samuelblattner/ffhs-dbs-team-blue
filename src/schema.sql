@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `from` VARCHAR(45) NOT NULL,
   `to` VARCHAR(45) NOT NULL,
-  `num_persons` INT(10) UNSIGNED NOT NULL,
+  `number_of_guests` INT(10) UNSIGNED NOT NULL,
   `person_id` INT(11) NOT NULL,
   `issued` DATE NOT NULL,
   `cancelled` TINYINT(1) NOT NULL,
