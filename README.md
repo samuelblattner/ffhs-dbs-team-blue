@@ -140,3 +140,12 @@ ID | Status | Comment | Original Text
 0502 | ? |  | Wenn ich mich richtig erinnere, hatten Sie in einer früheren Version die Buchung und Buchungspositionen in zwei separaten Entitäten modelliert. Das fand ich eine gute und flexible Lösung. Sie können es sich dann sparen, dass z. B. bei Firmenbuchungen, die Referenz auf die Gastfirma, die `referring_person` und die `booking_person` mehrfach gemacht werden müssen. Sie könnten auch in Betracht ziehen, diese Informationen in die Entität `booking_person` zu verlegen.
 0503 | ✔ | Rename `employing_company_id` to `guest_company_id` and also change foreign key constraint accordingly. | Eine der beiden Companies, so nehme ich an, wird verwendet für die Firmenbuchungen; der Name `guest_company` / `booking_company` wäre etwas aussagekräftiger.
 0504 | ⌛ |  | Buchungsanfrage: Wenn Sie die Inquiries separat von der Buchung halten, dann wird es schwierig, aufgrund einer Anfrage die Zimmer zu blockieren. Aus dem Modell geht nicht klar hervor, wie Sie das lösen möchten. Vorstellbar wäre, dass es für Buchungen mehrere Stati gibt (z. B. Anfrage, Definitiv, Eingetroffen, Abgereist, Storniert). Das Hotel lässt ja auch kurzfristige Stornierungen ohne Kostenfolge zu, d.h. reservierte Zimmer müssen einigermassen dynamisch wieder frei gegeben werden können. Es kann auch sein, dass Gäste gar nie eintreffen und auch nicht stornieren. In diesem Fall ist es für die spätere Rechnungsstellung vermutlich nützlich zu wissen, ob die Gäste wirklich eingecheckt haben. Eine konkrete Anforderung dafür liegt jedoch noch nicht vor.
+
+### Typische Buchung und Verfügbarkeitsanfrage
+Typische Buchung: https://moodle.ffhs.ch/mod/page/view.php?id=228352
+Verfügbarkeitsanfrage: https://moodle.ffhs.ch/mod/page/view.php?id=228354
+
+ID | Status | Comment | Original Text
+--- | --- | --- | ---
+0601 | ? |  | There is a name suffix (Namenszusatz) for guests.
+0602 | ?  |  | Distinction between genders for guests (Herr, Frau, ..)
