@@ -247,6 +247,7 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   `to` DATE NOT NULL,
   `number_of_guests` INT(10) UNSIGNED NOT NULL,
   `created_at` DATE NOT NULL,
+  `reservation_until` DATE NOT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
   `person_id` INT(11) NOT NULL,
   `special_request` TEXT NULL,
@@ -255,6 +256,28 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   CONSTRAINT `inquiry_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inquiry_room`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `inquiry_room` (
+  `inquiry_id` INT(11) NOT NULL,
+  `room_id` INT(11) NOT NULL,
+  PRIMARY KEY (`inquiry_id`, `room_id`),
+  INDEX `inquiry_room_room_id_idx` (`room_id` ASC),
+  CONSTRAINT `inquiry_room_inquiry_id_fk`
+    FOREIGN KEY (`inquiry_id`)
+    REFERENCES `booking` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `inquiry_room_room_id_fk`
+    FOREIGN KEY (`room_id`)
+    REFERENCES `room` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

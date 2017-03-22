@@ -152,4 +152,4 @@ ID | Status | Comment | Original Text
 0603 | ✔ | It's now normalised into the tables `country` and `place`. | `address` table is not properly normalised.
 0604 | ✔ | Added attribute `group_name` to `inquiry` table. | Possibility to save a group name per inquiry.
 0605 | ✔ | Added attribute `special_request` to `inquiry` table. | Possibility to save a special requests (note) per inquiry.
-0606 | ? | | Possibility to reserve specific rooms per inquiry.
+0606 | ✔ | Added attribute `reservation_until` to `inquiry` table. Added many-to-many relationship to `room` from `inquiry`.| Possibility to reserve specific rooms per inquiry.
