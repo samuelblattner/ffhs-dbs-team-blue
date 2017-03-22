@@ -222,8 +222,8 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inquiry` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `from` VARCHAR(45) NOT NULL,
-  `to` VARCHAR(45) NOT NULL,
+  `from` DATE NOT NULL,
+  `to` DATE NOT NULL,
   `number_of_guests` INT(10) UNSIGNED NOT NULL,
   `person_id` INT(11) NOT NULL,
   `issued` DATE NOT NULL,
