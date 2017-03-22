@@ -1,20 +1,28 @@
 -- USE `starview`;
 
-INSERT INTO `employee_type` (`name`) VALUES ('Funktionsstufe 1'),
-                                            ('Funktionsstufe 2'),
-                                            ('Funktionsstufe 3'),
-                                            ('Funktionsstufe 4');
+INSERT INTO `employee_type` (`name`) VALUES
+  ('Funktionsstufe 1'),
+  ('Funktionsstufe 2'),
+  ('Funktionsstufe 3'),
+  ('Funktionsstufe 4');
 
-INSERT INTO `gender` (`name`) VALUES  ('männlich'),
-                                      ('weiblich');
+INSERT INTO `gender` (`name`) VALUES
+  ('männlich'),
+  ('weiblich');
 
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz'),
-                                                                  ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
+INSERT INTO `name_suffix` (`name`) VALUES
+  ('Dr.'),
+  ('Prof.');
+
+INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES
+  ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz'),
+  ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
 
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
-INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`, `gender_id`) VALUES  ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15', 1),
-                                                                                    ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18', 1),
-                                                                                    ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15', 2);
+INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`, `gender_id`) VALUES
+  ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15', 1),
+  ('Hans', 'Meier', 'hans.meier@starview.ch', '1973-02-18', 1),
+  ('Tania', 'Brunner', 'tania.brunner@starview.ch', '1969-07-15', 2);
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Andrea', 'Tanner', 'andrea.tanner@starview.ch', '1959-10-05');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Rebbecca','Didio','rebbecca.didio@didio.com.au','1964-09-14');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Stevie','Hallo','stevie.hallo@hotmail.com','1959-10-23');
@@ -312,6 +320,11 @@ INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('King'
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Mica','Simco','msimco@gmail.com','1981-01-09');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`) VALUES ('Lamonica','Princiotta','lamonica@hotmail.com','1944-09-23');
 
+INSERT INTO `person_name_suffix` (`person_id`, `name_suffix_id`) VALUES
+  (1, 1),
+  (1, 2),
+  (2, 1);
+
 INSERT INTO `phone_number_type` (`name`) VALUES ('Privat'), ('Mobil'), ('Geschäft');
 
 INSERT INTO `phone_number` (`phone_number_type_id`, `number`) VALUES ('2', '123412431241');
@@ -383,8 +396,9 @@ INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_numb
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('12345678901', '1234567890123', '1', 27);
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES ('23456789012', '2345678901234', '3', 28);
 
-INSERT INTO `company_type` (`name`) VALUES ('Reisebüro');
-INSERT INTO `company_type` (`name`) VALUES ('Andere');
+INSERT INTO `company_type` (`name`) VALUES
+  ('Reisebüro'),
+  ('Andere');
 
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Harry Kolb AG', '1');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Travelpoint Müller', '1');

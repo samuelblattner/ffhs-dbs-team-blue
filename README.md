@@ -147,5 +147,5 @@ Verfügbarkeitsanfrage: https://moodle.ffhs.ch/mod/page/view.php?id=228354
 
 ID | Status | Comment | Original Text
 --- | --- | --- | ---
-0601 | ? |  | There is a name suffix (Namenszusatz) for guests.
-0602 | ✔  | Added `gender` table and assosciate `person` with it. | Distinction between genders for guests (Herr, Frau, ..)
+0601 | ✔ | Added `name_suffix` and added a many-to-many relationship between it and `person`.  | There is a name suffix (Namenszusatz) for guests.
+0602 | ✔ | Added `gender` table and assosciate `person` with it. | Distinction between genders for guests (Herr, Frau, ..)

@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `attribute_room` (
   `attribute_id` INT(11) NOT NULL,
   PRIMARY KEY (`room_id`, `attribute_id`),
   INDEX `attribute_room_room_id_idx` (`room_id` ASC),
-  INDEX `attribute_room_room_attribute_id_fk` (`attribute_id` ASC),
+  INDEX `attribute_room_room_attribute_id_idx` (`attribute_id` ASC),
   CONSTRAINT `attribute_room_room_attribute_id_fk`
     FOREIGN KEY (`attribute_id`)
     REFERENCES `attribute` (`id`)
@@ -101,6 +101,17 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `name_suffix`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `name_suffix` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `person`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `person` (
@@ -115,6 +126,29 @@ CREATE TABLE IF NOT EXISTS `person` (
   CONSTRAINT `person_gender_id_fk`
     FOREIGN KEY (`gender_id`)
     REFERENCES `gender` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `person_name_suffix`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `person_name_suffix` (
+  `person_id` INT(11) NOT NULL,
+  `name_suffix_id` INT(11) NOT NULL,
+  PRIMARY KEY (`person_id`, `name_suffix_id`),
+  INDEX `person_name_suffix_person_id_idx` (`person_id` ASC),
+  INDEX `person_name_suffix_name_suffix_id_idx` (`name_suffix_id` ASC),
+  CONSTRAINT `person_name_suffix_person_id_fk`
+    FOREIGN KEY (`person_id`)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `person_name_suffix_name_suffix_id_fk`
+    FOREIGN KEY (`name_suffix_id`)
+    REFERENCES `name_suffix` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
