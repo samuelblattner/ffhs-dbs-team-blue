@@ -149,7 +149,7 @@ ID | Status | Comment | Original Text
 --- | --- | --- | ---
 0601 | ✔ | Added `name_suffix` and added a many-to-many relationship between it and `person`.  | There is a name suffix (Namenszusatz) for guests.
 0602 | ✔ | Added `gender` table and assosciate `person` with it. | Distinction between genders for guests (Herr, Frau, ..)
-0603 | ? | | `address` table is not properly normalised.
+0603 | ✔ | It's now normalised into the tables `country` and `place`. | `address` table is not properly normalised.
 0604 | ? | | Possibility to save a group name per inquiry.
 0605 | ? | | Possibility to save a special requests (note) per inquiry.
 0606 | ? | | Possibility to reserve specific rooms per inquiry.

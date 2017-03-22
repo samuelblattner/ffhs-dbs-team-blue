@@ -17,17 +17,53 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
 -- USE `starview` ;
 
+
+-- -----------------------------------------------------
+-- Table `country`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `country` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `code` VARCHAR(2) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `place`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `place` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `zip` VARCHAR(45) NOT NULL,
+  `country_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `place_country_id_idx` (`country_id` ASC),
+  CONSTRAINT `place_country_id_fk`
+    FOREIGN KEY (`country_id`)
+    REFERENCES `country` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
 -- -----------------------------------------------------
 -- Table `address`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `address` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `street` TEXT NULL DEFAULT NULL,
-  `city` VARCHAR(45) NULL DEFAULT NULL,
-  `zip` VARCHAR(45) NULL DEFAULT NULL,
-  `country` VARCHAR(45) NULL DEFAULT NULL,
+  `place_id` INT(11) NOT NULL,
   `other_address_details` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `address_place_id_idx` (`place_id` ASC),
+  CONSTRAINT `address_place_id_idx`
+    FOREIGN KEY (`place_id`)
+    REFERENCES `place` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 

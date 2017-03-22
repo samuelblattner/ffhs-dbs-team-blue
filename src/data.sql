@@ -14,10 +14,6 @@ INSERT INTO `name_suffix` (`name`) VALUES
   ('Dr.'),
   ('Prof.');
 
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES
-  ('Auerstrasse 35', '5436', 'Meierskappel', 'Schweiz'),
-  ('Hofstrasse 35', '2532', 'Heimstett', 'Schweiz');
-
 INSERT INTO `person` (`forename`, `surname`, `birthday`) VALUES ('Sonja', 'Huber', '1953-08-02');
 INSERT INTO `person` (`forename`, `surname`, `email`, `birthday`, `gender_id`) VALUES
   ('Mike', 'Hauser', 'mike.hauser@starview.ch', '1988-01-15', 1),
@@ -508,105 +504,298 @@ INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Electra Gear Divsn Re
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Sparta Home Center', '2');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('R A C E Enterprises Inc', '2');
 
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Altgasse 42a', 'Oberbüren', '9245', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Wylerstrasse 127', 'Netstal', '8754', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ( 'Mattastrasse 17', 'Boerriet', '9463', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Grüningerstrasse 11', 'Saanen', '3792', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Südbahnstrasse 3', 'Schattdorf', 'Schweiz', 'Schweiz');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('5959 Arcu. Road', 'Chiusa Sclafani', 'N9C 8Y3', 'Kuwait');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8260 Egestas St.', 'Kingston-on-Thames', '728785', 'Western Sahara');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('220-781 Elementum Rd.', 'Colombo', 'M9 5KU', 'United States');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #830-3755 Enim Road', 'Eschwege', '765826', 'Maldives');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #779-2776 Est Street', 'Laakirchen', '08655', 'Jordan');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #593-145 Rutrum St.', 'Maasmechelen', '3042', 'Central African Republic');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('300-7397 Pede. Ave', 'Whitehaven', '45654-078', 'Norway');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 142, 6179 Ac Rd.', 'Saint-Prime', '683059', 'Guinea');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #164-6566 Eu Rd.', 'Heist-aan-Zee', '82162', 'Albania');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #505-5520 Sagittis Road', 'Kavaratti', '85-332', 'Guinea');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #647-6985 Duis Road', 'Osasco', '82898', 'Saint Kitts and Nevis');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 534, 4952 Sem. St.', 'Heerlen', '6009', 'Guyana');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('629-6447 Enim Rd.', 'Ponoka', '42695', 'Syria');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('424-8652 Donec St.', 'Dollard-des-Ormeaux', '44109', 'Costa Rica');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 227, 9459 Nec Ave', 'Paulatuk', '086812', 'Bouvet Island');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9088 Lorem Road', 'Yumbel', '68335', 'Bosnia and Herzegovina');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #570-6032 Posuere Road', 'Gravilias', '20708-356', 'Gibraltar');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9228 Vitae Road', 'Reus', '45722-817', 'Congo, the Democratic Republic of the');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 165, 7475 Ac St.', 'Tongerlo', '74173', 'Australia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6956 Sit Rd.', 'Chaudfontaine', '06-054', 'El Salvador');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #831-8669 Rutrum, St.', 'Olinda', '327762', 'Denmark');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('988-1485 Sit Rd.', 'Ipatinga', '99754', 'Norway');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('658-3272 Fringilla Road', 'Owen Sound', '68092', 'Czech Republic');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6960 Erat Ave', 'Pichilemu', '237056', 'Turkey');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 653, 8071 Erat, Rd.', 'Liers', '8718', 'Senegal');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #963-2437 Fermentum St.', 'Mission', '91116-469', 'Australia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('613-9775 Aliquet. Avenue', 'Sorga', '671097', 'Russian Federation');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('7979 Tristique Av.', 'Laurencekirk', '3373', 'Czech Republic');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 566, 6147 Tempus Rd.', 'Perpignan', '9237', 'Reunion');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('4668 Dignissim St.', 'San Benedetto del Tronto', '07256', 'Jordan');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('526-6896 Id, Street', 'Atlanta', '45712', 'Mauritius');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #968-3031 A Ave', 'Fraser-Fort George', '2428', 'Mali');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8316 Nascetur Av.', 'Sant Omero', '06886', 'Suriname');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #893-1725 Ridiculus Rd.', 'Oelegem', '10156', 'Saint Vincent and The Grenadines');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #115-8046 Arcu. Avenue', 'Cheyenne', '18122', 'Iraq');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('4883 Gravida Road', 'Cellara', '70889', 'Armenia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #510-7091 Aliquam St.', 'Tambaram', '33475', 'Viet Nam');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 746, 3134 A, St.', 'Penrith', '26299', 'Antigua and Barbuda');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #332-9065 Lectus Rd.', 'Montbliart', '176062', 'Slovenia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('8597 Ut Ave', 'Polino', 'N3M 1W3', 'Gibraltar');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('1872 Amet Av.', 'Konin', '0505', 'Saint Martin');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #196-7021 Eros. St.', 'Tarragona', '17109-718', 'Italy');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #207-5950 Volutpat. St.', 'Vitry-sur-Seine', '09818', 'Taiwan');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('326 Sodales St.', 'Nadrin', '61207', 'Eritrea');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 687, 6352 Pharetra St.', 'Sant Agata Bolognese', '54-531', 'Thailand');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('227-8020 Ut Ave', 'Nadrin', '68600', 'United States');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('615-9073 Tristique Avenue', 'Lakeland County', '8652LQ', 'Turkey');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 247, 3030 Nec St.', 'Moerbeke', '31893', 'Norway');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #145-2155 Id, St.', 'Profondeville', '26547-900', 'Seychelles');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('784-5263 Dui. Road', 'Patan', '230797', 'Eritrea');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('468-8403 Risus. Road', 'Baie-Comeau', '6360', 'Gibraltar');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6944 Dui. Street', 'Auburn', '6062', 'Lesotho');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 344, 8966 Justo. Road', 'Appels', '48724', 'Liechtenstein');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('563-2499 Ipsum Av.', 'Lourdes', '7329', 'New Zealand');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('229-4777 Ut Rd.', 'Northumberland', '92-937', 'Grenada');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('890-7163 Eros Street', 'Newport', '3289', 'Nigeria');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('246-6234 Tortor. Rd.', 'Bellevue', '90756', 'Malta');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #336-3100 Magna. Rd.', 'Bajardo', '39248-996', 'Bangladesh');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 144, 3187 Mollis Ave', 'Salt Spring Island', '766220', 'Saudi Arabia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 808, 4471 Egestas Road', 'Zielona Gara', '908674', 'Honduras');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 527, 2707 Mauris St.', 'Columbus', '42229', 'Malawi');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9675 Enim. St.', 'Grand-Manil', '2378', 'American Samoa');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 888, 9098 Metus Road', 'Flanu', '171578', 'Macedonia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('690-6466 Erat. Street', 'Kakisa', '8658', 'Niue');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('816-6195 Erat St.', 'Burlington', '00976', 'Peru');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #644-9665 Mauris Street', 'Reims', '84733', 'Dominica');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9028 Et Rd.', 'Chesapeake', '42226', 'Slovakia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('644-1791 Convallis St.', 'Monticelli dOngina', '20826', 'Cambodia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('774-6055 Vitae St.', 'Nurda', '58738', 'Bonaire, Sint Eustatius and Saba');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('626-7282 Risus. Street', 'Villa Alegre', '45301', 'Sao Tome and Principe');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #673-1104 Mi St.', 'Paulatuk', '756825', 'Cayman Islands');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 864, 7185 Vulputate, Rd.', 'Jefferson City', '8058QB', 'Czech Republic');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('421-3421 Dui St.', 'Verdun', '6721', 'Hungary');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('414-4783 Sit Rd.', 'Graz', 'B3J 4V8', 'British Indian Ocean Territory');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 552, 4115 Lacus. Av.', 'Mariquina', '90450', 'Kazakhstan');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6707 Elit. Street', 'Marchihue', '01119', 'Aruba');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #995-9267 Integer Rd.', 'Gulfport', '43862', 'Kuwait');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('182-7868 Consectetuer Av.', 'Sutton', '7999', 'Virgin Islands, United States');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('9713 Fusce Ave', 'Fontanigorda', '9275', 'Slovenia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 627, 2877 Nec, Rd.', 'West Valley City', '31960', 'India');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #562-8188 Cras St.', 'Hatfield', '10615', 'Uruguay');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('794-7626 Suspendisse Rd.', 'Ramara', '04121', 'Sweden');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 195, 4731 Tincidunt Rd.', 'Sale', 'H8C 5TB', 'Bosnia and Herzegovina');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 334, 6262 Ipsum. Street', 'Westrem', '1221', 'Luxembourg');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #368-6825 Enim, St.', 'Ellikom', '42870-766', 'Liberia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('P.O. Box 809, 5547 Aenean Ave', 'Carleton', '76118', 'Malaysia');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('Ap #797-7872 Commodo Rd.', 'St. Austell', 'K4 5SJ', 'Samoa');
-INSERT INTO `address` (`street`, `city`, `zip`, `country`) VALUES ('6505 Nec Ave', 'Cadiz', '1508', 'Isle of Man');
+INSERT INTO `country` (`code`, `name`) VALUES
+  ('AF', 'Afghanistan'),
+  ('AL', 'Albania'),
+  ('DZ', 'Algeria'),
+  ('DS', 'American Samoa'),
+  ('AD', 'Andorra'),
+  ('AO', 'Angola'),
+  ('AI', 'Anguilla'),
+  ('AQ', 'Antarctica'),
+  ('AG', 'Antigua and Barbuda'),
+  ('AR', 'Argentina'),
+  ('AM', 'Armenia'),
+  ('AW', 'Aruba'),
+  ('AU', 'Australia'),
+  ('AT', 'Austria'),
+  ('AZ', 'Azerbaijan'),
+  ('BS', 'Bahamas'),
+  ('BH', 'Bahrain'),
+  ('BD', 'Bangladesh'),
+  ('BB', 'Barbados'),
+  ('BY', 'Belarus'),
+  ('BE', 'Belgium'),
+  ('BZ', 'Belize'),
+  ('BJ', 'Benin'),
+  ('BM', 'Bermuda'),
+  ('BT', 'Bhutan'),
+  ('BO', 'Bolivia'),
+  ('BA', 'Bosnia and Herzegovina'),
+  ('BW', 'Botswana'),
+  ('BV', 'Bouvet Island'),
+  ('BR', 'Brazil'),
+  ('IO', 'British Indian Ocean Territory'),
+  ('BN', 'Brunei Darussalam'),
+  ('BG', 'Bulgaria'),
+  ('BF', 'Burkina Faso'),
+  ('BI', 'Burundi'),
+  ('KH', 'Cambodia'),
+  ('CM', 'Cameroon'),
+  ('CA', 'Canada'),
+  ('CV', 'Cape Verde'),
+  ('KY', 'Cayman Islands'),
+  ('CF', 'Central African Republic'),
+  ('TD', 'Chad'),
+  ('CL', 'Chile'),
+  ('CN', 'China'),
+  ('CX', 'Christmas Island'),
+  ('CC', 'Cocos (Keeling) Islands'),
+  ('CO', 'Colombia'),
+  ('KM', 'Comoros'),
+  ('CG', 'Congo'),
+  ('CK', 'Cook Islands'),
+  ('CR', 'Costa Rica'),
+  ('HR', 'Croatia (Hrvatska)'),
+  ('CU', 'Cuba'),
+  ('CY', 'Cyprus'),
+  ('CZ', 'Czech Republic'),
+  ('DK', 'Denmark'),
+  ('DJ', 'Djibouti'),
+  ('DM', 'Dominica'),
+  ('DO', 'Dominican Republic'),
+  ('TP', 'East Timor'),
+  ('EC', 'Ecuador'),
+  ('EG', 'Egypt'),
+  ('SV', 'El Salvador'),
+  ('GQ', 'Equatorial Guinea'),
+  ('ER', 'Eritrea'),
+  ('EE', 'Estonia'),
+  ('ET', 'Ethiopia'),
+  ('FK', 'Falkland Islands (Malvinas)'),
+  ('FO', 'Faroe Islands'),
+  ('FJ', 'Fiji'),
+  ('FI', 'Finland'),
+  ('FR', 'France'),
+  ('FX', 'France, Metropolitan'),
+  ('GF', 'French Guiana'),
+  ('PF', 'French Polynesia'),
+  ('TF', 'French Southern Territories'),
+  ('GA', 'Gabon'),
+  ('GM', 'Gambia'),
+  ('GE', 'Georgia'),
+  ('DE', 'Germany'),
+  ('GH', 'Ghana'),
+  ('GI', 'Gibraltar'),
+  ('GK', 'Guernsey'),
+  ('GR', 'Greece'),
+  ('GL', 'Greenland'),
+  ('GD', 'Grenada'),
+  ('GP', 'Guadeloupe'),
+  ('GU', 'Guam'),
+  ('GT', 'Guatemala'),
+  ('GN', 'Guinea'),
+  ('GW', 'Guinea-Bissau'),
+  ('GY', 'Guyana'),
+  ('HT', 'Haiti'),
+  ('HM', 'Heard and Mc Donald Islands'),
+  ('HN', 'Honduras'),
+  ('HK', 'Hong Kong'),
+  ('HU', 'Hungary'),
+  ('IS', 'Iceland'),
+  ('IN', 'India'),
+  ('IM', 'Isle of Man'),
+  ('ID', 'Indonesia'),
+  ('IR', 'Iran (Islamic Republic of)'),
+  ('IQ', 'Iraq'),
+  ('IE', 'Ireland'),
+  ('IL', 'Israel'),
+  ('IT', 'Italy'),
+  ('CI', 'Ivory Coast'),
+  ('JE', 'Jersey'),
+  ('JM', 'Jamaica'),
+  ('JP', 'Japan'),
+  ('JO', 'Jordan'),
+  ('KZ', 'Kazakhstan'),
+  ('KE', 'Kenya'),
+  ('KI', 'Kiribati'),
+  ('KP', 'Korea, Democratic People''s Republic of'),
+  ('KR', 'Korea, Republic of'),
+  ('XK', 'Kosovo'),
+  ('KW', 'Kuwait'),
+  ('KG', 'Kyrgyzstan'),
+  ('LA', 'Lao People''s Democratic Republic'),
+  ('LV', 'Latvia'),
+  ('LB', 'Lebanon'),
+  ('LS', 'Lesotho'),
+  ('LR', 'Liberia'),
+  ('LY', 'Libyan Arab Jamahiriya'),
+  ('LI', 'Liechtenstein'),
+  ('LT', 'Lithuania'),
+  ('LU', 'Luxembourg'),
+  ('MO', 'Macau'),
+  ('MK', 'Macedonia'),
+  ('MG', 'Madagascar'),
+  ('MW', 'Malawi'),
+  ('MY', 'Malaysia'),
+  ('MV', 'Maldives'),
+  ('ML', 'Mali'),
+  ('MT', 'Malta'),
+  ('MH', 'Marshall Islands'),
+  ('MQ', 'Martinique'),
+  ('MR', 'Mauritania'),
+  ('MU', 'Mauritius'),
+  ('TY', 'Mayotte'),
+  ('MX', 'Mexico'),
+  ('FM', 'Micronesia, Federated States of'),
+  ('MD', 'Moldova, Republic of'),
+  ('MC', 'Monaco'),
+  ('MN', 'Mongolia'),
+  ('ME', 'Montenegro'),
+  ('MS', 'Montserrat'),
+  ('MA', 'Morocco'),
+  ('MZ', 'Mozambique'),
+  ('MM', 'Myanmar'),
+  ('NA', 'Namibia'),
+  ('NR', 'Nauru'),
+  ('NP', 'Nepal'),
+  ('NL', 'Netherlands'),
+  ('AN', 'Netherlands Antilles'),
+  ('NC', 'New Caledonia'),
+  ('NZ', 'New Zealand'),
+  ('NI', 'Nicaragua'),
+  ('NE', 'Niger'),
+  ('NG', 'Nigeria'),
+  ('NU', 'Niue'),
+  ('NF', 'Norfolk Island'),
+  ('MP', 'Northern Mariana Islands'),
+  ('NO', 'Norway'),
+  ('OM', 'Oman'),
+  ('PK', 'Pakistan'),
+  ('PW', 'Palau'),
+  ('PS', 'Palestine'),
+  ('PA', 'Panama'),
+  ('PG', 'Papua New Guinea'),
+  ('PY', 'Paraguay'),
+  ('PE', 'Peru'),
+  ('PH', 'Philippines'),
+  ('PN', 'Pitcairn'),
+  ('PL', 'Poland'),
+  ('PT', 'Portugal'),
+  ('PR', 'Puerto Rico'),
+  ('QA', 'Qatar'),
+  ('RE', 'Reunion'),
+  ('RO', 'Romania'),
+  ('RU', 'Russian Federation'),
+  ('RW', 'Rwanda'),
+  ('KN', 'Saint Kitts and Nevis'),
+  ('LC', 'Saint Lucia'),
+  ('VC', 'Saint Vincent and the Grenadines'),
+  ('WS', 'Samoa'),
+  ('SM', 'San Marino'),
+  ('ST', 'Sao Tome and Principe'),
+  ('SA', 'Saudi Arabia'),
+  ('SN', 'Senegal'),
+  ('RS', 'Serbia'),
+  ('SC', 'Seychelles'),
+  ('SL', 'Sierra Leone'),
+  ('SG', 'Singapore'),
+  ('SK', 'Slovakia'),
+  ('SI', 'Slovenia'),
+  ('SB', 'Solomon Islands'),
+  ('SO', 'Somalia'),
+  ('ZA', 'South Africa'),
+  ('GS', 'South Georgia South Sandwich Islands'),
+  ('ES', 'Spain'),
+  ('LK', 'Sri Lanka'),
+  ('SH', 'St. Helena'),
+  ('PM', 'St. Pierre and Miquelon'),
+  ('SD', 'Sudan'),
+  ('SR', 'Suriname'),
+  ('SJ', 'Svalbard and Jan Mayen Islands'),
+  ('SZ', 'Swaziland'),
+  ('SE', 'Sweden'),
+  ('CH', 'Switzerland'),
+  ('SY', 'Syrian Arab Republic'),
+  ('TW', 'Taiwan'),
+  ('TJ', 'Tajikistan'),
+  ('TZ', 'Tanzania, United Republic of'),
+  ('TH', 'Thailand'),
+  ('TG', 'Togo'),
+  ('TK', 'Tokelau'),
+  ('TO', 'Tonga'),
+  ('TT', 'Trinidad and Tobago'),
+  ('TN', 'Tunisia'),
+  ('TR', 'Turkey'),
+  ('TM', 'Turkmenistan'),
+  ('TC', 'Turks and Caicos Islands'),
+  ('TV', 'Tuvalu'),
+  ('UG', 'Uganda'),
+  ('UA', 'Ukraine'),
+  ('AE', 'United Arab Emirates'),
+  ('GB', 'United Kingdom'),
+  ('US', 'United States'),
+  ('UM', 'United States minor outlying islands'),
+  ('UY', 'Uruguay'),
+  ('UZ', 'Uzbekistan'),
+  ('VU', 'Vanuatu'),
+  ('VA', 'Vatican City State'),
+  ('VE', 'Venezuela'),
+  ('VN', 'Vietnam'),
+  ('VG', 'Virgin Islands (British)'),
+  ('VI', 'Virgin Islands (U.S.)'),
+  ('WF', 'Wallis and Futuna Islands'),
+  ('EH', 'Western Sahara'),
+  ('YE', 'Yemen'),
+  ('ZR', 'Zaire'),
+  ('ZM', 'Zambia');
 
-INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('1', '1');
-INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('2', '2');
-INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('3', '3');
-INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('4', '4');
-INSERT INTO `person_address` (`address_id`, `person_id`) VALUES ('5', '5');
+INSERT INTO `place` (`name`, `zip`, `country_id`) VALUES
+  ('Meierskappel', '5436', 211),
+  ('Heimstett', '2532', 211),
+  ('Oberbüren', '9245', 211),
+  ('Netstal', '8754', 211),
+  ('Boerriet', '9463', 211),
+  ('Saanen', '3792', 211),
+  ('Schattdorf', '6412', 211),
+  ('Chiusa Sclafani', 'N9C 8Y3', 118),
+  ('Kingston-on-Thames', '728785', 241),
+  ('Colombo', 'M9 5KU', 230),
+  ('Eschwege', '765826', 134),
+  ('Laakirchen', '08655', 111),
+  ('Maasmechelen', '3042', 41),
+  ('Whitehaven', '45654-078', 165),
+  ('Saint-Prime', '683059', 90),
+  ('Heist-aan-Zee', '82162', 2),
+  ('Yumbel', '68335', 27);
+
+INSERT INTO `address` (`street`, `place_id`) VALUES
+  ('Altgasse 42a', 3),
+  ('Wylerstrasse 127', 4),
+  ('Mattastrasse 17', 5),
+  ('Grüningerstrasse 11', 6),
+  ('Südbahnstrasse 3', 7),
+  ('5959 Arcu. Road', 8),
+  ('8260 Egestas St.', 9),
+  ('220-781 Elementum Rd.', 10),
+  ('Ap #830-3755 Enim Road', 11),
+  ('Ap #779-2776 Est Street', 12),
+  ('Ap #593-145 Rutrum St.', 13),
+  ('300-7397 Pede. Ave', 14),
+  ('P.O. Box 142, 6179 Ac Rd.', 15),
+  ('Ap #164-6566 Eu Rd.', 16),
+  ('9088 Lorem Road', 17);
+
+INSERT INTO `person_address` (`address_id`, `person_id`) VALUES
+  ('1', '1'),
+  ('2', '2'),
+  ('3', '3'),
+  ('4', '4'),
+  ('5', '5'),
+  ('6', '6'),
+  ('7', '7'),
+  ('8', '8'),
+  ('9', '9');
 
 INSERT INTO `room` (`name`, `description`) VALUES ('Corner Suite', 'Unsere 4 Corner Suiten erwarten Sie mit einem einladenden Schlafbereich mit modernem und geräumigen Bad sowie einem abtrennbaren Salon mit einer Sitzgruppe um einen klassischen Tisch. Auf 50 m2 vereinen sich geschmackvolle Materialien und Textilien zu einem harmonischen Gesamtbild. Ein besonderes Glanzlicht setzt der Kronleuchter des Wohnzimmers, das über eine separate Gästetoilette verfügt. Sie haben von hier einen herrlichen Ausblick auf den Vierwaldstättersee und das Alpenpanorama. Die Corner Suite ist wahlweise mit Twin- oder Doppelbett buchbar.');
 INSERT INTO `room` (`name`, `description`) VALUES ('Suite of Arts', 'Unsere Suite of Arts ist ein echtes Kunstwerk in sich selbst. Reproduktionen von Miró, Kandinsky und Chagall schmücken die Wände, Designmöbel und Unikate aus den 60er- und 70er-Jahren geben ihr einen besonderen Charakter mit unaufdringlicher Extravaganz. Auf 75 m² verfügen Sie über ein Schlafzimmer mit Doppelbett und geräumigem Badezimmer, dazu über einen Salon, der ein Unikat darstellt in seiner Verbindung von Wohlfühlatmosphäre und künstlerischen Akzenten. Die Fensterfronten eröffnen den uneingeschränkten Blick auf die Leuchtenstadt, den Vierwaldstättersee und die Zentralschweizer Bergwelt.');
