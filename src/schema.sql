@@ -225,11 +225,11 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   `from` DATE NOT NULL,
   `to` DATE NOT NULL,
   `number_of_guests` INT(10) UNSIGNED NOT NULL,
+  `created_at` DATE NOT NULL,
+  `cancelled_at` DATE NULL DEFAULT NULL,
   `person_id` INT(11) NOT NULL,
-  `issued` DATE NOT NULL,
-  `cancelled` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `person_id_idx` (`person_id` ASC),
+  INDEX `inquiry_person_id_idx` (`person_id` ASC),
   CONSTRAINT `inquiry_person_id_fk`
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
