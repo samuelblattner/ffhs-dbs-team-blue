@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `referring_person_id` INT(11) NULL DEFAULT NULL,
   `checkin` DATE NULL DEFAULT NULL,
   `checkout` DATE NULL DEFAULT NULL,
-  `canceled` TINYINT(1) NULL DEFAULT '0',
+  `cancelled_at` DATE NULL DEFAULT NULL,
   `referring_inquiry` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
