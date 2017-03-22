@@ -67,7 +67,7 @@ robin | ejNT3~K:8x*N | starview_robin
 ### Notizen des ersten Treffens
 Source: https://moodle.ffhs.ch/mod/page/view.php?id=228280
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0001 | ✔ | Solved by fields `forename`, `surname` and `email` in table `person`. | Die Zusammenarbeit mit den beliebten Online-Buchungsplattformen hat sich bewährt. Der Buchungsvorgang ist sehr einfach: Der Gast muss nur Vor- und Familienname sowie die E-Mail-Adresse angeben. Das Sternenblick lässt Stornierung ohne Kostenfolge zu.
 0002 | ✔ | Travel Agencies and their employees can be stored as such using the `company_type` table. | Die unkomplizierte Zusammenarbeit mit vielen internationalen Reiseunternehmen bringt viele zusätzliche Gäste. Luzius ist überzeugt, dass dies vor allem an der intensiven Pflege des persönlichen Kontakts mit den Ansprechspersonen in den Reiseunternehmen liegt.
@@ -76,7 +76,7 @@ ID | Status | Comment | Original Text
 ### Notizen des zweiten Treffens
 Source: https://moodle.ffhs.ch/mod/page/view.php?id=228285
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0101 | ✔ | Shouldn't an `employee` entity reference a `person_id` instead of a `person` reference an `employee_id` as it is currently the case? See: https://moodle.ffhs.ch/mod/page/view.php?id=228273 <br> **Yes, this is implemented like this now.**| Auch die Mitarbeiter des Hotels dürfen mit Familie und Verwandten das Hotel benutzen und erhalten dabei Sonderkonditionen.
 0102 | ✔ | Solved by the `employing_company` field in the `booking` table that references the company of a guest at the time of the booking. | Zudem ist es in den vergangenen Jahren gelungen, immer wieder mit Firmen zusammenzuarbeiten, welche für ihre Mitarbeitenden Geschäftsreisen in die Gegend buchen. Die Geschäftsreisenden kommen dann gerne als Privatpersonen wieder und bringen ihre Familien mit.
@@ -86,7 +86,7 @@ Source: https://moodle.ffhs.ch/mod/page/view.php?id=228286
 
 "Aurelia zählt die folgenden Angaben auf, welche sie in den bisher vorhandenen Adressdateien und Tabellen auffinden konnte."
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0201 | ✔ | Solved by the field `email` in table `person` | E-Mail-Adresse
 0202 | ✔ | Solved by the field `birthday` in table `person` | Geburtsjahr
@@ -103,7 +103,7 @@ ID | Status | Comment | Original Text
 ### E-Mail von Aurelia
 Source: https://moodle.ffhs.ch/mod/page/view.php?id=228287
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0301 | ✔ | Solved by the `room_attribute` table | Wir haben Einzel- und Doppelzimmer. Dabei vermeiden wir es möglichst, Doppelzimmer durch Einzelpersonen zu belegen.
 0302 | ✔ | Solved by the `room_attribute` table | Bei den Doppelzimmern haben wir Zimmer mit getrennten Betten und Zimmer mit Queen-Size-Betten.
@@ -118,7 +118,7 @@ ID | Status | Comment | Original Text
 ### Notizen zum dritten Treffen
 Source: https://moodle.ffhs.ch/mod/page/view.php?id=228289
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0401 | ✔ | Duplicate of #0101 | Mitarbeiter können auch Gäste sein und erhalten dann Sonderkonditionen für sich und ihre Begleitpersonen.
 0402 | ✔ | Solved by the `referred_by` fields on `booking`. Travel Agencies (`company`) and Travel Agents can be SELECTed based on the amount of bookings they made in a given period of time.| Die Zusammenarbeit mit Reisebüros hat sich bewährt. Luzius möchte eine Übersicht erhalten, welches Reisebüro pro Jahr wieviele Übernachtungen bringt. Er trägt sich mit dem Gedanken, besonders guten Reisebüros Rabatt zu geben, oder auch besonders guten Mitarbeitern in Reisebüros zum Geburtstag eine kleine Aufmerksamkeit zu schicken. Aurelia fragt sich, woher sie das Geburtsdatum erfahren solle ...
@@ -134,7 +134,7 @@ ID | Status | Comment | Original Text
 ### Rückmeldung zum zweiten Block von Frau Vargas
 Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=19712#p53079
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0501 | ? |  | Buchung: Die Buchung besitzt eine `referring_company`, `referring_person` und eine `employing_company`. Es wäre denkbar, dass die `referring_person` ausreicht. Davon kann auf das Reisebüro geschlossen werden. Allerdings hat in ihrem aktuellen Modell eine Person die Möglichkeit, zu verschiedenen Firmen zu gehören (`person_company`); dies dünkt mich semantisch nicht unbedingt gewollt, d.h. es ist schwer nachzuvollziehen, weshalb das so sein könnte. Aus diesem Grund (eine Person kann zu mehreren Firmen gehören) geht das mit dem Rückschluss von der Person auf die Company nicht.
 0502 | ? |  | Wenn ich mich richtig erinnere, hatten Sie in einer früheren Version die Buchung und Buchungspositionen in zwei separaten Entitäten modelliert. Das fand ich eine gute und flexible Lösung. Sie können es sich dann sparen, dass z. B. bei Firmenbuchungen, die Referenz auf die Gastfirma, die `referring_person` und die `booking_person` mehrfach gemacht werden müssen. Sie könnten auch in Betracht ziehen, diese Informationen in die Entität `booking_person` zu verlegen.
@@ -145,7 +145,7 @@ ID | Status | Comment | Original Text
 Typische Buchung: https://moodle.ffhs.ch/mod/page/view.php?id=228352
 Verfügbarkeitsanfrage: https://moodle.ffhs.ch/mod/page/view.php?id=228354
 
-ID | Status | Comment | Original Text
+ID | Status | Comment | Original text
 --- | --- | --- | ---
 0601 | ✔ | Added `name_suffix` and added a many-to-many relationship between it and `person`.  | There is a name suffix (Namenszusatz) for guests.
 0602 | ✔ | Added `gender` table and assosciate `person` with it. | Distinction between genders for guests (Herr, Frau, ..)
