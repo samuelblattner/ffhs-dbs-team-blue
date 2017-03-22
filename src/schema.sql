@@ -156,7 +156,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `booking` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `employing_company_id` INT(11) NULL DEFAULT NULL,
+  `guest_company_id` INT(11) NULL DEFAULT NULL,
   `referring_company_id` INT(11) NULL DEFAULT NULL,
   `referring_person_id` INT(11) NULL DEFAULT NULL,
   `checkin` DATE NULL DEFAULT NULL,
@@ -165,11 +165,11 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `referring_inquiry` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
-  INDEX `booking_employing_company_id_idx` (`employing_company_id` ASC),
+  INDEX `booking_guest_company_id_idx` (`guest_company_id` ASC),
   INDEX `booking_referring_person_id_idx` (`referring_person_id` ASC),
   INDEX `fk_inquiry` (`referring_inquiry` ASC),
-  CONSTRAINT `booking_employing_company_id_fk`
-    FOREIGN KEY (`employing_company_id`)
+  CONSTRAINT `booking_guest_company_id_fk`
+    FOREIGN KEY (`guest_company_id`)
     REFERENCES `company` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
