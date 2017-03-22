@@ -242,12 +242,14 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inquiry` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `group_name` VARCHAR(45) NULL,
   `from` DATE NOT NULL,
   `to` DATE NOT NULL,
   `number_of_guests` INT(10) UNSIGNED NOT NULL,
   `created_at` DATE NOT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
   `person_id` INT(11) NOT NULL,
+  `special_request` TEXT NULL,
   PRIMARY KEY (`id`),
   INDEX `inquiry_person_id_idx` (`person_id` ASC),
   CONSTRAINT `inquiry_person_id_fk`
