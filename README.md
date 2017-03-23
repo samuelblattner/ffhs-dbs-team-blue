@@ -143,8 +143,8 @@ ID | Status | Comment | Original text
 0504 | ⌛ |  | Buchungsanfrage: Wenn Sie die Inquiries separat von der Buchung halten, dann wird es schwierig, aufgrund einer Anfrage die Zimmer zu blockieren. Aus dem Modell geht nicht klar hervor, wie Sie das lösen möchten. Vorstellbar wäre, dass es für Buchungen mehrere Stati gibt (z. B. Anfrage, Definitiv, Eingetroffen, Abgereist, Storniert). Das Hotel lässt ja auch kurzfristige Stornierungen ohne Kostenfolge zu, d.h. reservierte Zimmer müssen einigermassen dynamisch wieder frei gegeben werden können. Es kann auch sein, dass Gäste gar nie eintreffen und auch nicht stornieren. In diesem Fall ist es für die spätere Rechnungsstellung vermutlich nützlich zu wissen, ob die Gäste wirklich eingecheckt haben. Eine konkrete Anforderung dafür liegt jedoch noch nicht vor.
 
 ### Typische Buchung und Verfügbarkeitsanfrage
-Typische Buchung: https://moodle.ffhs.ch/mod/page/view.php?id=228352
-Verfügbarkeitsanfrage: https://moodle.ffhs.ch/mod/page/view.php?id=228354
+- Typische Buchung: https://moodle.ffhs.ch/mod/page/view.php?id=228352
+- Verfügbarkeitsanfrage: https://moodle.ffhs.ch/mod/page/view.php?id=228354
 
 ID | Status | Comment | Original text
 --- | --- | --- | ---
