@@ -154,4 +154,4 @@ ID | Status | Comment | Original text
 0604 | ✔ | Added attribute `group_name` to `inquiry` table. | Possibility to save a group name per inquiry.
 0605 | ✔ | Added attribute `special_request` to `inquiry` table. | Possibility to save a special requests (note) per inquiry.
 0606 | ✔ | Added attribute `reservation_until` to `inquiry` table. Added many-to-many relationship to `room` from `inquiry`.| Possibility to reserve specific rooms per inquiry.
-0607 | #2 | Add relation between `company` and `phone_number` | Implicit requirement to make sure that companies can be given phone numbers even when there's no contact person |
+0607 | [PR](https://github.com/samuelblattner/ffhs-dbs-team-blue/pull/2) | Add relation between `company` and `phone_number` | Implicit requirement to make sure that companies can be given phone numbers even when there's no contact person |
