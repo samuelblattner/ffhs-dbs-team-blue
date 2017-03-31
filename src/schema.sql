@@ -9,8 +9,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema starview
 -- -----------------------------------------------------
--- CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
--- USE `starview` ;
+CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
+USE `starview` ;
 
 
 -- -----------------------------------------------------
@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS `country` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(2) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `country_unique_rows` UNIQUE ( `code`,`name`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -39,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `place` (
     FOREIGN KEY (`country_id`)
     REFERENCES `country` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `place_unique_rows` UNIQUE ( `name`, `zip` ,`country_id` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -49,7 +51,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `address` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `street` TEXT NULL DEFAULT NULL,
+  `street` VARCHAR(45) NULL DEFAULT NULL,
   `place_id` INT(11) NOT NULL,
   `other_address_details` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -58,7 +60,8 @@ CREATE TABLE IF NOT EXISTS `address` (
     FOREIGN KEY (`place_id`)
     REFERENCES `place` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `address_unique_rows` UNIQUE (street,place_id))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -69,7 +72,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `attribute` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(100) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `attribute_unique_rows` UNIQUE (`description`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -82,7 +86,8 @@ CREATE TABLE IF NOT EXISTS `room_type` (
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(100) NULL DEFAULT NULL,
   `maximum_number_of_guests` INT(2) UNSIGNED NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `room_type_unique_rows` UNIQUE ( `name`, `description` ,`maximum_number_of_guests` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -101,7 +106,8 @@ CREATE TABLE IF NOT EXISTS `room` (
     FOREIGN KEY (`room_type_id`)
     REFERENCES `room_type` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `room_unique_rows` UNIQUE ( `name`,`room_type_id` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -135,7 +141,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `company_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `company_type_unique_rows` UNIQUE ( `name` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -146,7 +153,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `gender` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `gender_unique_rows` UNIQUE ( `name`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -157,7 +165,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `name_suffix` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `name_suffix_unique_rows` UNIQUE ( `name`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -178,7 +187,8 @@ CREATE TABLE IF NOT EXISTS `person` (
     FOREIGN KEY (`gender_id`)
     REFERENCES `gender` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `person_unique_rows` UNIQUE ( `gender_id`, `forename`,`surname`,`email`,`birthday`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -227,7 +237,8 @@ CREATE TABLE IF NOT EXISTS `company` (
     FOREIGN KEY (`contact_person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `company_unique_rows` UNIQUE ( `name`,`company_type_id` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -252,7 +263,8 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
     FOREIGN KEY (`person_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `inquiry_unique_rows` UNIQUE ( `group_name`,`from`,`to` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -329,7 +341,8 @@ CREATE TABLE IF NOT EXISTS `payment_card` (
   `expirationdate` VARCHAR(7) NOT NULL,
   `company` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `payment_card_unique_rows` UNIQUE ( `number`,`expirationdate`,`company` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -416,7 +429,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `employee_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `employee_type_unique_rows` UNIQUE ( `name` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -456,7 +470,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `language` (
   `id` INT(11) NOT NULL,
   `language` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `employee_type_unique_rows` UNIQUE ( `language` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -536,7 +551,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `phone_number_type` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+    CONSTRAINT `phone_number_type_unique_rows` UNIQUE ( `name` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -554,7 +570,8 @@ CREATE TABLE IF NOT EXISTS `phone_number` (
     FOREIGN KEY (`phone_number_type_id`)
     REFERENCES `phone_number_type` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `phone_number_unique_rows` UNIQUE ( `phone_number_type_id`,`number` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -594,7 +611,8 @@ CREATE TABLE IF NOT EXISTS `picture` (
     FOREIGN KEY (`room_id`)
     REFERENCES `room` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `picture_unique_rows` UNIQUE ( `room_id`,`link_to_picture` ))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
