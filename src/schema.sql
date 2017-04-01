@@ -245,6 +245,28 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `company_phone`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `company_phone` (
+  `company_id` INT(11) NOT NULL,
+  `phone_number_id` INT(11) NOT NULL,
+  PRIMARY KEY (`company_id`, `phone_number_id`),
+  INDEX `company_phone_phone_number_id_idx` (`phone_number_id` ASC),
+  CONSTRAINT `company_phone_company_id_fk`
+    FOREIGN KEY (`company_id`)
+    REFERENCES `company` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `company_phone_phone_number_id_fk`
+    FOREIGN KEY (`phone_number_id`)
+    REFERENCES `phone_number` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `inquiry`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inquiry` (
