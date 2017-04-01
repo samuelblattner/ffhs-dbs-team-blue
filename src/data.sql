@@ -396,8 +396,8 @@ INSERT INTO `company_type` (`name`) VALUES
   ('Reisebüro'),
   ('Andere');
 
-INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Harry Kolb AG', '1');
-INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Travelpoint Müller', '1');
+INSERT INTO `company` (`name`, `company_type_id`, `contact_person_id`) VALUES ('Reisebüro Harry Kolb AG', '1', 100);
+INSERT INTO `company` (`name`, `company_type_id`, `contact_person_id`) VALUES ('Reisebüro Travelpoint Müller', '1', 101);
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Basilisk Reisebüro AG', '1');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro ATR-Tours', '1');
 INSERT INTO `company` (`name`, `company_type_id`) VALUES ('Reisebüro Legends Travel GmbH', '1');
@@ -937,9 +937,15 @@ INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('105', '5');
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('106', '4');
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES ('106', '3');
 
-UPDATE `booking` SET `referring_person_id`='100' WHERE `id`='1';
-UPDATE `booking` SET `referring_person_id`='101' WHERE `id`='2';
-UPDATE `booking` SET `referring_person_id`='101' WHERE `id`='3';
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES ('2016-12-15', 'Power Rangers', '2017-02-05', '2017-02-10', 30, null, 100, null, '2017-02-04');
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES ('2016-12-15', 'The Expendables', '2017-03-01', '2017-03-20', 17, null, 100, null, '2017-02-28');
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES ('2016-12-15', 'The Good, The Bad, The Ugly', '2017-04-01', '2017-04-30', 10, null, 100, null, '2017-03-31');
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES ('2016-12-15', 'The Avengers', '2017-04-01', '2017-04-30', 10, null, 101, null, '2017-03-31');
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES ('2016-12-15', 'X-Men', '2017-04-01', '2017-04-30', 10, null, 101, null, '2017-03-31');
+
+UPDATE `booking` SET `referring_person_id`='100', `referring_inquiry` = 1 WHERE `id`='1';
+UPDATE `booking` SET `referring_person_id`='101', `referring_inquiry` = 4 WHERE `id`='2';
+UPDATE `booking` SET `referring_person_id`='101', `referring_inquiry` = 5 WHERE `id`='3';
 UPDATE `booking` SET `referring_person_id`='102' WHERE `id`='4';
 UPDATE `booking` SET `referring_person_id`='105' WHERE `id`='5';
 UPDATE `booking` SET `referring_person_id`='105' WHERE `id`='6';
@@ -952,3 +958,4 @@ INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUE
 UPDATE `booking_person` SET `payment_card_id`='1' WHERE `person_id`='6' and`booking_id`='1';
 UPDATE `booking_person` SET `payment_card_id`='1' WHERE `person_id`='9' and`booking_id`='2';
 UPDATE `booking_person` SET `payment_card_id`='2' WHERE `person_id`='11' and`booking_id`='2';
+
