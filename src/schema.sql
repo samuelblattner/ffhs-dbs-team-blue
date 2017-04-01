@@ -224,6 +224,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `name` VARCHAR(50) NULL DEFAULT NULL,
   `contact_person_id` INT(11) NULL DEFAULT NULL,
   `company_type_id` INT(11) NOT NULL,
+  `customer_number` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `company_name_uniq` (`name` ASC),
   INDEX `contact_person_id_idx` (`contact_person_id` ASC),
