@@ -872,16 +872,22 @@ INSERT INTO `booking` (`checkin`, `checkout`) VALUES
   ('2017-03-25', '2017-03-30'),
   ('2017-03-25', '2017-03-30');
 
-INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('6', '1', '1');
-INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('7', '1');
-INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('8', '1');
+INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES
+  ('3455345343454', '03-18', 'MasterCard', 'Hans Meier'),
+  ('786423459865', '04-19', 'Visa', 'Tania Meier');
 
-INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('9', '2', '1');
-INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('10', '2');
-INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('11', '2');
-INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('12', '2');
+INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`, `payment_card_id`) VALUES ('6', '1', '1', '1');
+INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES
+  ('7', '1'),
+  ('8', '1');
 
-INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES ('13', '3', '1');
+INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`, `payment_card_id`) VALUES ('9', '2', '1', '2');
+INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES
+  ('10', '2'),
+  ('11', '2'),
+  ('12', '2');
+
+INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`, `payment_card_id`) VALUES ('13', '3', '1', '1');
 INSERT INTO `booking_person` (`person_id`, `booking_id`) VALUES ('14', '13');
 
 INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
@@ -986,11 +992,3 @@ UPDATE `booking` SET `referring_person_id` = '105' WHERE `id` = '5';
 UPDATE `booking` SET `referring_person_id` = '105' WHERE `id` = '6';
 UPDATE `booking` SET `referring_person_id` = '106' WHERE `id` = '7';
 UPDATE `booking` SET `referring_person_id` = '107' WHERE `id` = '8';
-
-INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES
-  ('3455345343454', '03-18', 'MASTERCARD', 'Hans Meier'),
-  ('786423459865', '04-19', 'Visa', 'Tania Meier');
-
-UPDATE `booking_person` SET `payment_card_id` = '1' WHERE `person_id` = '6' AND `booking_id` = '1';
-UPDATE `booking_person` SET `payment_card_id` = '1' WHERE `person_id` = '9' AND `booking_id` = '2';
-UPDATE `booking_person` SET `payment_card_id` = '2' WHERE `person_id` = '11' AND `booking_id` = '2';
