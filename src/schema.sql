@@ -4,10 +4,11 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
 -- Schema starview
+-- Please do not push the schema without commenting out
+-- the following two statements.
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
-USE `starview` ;
-
+-- CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
+-- USE `starview` ;
 
 -- -----------------------------------------------------
 -- Table `country`
