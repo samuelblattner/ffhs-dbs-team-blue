@@ -5,10 +5,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema starview
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema starview
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `starview` DEFAULT CHARACTER SET latin1 ;
 USE `starview` ;
 
