@@ -940,30 +940,14 @@ INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES
   ('2', '2'),
   ('3', '3');
 
-UPDATE `booking`
-SET `referring_company_id` = '1'
-WHERE `id` = '1';
-UPDATE `booking`
-SET `referring_company_id` = '2'
-WHERE `id` = '2';
-UPDATE `booking`
-SET `referring_company_id` = '1'
-WHERE `id` = '3';
-UPDATE `booking`
-SET `referring_company_id` = '1'
-WHERE `id` = '4';
-UPDATE `booking`
-SET `referring_company_id` = '2'
-WHERE `id` = '5';
-UPDATE `booking`
-SET `referring_company_id` = '3'
-WHERE `id` = '6';
-UPDATE `booking`
-SET `referring_company_id` = '4'
-WHERE `id` = '7';
-UPDATE `booking`
-SET `referring_company_id` = '3'
-WHERE `id` = '8';
+UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '1';
+UPDATE `booking` SET `referring_company_id` = '2' WHERE `id` = '2';
+UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '3';
+UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '4';
+UPDATE `booking` SET `referring_company_id` = '2' WHERE `id` = '5';
+UPDATE `booking` SET `referring_company_id` = '3' WHERE `id` = '6';
+UPDATE `booking` SET `referring_company_id` = '4' WHERE `id` = '7';
+UPDATE `booking` SET `referring_company_id` = '3' WHERE `id` = '8';
 
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES
   ('100', '1'),
