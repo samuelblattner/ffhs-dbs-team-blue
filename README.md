@@ -63,7 +63,7 @@ robin | ejNT3~K:8x*N | starview_robin
  1. Open port ``41337`` in security group <br> ``security group rule create --dst-port 41337 mysql``
  1. Apply security group to server instance <br> ``server add security group dbs mysql``
  
-## Task Requirements / Checklist
+## Model requirements
 
 ### Notizen des ersten Treffens
 Source: https://moodle.ffhs.ch/mod/page/view.php?id=228280
@@ -155,3 +155,69 @@ ID | Status | Comment | Original text
 0605 | ✔ | Added attribute `special_request` to `inquiry` table. | Possibility to save a special requests (note) per inquiry.
 0606 | ✔ | Added attribute `reservation_until` to `inquiry` table. Added many-to-many relationship to `room` from `inquiry`.| Possibility to reserve specific rooms per inquiry.
 0607 | [✔](https://github.com/samuelblattner/ffhs-dbs-team-blue/pull/2) | Add relation between `company` and `phone_number` | Implicit requirement to make sure that companies can be given phone numbers even when there's no contact person |
+
+## Queries and test cases
+This chapter describes test cases and queries according to the tasks in Moodle.
+
+### Block 3 "Aufgabe 1 - SQL - Analyseabfrage"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=22882
+> Erstellen Sie eine SQL-Abfrage, mit welcher die folgende Anforderung von Luzius erfüllt werden kann:
+>
+> Mitarbeiter, welche auch Gäste sind, erhalten Sonderkonditionen für sich und ihre Begleitpersonen.
+>
+> Die Abfrage soll alle Hotelgäste auflisten mit Name, Vorname für welche diese Anforderung zutrifft.
+>
+> Identifizieren Sie alle Testfälle, welche in Ihren Testdaten vorhanden sein müssen.
+>
+> Dokumentieren Sie.
+
+Zuerst werden die involvierten Entitäten in unserem Modell gesucht. Gäste definieren sich durch Personen,
+welche mit einer Buchung in Verbindung stehen. Eine Person kann ein Mitarbeiter sein. Dadurch, dass nur 
+der `Name` und `Vorname` ausgegeben werden müssen, spielen Sonderkonditionen bei dieser Abfrage keine Rolle.
+
+Die Daten sind auf folgende Tabellen verteilt:
+ - `person` <br> Enthält `forename` und `surname`.
+ - `booking` <br> Enthält Buchungsinformationen. Verknüpft mit der Person ergibt sich dadurch ein Gast.
+ - `employee` <br> Enthält alle Mitarbeiter.
+ 
+Folgende Testfälle an die Testdaten können identifiziert werden:
+ 1. Es muss Personen geben.
+    1. Personen müssen einen Vor- und Nachnamen haben.
+ 1. Es muss Buchungen von Personen geben.
+ 1. Es muss Personen geben, welche Mitarbeiter sind und Buchungen haben.
+ 1. Es muss Personen geben, welche Mitarbeiter sind, aber keine Buchungen haben.
+
+Es wurden alle Testfälle überprüft. Dabei wurde festgestellt, dass alle Personen, welche auch Mitarbeiter sind
+auch Buchungen haben. Damit kann nicht festgestellt werden, ob Mitarbeiter ohne Buchung nicht im Ergebnis auftauchen.
+
+Deshalb wurden drei Personen ohne Buchungen zu Mitarbeiter gemacht:
+
+```
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES 
+  ('23456389012', '2345673901234', '1', 100),
+  ('23456489012', '2345674901234', '1', 101),
+  ('23456589012', '2345675901234', '1', 102);
+```
+
+Nun sollen alle Personen mit Vor- und Nachname aufgeliestet werden.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname"  FROM person AS p;
+```
+
+Jetzt sollen alle Gäste gefunden werden, also Personen, welche eine Buchung haben. Dadurch, dass keine Informationen
+aus der Buchung selbst benötigt wird, reicht es aus, wenn die Schnittmenge von `person` und `booking_person` gesucht wird.
+Die Schnittmenge kann mit `INNER JOIN` gefunden werden.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname" FROM person AS p
+  INNER JOIN booking_person AS g ON p.id = g.person_id;
+```
+
+Jetzt soll noch herausgefunden werden, wer von diesen Personen auch Mitarbeiter ist.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname" FROM person AS p
+  INNER JOIN booking_person AS g ON p.id = g.person_id
+  INNER JOIN employee AS e ON p.id = e.person_id;
+```
