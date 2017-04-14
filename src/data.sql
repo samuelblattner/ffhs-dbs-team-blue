@@ -369,7 +369,7 @@ INSERT INTO `person_language` (`person_id`, `language_id`, `is_preferred`) VALUE
   ('5', '3', '1'),
   ('5', '10', '0');
 
-INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES 
+INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES
   ('98120150910', '3955731427349', '1', 1),
   ('11071804293', '8814910594771', '2', 2),
   ('26425829140', '4467830161295', '3', 3),
@@ -873,7 +873,11 @@ INSERT INTO `booking` (`checkin`, `checkout`) VALUES
   ('2017-03-25', '2017-03-30'),
   ('2017-03-25', '2017-03-30'),
   ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30');
+  ('2017-03-25', '2017-03-30'),
+  ('2017-01-25', '2017-01-30'),
+  ('2017-02-02', '2017-02-05'),
+  ('2016-03-25', '2016-03-30'),
+  ('2015-03-25', '2015-03-30');
 
 INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES
   ('3455345343454', '03-18', 'MasterCard', 'Hans Meier'),
@@ -902,7 +906,10 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
   ('20', '9', '1'),
   ('21', '10', '1'),
   ('22', '11', '1'),
-  ('23', '12', '1');
+  ('23', '12', '1'),
+  ('150', '24', '1'),
+  ('151', '25', '1'),
+  ('152', '26', '1');
 
 INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES
   ('1', '11'),

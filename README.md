@@ -183,20 +183,33 @@ Die Daten sind auf folgende Tabellen verteilt:
 Folgende Testfälle an die Testdaten können identifiziert werden:
  1. Es muss Personen geben.
     1. Personen müssen einen Vor- und Nachnamen haben.
- 1. Es muss Buchungen von Personen geben.
+ 1. Es muss Personen geben, welche keine Mitarbeiter sind und Buchungen haben.
+ 1. Es muss Personen geben, welche keine Mitarbeiter sind und keine Buchungen haben.
  1. Es muss Personen geben, welche Mitarbeiter sind und Buchungen haben.
  1. Es muss Personen geben, welche Mitarbeiter sind, aber keine Buchungen haben.
 
-Es wurden alle Testfälle überprüft. Dabei wurde festgestellt, dass alle Personen, welche auch Mitarbeiter sind
-auch Buchungen haben. Damit kann nicht festgestellt werden, ob Mitarbeiter ohne Buchung nicht im Ergebnis auftauchen.
+Es wurden alle Testfälle überprüft. Dabei wurde festgestellt, dass es nur Personen mit Buchungen gibt, welche auch Mitarbeiter sind.
+ Damit kann nicht festgestellt werden, ob nicht auch Personen oder Mitarbeiter ohne Buchung im Ergebnis auftauchen.
 
-Deshalb wurden drei Personen ohne Buchungen zu Mitarbeiter gemacht:
+Deshalb wurden drei Personen ohne Buchungen zu Mitarbeiter gemacht und normale Gäste hinzugefügt:
 
 ```
 INSERT INTO `employee` (`legacy_social_insurance_number`, `social_insurance_number`, `employee_type_id`, `person_id`) VALUES 
   ('23456389012', '2345673901234', '1', 100),
   ('23456489012', '2345674901234', '1', 101),
   ('23456589012', '2345675901234', '1', 102);
+```
+
+```
+INSERT INTO `booking` (`checkin`, `checkout`) VALUES
+  ('2017-02-02', '2017-02-05'),
+  ('2016-03-25', '2016-03-30'),
+  ('2015-03-25', '2015-03-30');
+  
+INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`) VALUES
+  ('150', '24', '1'),
+  ('151', '25', '1'),
+  ('152', '26', '1');
 ```
 
 Nun sollen alle Personen mit Vor- und Nachname aufgeliestet werden.
@@ -221,3 +234,26 @@ SELECT p.forename AS "Vorname", p.surname AS "Nachname" FROM person AS p
   INNER JOIN booking_person AS g ON p.id = g.person_id
   INNER JOIN employee AS e ON p.id = e.person_id;
 ```
+
+Daraus ergibt sich folgende Tabelle:
+
+<table border="1" style="border-collapse:collapse">
+<tr><th>Vorname</th><th>Nachname</th></tr>
+<tr><td>Rebbecca</td><td>Didio</td></tr>
+<tr><td>Stevie</td><td>Hallo</td></tr>
+<tr><td>Mariko</td><td>Stayer</td></tr>
+<tr><td>Gerardo</td><td>Woodka</td></tr>
+<tr><td>Mayra</td><td>Bena</td></tr>
+<tr><td>Idella</td><td>Scotland</td></tr>
+<tr><td>Sherill</td><td>Klar</td></tr>
+<tr><td>Ena</td><td>Desjardiws</td></tr>
+<tr><td>Theron</td><td>Jarding</td></tr>
+<tr><td>Amira</td><td>Chudej</td></tr>
+<tr><td>Marica</td><td>Tarbor</td></tr>
+<tr><td>Shawna</td><td>Albrough</td></tr>
+<tr><td>Paulina</td><td>Maker</td></tr>
+<tr><td>Rose</td><td>Jebb</td></tr>
+<tr><td>Reita</td><td>Tabar</td></tr>
+<tr><td>Maybelle</td><td>Bewley</td></tr>
+<tr><td>Camellia</td><td>Pylant</td></tr>
+<tr><td>Vince</td><td>Siena</td></tr></table>
