@@ -850,34 +850,41 @@ INSERT INTO `attribute` (`description`) VALUES
   ('Grösse: 42 m²'),
   ('Bett: 1 King oder Twin');
 
-INSERT INTO `booking` (`checkin`, `checkout`) VALUES
-  ('2017-03-15', '2017-03-30'),
-  ('2017-03-18', '2017-04-03'),
-  ('2017-03-19', '2017-04-04'),
-  ('2017-03-19', '2017-03-30'),
-  ('2017-03-18', '2017-03-30'),
-  ('2017-03-20', '2017-03-30'),
-  ('2017-03-10', '2017-03-30'),
-  ('2017-03-21', '2017-03-30'),
-  ('2017-03-22', '2017-03-30'),
-  ('2017-03-23', '2017-03-30'),
-  ('2017-03-24', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-03-25', '2017-03-30'),
-  ('2017-01-25', '2017-01-30'),
-  ('2017-02-02', '2017-02-05'),
-  ('2016-03-25', '2016-03-30'),
-  ('2015-03-25', '2015-03-30');
+INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES
+  ('2016-12-15', 'Power Rangers', '2017-02-05', '2017-02-10', 30, NULL, 100, NULL, '2017-02-04'),
+  ('2016-12-15', 'The Expendables', '2017-03-01', '2017-03-20', 17, NULL, 100, NULL, '2017-02-28'),
+  ('2016-12-15', 'The Good, The Bad, The Ugly', '2017-04-01', '2017-04-30', 10, NULL, 100, NULL, '2017-03-31'),
+  ('2016-12-15', 'The Avengers', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31'),
+  ('2016-12-15', 'X-Men', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31');
+
+INSERT INTO `booking` (`checkin`, `checkout`, `referring_company_id`, `referring_person_id`, `referring_inquiry`) VALUES
+  ('2017-03-15', '2017-03-30', 1, 100, 1),
+  ('2017-03-18', '2017-04-03', 2, 101, 4),
+  ('2017-03-19', '2017-04-04', 1, 101, 5),
+  ('2017-03-19', '2017-03-30', 1, 102, NULL),
+  ('2017-03-18', '2017-03-30', 2, 105, NULL),
+  ('2017-03-20', '2017-03-30', 3, 105, NULL),
+  ('2017-03-10', '2017-03-30', 4, 106, NULL),
+  ('2017-03-21', '2017-03-30', 3, 107, NULL),
+  ('2017-03-22', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-23', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-24', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-03-25', '2017-03-30', NULL, NULL, NULL),
+  ('2017-01-25', '2017-01-30', NULL, NULL, NULL),
+  ('2017-02-02', '2017-02-05', NULL, NULL, NULL),
+  ('2016-03-25', '2016-03-30', NULL, NULL, NULL),
+  ('2015-03-25', '2015-03-30', NULL, NULL, NULL);
 
 INSERT INTO `payment_card` (`number`, `expirationdate`, `company`, `name`) VALUES
   ('3455345343454', '03-18', 'MasterCard', 'Hans Meier'),
@@ -950,15 +957,6 @@ INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES
   ('2', '2'),
   ('3', '3');
 
-UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '1';
-UPDATE `booking` SET `referring_company_id` = '2' WHERE `id` = '2';
-UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '3';
-UPDATE `booking` SET `referring_company_id` = '1' WHERE `id` = '4';
-UPDATE `booking` SET `referring_company_id` = '2' WHERE `id` = '5';
-UPDATE `booking` SET `referring_company_id` = '3' WHERE `id` = '6';
-UPDATE `booking` SET `referring_company_id` = '4' WHERE `id` = '7';
-UPDATE `booking` SET `referring_company_id` = '3' WHERE `id` = '8';
-
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES
   ('100', '1'),
   ('100', '2'),
@@ -970,19 +968,3 @@ INSERT INTO `person_company` (`person_id`, `company_id`) VALUES
   ('105', '5'),
   ('106', '4'),
   ('106', '3');
-
-INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES
-  ('2016-12-15', 'Power Rangers', '2017-02-05', '2017-02-10', 30, NULL, 100, NULL, '2017-02-04'),
-  ('2016-12-15', 'The Expendables', '2017-03-01', '2017-03-20', 17, NULL, 100, NULL, '2017-02-28'),
-  ('2016-12-15', 'The Good, The Bad, The Ugly', '2017-04-01', '2017-04-30', 10, NULL, 100, NULL, '2017-03-31'),
-  ('2016-12-15', 'The Avengers', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31'),
-  ('2016-12-15', 'X-Men', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31');
-
-UPDATE `booking` SET `referring_person_id` = '100', `referring_inquiry` = 1 WHERE `id` = '1';
-UPDATE `booking` SET `referring_person_id` = '101', `referring_inquiry` = 4 WHERE `id` = '2';
-UPDATE `booking` SET `referring_person_id` = '101', `referring_inquiry` = 5 WHERE `id` = '3';
-UPDATE `booking` SET `referring_person_id` = '102' WHERE `id` = '4';
-UPDATE `booking` SET `referring_person_id` = '105' WHERE `id` = '5';
-UPDATE `booking` SET `referring_person_id` = '105' WHERE `id` = '6';
-UPDATE `booking` SET `referring_person_id` = '106' WHERE `id` = '7';
-UPDATE `booking` SET `referring_person_id` = '107' WHERE `id` = '8';
