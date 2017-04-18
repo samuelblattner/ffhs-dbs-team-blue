@@ -807,7 +807,10 @@ INSERT INTO `person_address` (`address_id`, `person_id`) VALUES
   (6, 6),
   (7, 7),
   (8, 8),
-  (9, 9);
+  (9, 9),
+  (1, 100),
+  (2, 101),
+  (3, 102);
 
 INSERT INTO `room_type` (`name`, `description`, `maximum_number_of_guests`) VALUES
   ('Einzelzimmer', 'Dieses Zimmer ist für eine einzelne Person', 1),

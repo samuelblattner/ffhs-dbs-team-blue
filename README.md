@@ -237,7 +237,7 @@ SELECT p.forename AS "Vorname", p.surname AS "Nachname" FROM person AS p
 
 Daraus ergibt sich folgende Tabelle:
 
-<table border="1" style="border-collapse:collapse">
+<table style="border-collapse:collapse">
 <tr><th>Vorname</th><th>Nachname</th></tr>
 <tr><td>Rebbecca</td><td>Didio</td></tr>
 <tr><td>Stevie</td><td>Hallo</td></tr>
@@ -257,3 +257,114 @@ Daraus ergibt sich folgende Tabelle:
 <tr><td>Maybelle</td><td>Bewley</td></tr>
 <tr><td>Camellia</td><td>Pylant</td></tr>
 <tr><td>Vince</td><td>Siena</td></tr></table>
+
+### Block 3 "Aufgabe 2 - SQL - Analyseabfrage"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=22883
+> Erstellen Sie eine SQL-Abfrage, mit welcher die folgende Anforderung von Luzius erfüllt werden kann:
+>
+> Die Zusammenarbeit mit Reisebüros hat sich bewährt. Luzius möchte eine Übersicht erhalten, welches Reisebüro pro Jahr wieviele Übernachtungen bringt. Er trägt sich mit dem Gedanken, besonders guten Reisebüros Rabatt zu geben, oder auch besonders guten Mitarbeitern in Reisebüros zum Geburtstag eine kleine Aufmerksamkeit zu schicken.
+> 
+> Die Abfrage soll alle Reisebüromitarbeiter, Firmenmitarbeiter auflisten mit Name, Vorname, und postalischer Adresse für welche diese Anforderung zutrifft.
+>
+> Identifizieren Sie alle Testfälle, welche in Ihren Testdaten vorhanden sein müssen.
+>
+> Dokumentieren Sie.
+
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=23293
+> Die Anfoderung ist so zu verstehen, dass für das letzte volle Jahr (d.h. Sie sollten hier ein wenig Vergangenheit erstellen) - alternativ geht meiner Meinung nach aber auch der letzte Monat - sämtliche Buchungen für den gegebenen Zeitraum den Reisebüro-Mitarbeitenden, resp. den Reisebüros zugeordnet werden müssen. Die Aufgabe zielt darauf ab, dass der gegebene Zeitraum die Auswahl definiert, unabhängig davon welche Buchungen davon betroffen sind. So sollten Sie beispielsweise definieren, ob das Buchungsdatum, das Anreisedatum oder das Abreisedatum innerhalb des fraglichen Zeitraums liegen muss.
+
+Zuerst werden die involvierten Entitäten in unserem Modell gesucht. Es soll eine Liste mit Mitarbeitern von Reisebüros 
+oder Firmen entstehen, welche über einen gewissen Zeitraum in der Vergangenheit Buchungen verursacht haben.
+
+Die Daten sind auf folgende Tabellen verteilt:
+ - `booking` <br> Diese Tabelle enthält alle Buchungen und eine Referenz auf die Person und Firma, welche die Buchung
+ verursacht hat.
+ - `person` <br> Diese Tabelle enthält die Mitarbeiter von Firmen und deren Angaben, wie die Anschrift.
+
+Folgende Testfälle an die Testdaten können identifiziert werden:
+ 1. Es gibt Buchungen, welche verschiedene, verursachende Person referenzieren.
+ 1. Es gibt Buchungen, über einen und mehrere Tage.
+ 1. Es gibt Buchungen, vor und nach dem untersuchten Zeitraum.
+ 1. Es gibt Buchungen, welche vor dem untersuchten Zeitraum beginnen und in den Zeitraum hineinreichen.
+ 1. Es gibt Buchungen, welche in dem untersuchten Zeitraum beginnen und aus dem Zeitraum hinausreichen.
+ 1. Für die verursachenden Personen sind Nach- und Vornamen, sowie Adressen erfasst.
+ 
+Wie in der Aufgabenstellung vorgeschlagen soll sich der Zeitraum über das letzte volle Jahr erstrecken.
+
+Die Testfälle wurden überprüft und es wurde festgestellt, dass es keine Buchungen für letztes Jahr (2016) gibt und somit 
+auch keine, welche den Beginn oder das Ende des Jahres überlappen. Auch waren nur wenige Buchungen mit einer Person 
+verknüpft, welche diese verursacht hat. Deshalb wurden folgende Daten den Testdaten hinzugefügt:
+ 
+```
+INSERT INTO `booking` (`checkin`, `checkout`, `referring_company_id`, `referring_person_id`, `referring_inquiry`) VALUES
+  ('2017-03-25', '2017-03-30', NULL, 101, NULL),
+  ('2017-03-25', '2017-03-30', NULL, 101, NULL),
+  ('2017-03-25', '2017-03-30', NULL, 102, NULL),
+  ('2017-01-25', '2017-01-30', NULL, 102, NULL),
+  ('2017-02-02', '2017-02-05', NULL, 102, NULL),
+  ('2015-03-25', '2015-03-30', NULL, 102, NULL),
+  ('2016-03-25', '2016-03-30', NULL, 102, NULL),
+  ('2016-12-20', '2017-03-30', NULL, 102, NULL), -- overlapping booking (2016 to 2017)
+  ('2015-12-25', '2016-01-03', NULL, 102, NULL), -- overlapping booking (2015 to 2016)
+  ('2016-04-17', '2016-05-01', NULL, 101, NULL),
+  ('2016-07-03', '2016-07-10', NULL, 101, NULL),
+  ('2016-07-05', '2016-07-13', NULL, 100, NULL),
+  ('2016-07-07', '2016-07-17', NULL, 100, NULL),
+  ('2016-10-27', '2016-11-03', NULL, 102, NULL),
+  ('2016-10-27', '2016-11-05', NULL, 102, NULL),
+  ('2016-11-02', '2016-11-03', NULL, 100, NULL),
+  ('2016-11-02', '2016-11-03', NULL, 100, NULL),
+  ('2016-12-11', '2016-12-30', NULL, 101, NULL);
+```
+
+Weiter ist zu erwähnen, dass nicht alle Personen eine Adresse haben. Ob die Personen ohne Adresse auch ausgegeben werden
+sollen definiert die Aufgabenstellung nicht.
+
+Es sollen alle Personen mit Vor- und Nachname aufgeliestet werden.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname"  FROM person AS p;
+```
+
+Zudem soll die zugehörige Adresse ausgegeben werden.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname", a.street AS "Strasse", pl.zip AS "Postleitzahl", pl.name AS "Ort"  
+  FROM person AS p
+  LEFT JOIN person_address AS pa ON p.id = pa.person_id
+  LEFT JOIN address AS a ON pa.address_id = a.id
+  LEFT JOIN place AS pl ON a.place_id = pl.id;
+```
+
+Nun soll die Schnittmenge zwischen referenzierten Buchungen und Personen gefunden werden.
+
+```
+SELECT p.forename AS "Vorname", p.surname AS "Nachname", a.street AS "Strasse", pl.zip AS "Postleitzahl", pl.name AS "Ort"
+  FROM person AS p
+  LEFT JOIN person_address AS pa ON p.id = pa.person_id
+  LEFT JOIN address AS a ON pa.address_id = a.id
+  LEFT JOIN place AS pl ON a.place_id = pl.id
+  INNER JOIN booking AS b ON p.id = b.referring_person_id;
+```
+
+Doppelte Einträge sollen aus dem Resultat entfernt werden. Dafür wird `SELECT DISTINCT` eingesetzt.
+
+Es soll der Zeitraum eingeschränkt werden.
+
+```
+SELECT DISTINCT p.forename AS "Vorname", p.surname AS "Nachname", a.street AS "Strasse", pl.zip AS "Postleitzahl", pl.name AS "Ort"
+  FROM person AS p
+  LEFT JOIN person_address AS pa ON p.id = pa.person_id
+  LEFT JOIN address AS a ON pa.address_id = a.id
+  LEFT JOIN place AS pl ON a.place_id = pl.id
+  INNER JOIN booking AS b ON p.id = b.referring_person_id
+  WHERE b.checkin BETWEEN '2016-01-01' AND '2016-12-31' OR b.checkout BETWEEN '2016-01-01' AND '2016-12-31';
+```
+
+Dies ergibt folgendes Resultat:
+
+<table style="border-collapse:collapse">
+<tr><th>Vorname</th><th>Nachname</th><th>Strasse</th><th>Postleitzahl</th><th>Ort</th></tr>
+<tr><td>Johnson</td><td>Mcenery</td><td>Mattastrasse 17</td><td>9463</td><td>Boerriet</td></tr>
+<tr><td>Rosamond</td><td>Amlin</td><td>Wylerstrasse 127</td><td>8754</td><td>Netstal</td></tr>
+<tr><td>Jonelle</td><td>Epps</td><td>Altgasse 42a</td><td>9245</td><td>Oberbüren</td></tr></table>
