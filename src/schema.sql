@@ -460,8 +460,8 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `employee` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `legacy_social_insurance_number` INT(11) NULL DEFAULT NULL,
-  `social_insurance_number` INT(13) NOT NULL,
+  `legacy_social_insurance_number` DECIMAL(11, 0) NULL DEFAULT NULL,
+  `social_insurance_number` DECIMAL(13, 0) NOT NULL,
   `employee_type_id` INT(11) NOT NULL,
   `person_id` INT(11) NOT NULL,
   UNIQUE INDEX `employee_social_insurance_number_uniq` (`social_insurance_number` ASC),
@@ -488,7 +488,7 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `language`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `language` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `language` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
     CONSTRAINT `employee_type_unique_rows` UNIQUE ( `language` ))
