@@ -509,7 +509,7 @@ abgezogen werden und mit `ABS()` wird das negative Resultat positiv gemacht, wes
   WHERE (b.checkin <= '2017-01-31') AND (b.checkout >= '2017-01-22');
  ```
 
-<table border="1" style="border-collapse:collapse">
+<table style="border-collapse:collapse">
 <tr><th>Anzahl freie Zimmer für Suchkriterien</th></tr>
 <tr><td>0</td></tr></table>
  
