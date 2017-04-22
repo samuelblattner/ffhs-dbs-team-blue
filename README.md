@@ -368,3 +368,18 @@ Dies ergibt folgendes Resultat:
 <tr><td>Johnson</td><td>Mcenery</td><td>Mattastrasse 17</td><td>9463</td><td>Boerriet</td></tr>
 <tr><td>Rosamond</td><td>Amlin</td><td>Wylerstrasse 127</td><td>8754</td><td>Netstal</td></tr>
 <tr><td>Jonelle</td><td>Epps</td><td>Altgasse 42a</td><td>9245</td><td>Oberbüren</td></tr></table>
+
+### Block 3 "Aufgabe 3 - SQL - Analyseabfrage"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=22883
+> Erstellen Sie eine SQL-Abfrage, mit welcher die folgende Anforderung von Luzius erfüllt werden kann:
+> 
+> Bei der Buchung muss natürlich klar sein, ob das Hotel überhaupt Platz hat für die Übernachtung. 
+> 
+> Die Abfrage soll für eine Buchung für ein Doppelzimmer, sowie für ein Anreise- und ein Abreisedatum funktionieren.
+> 
+> Identifizieren Sie alle Testfälle, welche in Ihren Testdaten vorhanden sein müssen.
+> 
+> Dokumentieren Sie.
+
+Zuerst werden die involvierten Entitäten in unserem Modell gesucht.
+
