@@ -903,7 +903,7 @@ INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_gues
 INSERT INTO `booking` (`checkin`, `checkout`, `referring_company_id`, `referring_person_id`, `referring_inquiry`) VALUES
   ('2017-03-15', '2017-03-30', 1, 100, 1),
   ('2017-03-18', '2017-04-03', 2, 101, 4),
-  ('2017-03-19', '2017-04-04', 1, 101, 5),
+  ('2017-04-19', '2017-04-27', 1, 101, 5),
   ('2017-03-19', '2017-03-30', 1, 102, NULL),
   ('2017-03-18', '2017-03-30', 2, 105, NULL),
   ('2017-03-20', '2017-03-30', 3, 105, NULL),
@@ -970,7 +970,11 @@ INSERT INTO `booking_person` (`person_id`, `booking_id`, `isResponsible`, `payme
 INSERT INTO `booking_room` (`booking_id`, `room_id`) VALUES
   (1, 1),
   (2, 2),
-  (3, 3);
+  (3, 3),
+  (12, 3),
+  (13, 7),
+  (14, 8),
+  (24, 3);
 
 INSERT INTO `person_company` (`person_id`, `company_id`) VALUES
   (100, 1),
