@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `other_address_details` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `address_place_id_idx` (`place_id` ASC),
-  CONSTRAINT `address_place_id_idx`
+  CONSTRAINT `address_place_id_fk`
     FOREIGN KEY (`place_id`)
     REFERENCES `place` (`id`)
     ON DELETE NO ACTION
@@ -64,13 +64,31 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `attribute_type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `attribute_type` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+    CONSTRAINT `attribute_type_unique_rows` UNIQUE (`name`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `attribute`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `attribute` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `description` VARCHAR(100) NULL DEFAULT NULL,
+  `attribute_type_id` INT(11) NOT NULL,
+  `value` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
-    CONSTRAINT `attribute_unique_rows` UNIQUE (`description`))
+  CONSTRAINT `attribute_attribute_type_id_fk`
+      FOREIGN KEY (`attribute_type_id`)
+      REFERENCES `attribute_type` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -115,6 +133,7 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `attribute_room` (
   `room_id` INT(11) NOT NULL,
   `attribute_id` INT(11) NOT NULL,
+  `optional_equipment` TINYINT(1) NULL DEFAULT '0',
   PRIMARY KEY (`room_id`, `attribute_id`),
   INDEX `attribute_room_room_id_idx` (`room_id` ASC),
   INDEX `attribute_room_room_attribute_id_idx` (`attribute_id` ASC),
