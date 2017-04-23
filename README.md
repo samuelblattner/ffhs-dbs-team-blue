@@ -608,3 +608,78 @@ SELECT GREATEST((
     (b.checkout >= (SELECT i.from FROM inquiry AS i WHERE i.id = 1));
 ```
 
+### Block 3 "Aufgabe 5 - SQL - Analyseabfrage"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=22886
+> Erstellen Sie eine SQL-Abfrage, mit welcher die folgende Anforderung von Luzius erfüllt werden kann:
+> 
+> Aurelias Bemerkung zur Verfügbarkeitsanfrage:
+> 
+> Ich möchte nochmals darauf hinweisen, dass ich eine sehr präzise Liste führe, welche mir Auskunft darüber gibt, wieviele Verfügbarkeitsanfragen zu einer Buchung führen. So kann ich bei der Disposition besser abschätzen, mit welcher Wahrscheinlichkeit eine Anfrage eines Reisebüros zu einer Buchung führt.
+> 
+> Die Abfrage soll alle Hotelgäste auflisten mit Name, Vorname für welche diese Anforderung zutrifft.
+> 
+> Identifizieren Sie alle Testfälle, welche in Ihren Testdaten vorhanden sein müssen.
+> 
+> Dokumentieren Sie.
+
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=23478
+> Sie haben recht - streng genommen wird die Analyse, wieviele Anfragen zu einer effektiven Buchung führen zu einer Verhältniszahl führen. Das ist aber für die praktische Anwendung im Hotel offenbar nicht genügend übersichtlich. 
+>
+> Wenn ich mich in Aurelia versetze, dann will sie wohl den jeweiligen Anfragen die Detailbuchung gegenübergestellt haben. Die Detailbuchung enthält dann eben die Namen der tatsächlich eingecheckten Gäste. Aus der Anfrage alleine kennen wir ja die Namen der Gäste nicht. 
+> 
+> Ich stelle mir das inetwa wie folgt vor:
+> 
+> Die Liste könnte noch mit beliebigen Daten (Anfragedatum, tatsächliches Buchungsdatum, etc.) oder mit beliebigen Statistiken (wie verhält sich Anzahl angefragte gegenüber Anzahl tatsächlich eingecheckte Gäste, wieiviel Zeit vergeht zwischen Anfrage und tatsächlicher Buchung...im durchschnitt, je referring_company/person, etc.) ergänzt werden. 
+> 
+> Deshalb würde ich die Lösung in verschiedene Elemente aufteilen und unterschiedliche Listen/views bauen, die die Erkenntnisse, welche die Daten hergeben, aus unterschiedlichen Perspektiven bestrachtet werden können.
+> 
+> Meiner Meinung fehlt in der Aufgabenstellung auch die referring_company/person, die ja eigentlich der wichtigste Teil dieser Auswertung wäre. 
+> 
+> Der Kern der Aufgabe ist, dass Sie die aus Anfragen stammenden Gäste identifizieren können. Der Rest ist nicht zuletzt Ihrem Ideenreichtum bezüglich Analyse und Statistik überlassen.
+ 
+Grundsätzlich ermöglicht unser Modell zu erkennen, welche Verfügbarkeitsanfragen zu welchen Buchungen geführt hat.
+
+![Diagramm für Block 3 Nachbearbeitungsaufgabe 5](docs/diagrams/3-booking-inquiry-relation.png)
+
+Zuerst soll eine Liste mit Gästen erstellt werden, welche eine Buchung im System getätigt haben. Danach soll eine Zeitspanne
+definiert werden, welche untersucht werden soll. Schlussendlich sollen die Buchungen durch eine Verfügbarkeitsanfrage und
+die direkten Buchungen gezählt werden.
+
+Dabei sind folgende Entitäten involviert:
+
+![Diagramm für Block 3 Nachbearbeitungsaufgabe 5](docs/diagrams/3-inquiry-booking-person-relation.png)
+
+Folgende Testfälle an die Testdaten können identifiziert werden:
+ - Es gibt Buchungen, welche durch Verfügbarkeitsanfragen entstanden sind, also diese Referenzieren.
+ - Zu dieser Buchung muss es mindestens eine Person geben.
+ 
+Die Testdaten wurden für das erwähnte Szenario überprüft und die Testdaten sind genügend.
+
+Zuerst sollen alle Buchungen selektiert werden und mit Anfragen, sowie den verursachenden Personen angezeigt werden.
+
+```
+SELECT * FROM booking AS b
+  LEFT JOIN inquiry AS i ON b.referring_inquiry = i.id
+  INNER JOIN person AS p ON b.referring_person_id = p.id;
+```
+
+Es sollen nur die Buchungen aus dem Jahr 2017 untersucht werden.
+
+```
+SELECT * FROM booking AS b
+  LEFT JOIN inquiry AS i ON b.referring_inquiry = i.id
+  INNER JOIN person AS p ON b.referring_person_id = p.id
+  WHERE YEAR(b.checkin) = 2017 OR YEAR(b.checkout) = 2017;
+```
+
+Nun sollen die Fälle mit vorhergegangenen Verfügbarkeitsanfrage und diese ohne gezählt werden.
+```
+SELECT
+    COUNT(*) AS 'Alle Buchungen',
+    SUM(CASE WHEN b.referring_inquiry != 0 THEN 1 ELSE 0 END) AS 'Buchungen mit vorhergegangenen Verfügbarkeitsanfrage'
+  FROM booking AS b
+  LEFT JOIN inquiry AS i ON b.referring_inquiry = i.id
+  INNER JOIN person AS p ON b.referring_person_id = p.id
+  WHERE YEAR(b.checkin) = 2017 OR YEAR(b.checkout) = 2017;
+```
+
