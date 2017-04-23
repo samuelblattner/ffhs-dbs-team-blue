@@ -157,6 +157,11 @@ ID | Status | Comment | Original text
 0606 | ✔ | Added attribute `reservation_until` to `inquiry` table. Added many-to-many relationship to `room` from `inquiry`.| Possibility to reserve specific rooms per inquiry.
 0607 | [✔](https://github.com/samuelblattner/ffhs-dbs-team-blue/pull/2) | Add relation between `company` and `phone_number` | Implicit requirement to make sure that companies can be given phone numbers even when there's no contact person |
 
+### Verbesserungen
+ID | Status | Comment | Original text
+--- | --- | --- | ---
+0701 | ⌛ | | `booking` does not need to reference any guests, because with `booking_person` it's a many-to-many relationship, but it should be a `1..* to *` relation.
+
 ## Queries and test cases
 This chapter describes test cases and queries according to the tasks in Moodle.
 
