@@ -514,3 +514,92 @@ abgezogen werden und mit `ABS()` wird das negative Resultat positiv gemacht, wes
 <tr><td>0</td></tr></table>
  
 Vielleicht wäre es sinnvoll einen CHECK-Constraint zu erstellen, welcher überprüft, ob ein Raum nicht schon belegt ist.
+
+### Block 3 "Aufgabe 4 - SQL - Analyseabfrage"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=22885
+> Erstellen Sie eine SQL-Abfrage, mit welcher die folgende Anforderung von Luzius erfüllt werden kann:
+> 
+> Bei der Buchung muss natürlich klar sein, ob das Hotel überhaupt Platz hat für die Übernachtung. 
+> 
+> Die Abfrage soll für eine Buchung für ein Doppelzimmer, sowie für eine Verfügbarkeitsanfrage funktionieren. 
+Identifizieren Sie alle Testfälle, welche in Ihren Testdaten vorhanden sein müssen.
+> 
+> Dokumentieren Sie.
+
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=23476
+
+Dadurch, dass auch bis kurz vor der Abgabefrist die Aufgabe unklar war, wurden folgende Annahme getroffen:
+ - Die Aufgabe ist wie die Aufgabe 3, nur wird hier eine Verfügbarkeitsanfrage als Ausgangslage verwendet.
+ 
+Zuerst werden die involvierten Entitäten in unserem Modell gesucht. Es soll herausgefunden werden, ob zu einer gewissen 
+Zeitspanne ein Raum eines gewissen Typs frei ist, also es keine Buchungen dafür gibt. Die Daten zum Zeitraum stammen aus
+ einer Verfügbarkeitsanfrage.
+
+![Diagramm für Block 3 Nachbearbeitungsaufgabe 4](docs/diagrams/3-occupancy-by-inquiry.png)
+
+Die Daten sind auf folgende Tabellen verteilt:
+ - `booking` <br> Diese Tabelle enthält alle Buchungen und über `booking_room` eine Referenz auf die belegten Räume.
+ Auch ist die Zeitspanne (`checkin` und `checkout`) der Belegung in dieser Tabelle gespeichert.
+ - `room_type` <br> In dieser Tabelle sind die verschiedenen Raumtypen enthalten. Ein `room` referenziert jeweils ein 
+ solcher Typ.
+ - `inquiry` <br> Diese Tabelle enthält alle Anfragen. Über die Tabelle `inquiry_room` sind einzelne Räume verknüpft.
+ 
+Folgende Testfälle an die Testdaten können identifiziert werden:
+ - Es gibt mehrere Raumtypen.
+   - Ein Raumtyp hat mehrere referenzierte Räume.
+ - Es gibt mehrere Räume.
+ - Es gibt mehrere Buchungen.
+   - Es gibt einen Zeitraum, indem alle Räume eines Raumtyps belegt sind.
+   - Es gibt einen anderen Zeitraum, indem manche Räume eines Raumtyps belegt sind.
+   - Es gibt einen anderen Zeitraum, indem keine Räume eines Raumtyps belegt sind.
+ - Es gibt mehrere Anfragen.
+   - Für einen Zeitraum, indem alle Räume eines Raumtyps belegt sind.
+   - Für einen anderen Zeitraum, indem manche Räume eines Raumtyps belegt sind.
+   - Für einen anderen Zeitraum, indem keine Räume eines Raumtyps belegt sind.
+   
+Für diese Aufgabe ist es sinnvoll ein genaues Szenario vorzubereiten:
+ - Es gibt insgesamt 3 Räume des Typs `Doppelzimmer`.
+ - Vom 25.03.2017 bis zum 30.03.2017 sind alle Räume des Typs `Doppelzimmer` belegt.
+ - Vom 25.01.2017 bis zum 30.01.2017 ist ein Raum des Typs `Doppelzimmer` belegt.
+ - Vom 12.06.2018 bis zum 18.06.2018 ist kein Raum des Typs `Doppelzimmer` belegt.
+ 
+Die Testdaten wurden für das erwähnte Szenario überprüft und es wurde festgestellt, dass es keine zum Szenario passenden
+Verfügbarkeitsanfragen gibt. Deshalb wurden folgende Testdaten hinzugefügt: 
+
+```
+INSERT INTO `inquiry` (`created_at`, `from`, `to`, `group_name`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES
+  ('2016-12-15', '2017-01-26', '2017-01-28', 'Power Rangers', 30, NULL, 100, NULL, '2017-02-04'),
+  ('2016-12-15', '2017-03-26', '2017-03-28', 'The Expendables', 17, NULL, 100, NULL, '2017-02-28'),
+  ('2016-12-15', '2018-06-12', '2017-06-18', 'The Good, The Bad, The Ugly', 10, NULL, 100, NULL, '2017-03-31');
+```
+
+Dadurch, dass diese Aufgabe der Aufgabe 3 sehr ähnlich ist, wird nun mit dem Resultat der ähnlichen Aufgabe, gestartet.
+
+```
+SELECT GREATEST((
+    SELECT COUNT(*) FROM room AS r
+      INNER JOIN room_type AS rt ON r.room_type_id = rt.id AND rt.name = 'Doppelzimmer'
+  ) - COUNT(*), 0) AS 'Anzahl freie Zimmer für Suchkriterien' FROM room AS r
+  INNER JOIN room_type AS rt ON r.room_type_id = rt.id AND rt.name = 'Doppelzimmer'
+  LEFT JOIN booking_room AS br ON r.id = br.room_id
+  LEFT JOIN booking AS b ON br.booking_id = b.`id`
+  WHERE (b.checkin <= '2017-03-31') AND (b.checkout >= '2017-01-22');
+```
+
+Nun wird die Zeitspanne in der `WHERE`-Kondition durch eine Verfügbarkeitsanfrage definiert. Die Resultate sollten 
+gleich sein wie bei der Aufgabe 3, da die Verfügbarkeitsanfragen den selben Zeitraum umfassen.
+
+```
+SELECT GREATEST((
+    SELECT COUNT(*) FROM room AS r
+      INNER JOIN room_type AS rt ON r.room_type_id = rt.id AND rt.name = 'Doppelzimmer'
+  ) - COUNT(*), 0) AS 'Anzahl freie Zimmer für Suchkriterien' FROM room AS r
+  INNER JOIN room_type AS rt ON r.room_type_id = rt.id AND rt.name = 'Doppelzimmer'
+  LEFT JOIN booking_room AS br ON r.id = br.room_id
+  LEFT JOIN booking AS b ON br.booking_id = b.`id`
+  WHERE
+    (b.checkin <= (SELECT i.to FROM inquiry AS i WHERE i.id = 1))
+  AND 
+    (b.checkout >= (SELECT i.from FROM inquiry AS i WHERE i.id = 1));
+```
+

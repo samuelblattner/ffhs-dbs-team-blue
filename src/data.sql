@@ -893,12 +893,12 @@ INSERT INTO `attribute_room` (`room_id`, `attribute_id`) VALUES
   (8, 3),
   (8, 4);
 
-INSERT INTO `inquiry` (`created_at`, `group_name`, `from`, `to`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES
-  ('2016-12-15', 'Power Rangers', '2017-02-05', '2017-02-10', 30, NULL, 100, NULL, '2017-02-04'),
-  ('2016-12-15', 'The Expendables', '2017-03-01', '2017-03-20', 17, NULL, 100, NULL, '2017-02-28'),
-  ('2016-12-15', 'The Good, The Bad, The Ugly', '2017-04-01', '2017-04-30', 10, NULL, 100, NULL, '2017-03-31'),
-  ('2016-12-15', 'The Avengers', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31'),
-  ('2016-12-15', 'X-Men', '2017-04-01', '2017-04-30', 10, NULL, 101, NULL, '2017-03-31');
+INSERT INTO `inquiry` (`created_at`, `from`, `to`, `group_name`, `number_of_guests`, `special_request`, `person_id`, `cancelled_at`, `reservation_until`) VALUES
+  ('2016-12-15', '2017-01-26', '2017-01-28', 'Power Rangers', 30, NULL, 100, NULL, '2017-02-04'),
+  ('2016-12-15', '2017-03-26', '2017-03-28', 'The Expendables', 17, NULL, 100, NULL, '2017-02-28'),
+  ('2016-12-15', '2018-06-12', '2017-06-18', 'The Good, The Bad, The Ugly', 10, NULL, 100, NULL, '2017-03-31'),
+  ('2016-12-15', '2017-04-01', '2017-04-30', 'The Avengers', 10, NULL, 101, NULL, '2017-03-31'),
+  ('2016-12-15', '2017-04-01', '2017-04-30', 'X-Men', 10, NULL, 101, NULL, '2017-03-31');
 
 INSERT INTO `booking` (`checkin`, `checkout`, `referring_company_id`, `referring_person_id`, `referring_inquiry`) VALUES
   ('2017-03-15', '2017-03-30', 1, 100, 1),
