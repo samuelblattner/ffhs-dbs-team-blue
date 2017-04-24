@@ -49,8 +49,8 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `address` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(45) NULL DEFAULT NULL,
-  `place_id` INT(11) NOT NULL,
   `other_address_details` VARCHAR(45) NULL DEFAULT NULL,
+  `place_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `address_place_id_idx` (`place_id` ASC),
   CONSTRAINT `address_place_id_fk`
@@ -81,8 +81,8 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `attribute` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `attribute_type_id` INT(11) NOT NULL,
   `value` VARCHAR(100) NOT NULL,
+  `attribute_type_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `attribute_attribute_type_id_fk`
       FOREIGN KEY (`attribute_type_id`)
@@ -132,8 +132,8 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `attribute_room` (
   `room_id` INT(11) NOT NULL,
-  `attribute_id` INT(11) NOT NULL,
   `optional_equipment` TINYINT(1) NULL DEFAULT '0',
+  `attribute_id` INT(11) NOT NULL,
   PRIMARY KEY (`room_id`, `attribute_id`),
   INDEX `attribute_room_room_id_idx` (`room_id` ASC),
   INDEX `attribute_room_room_attribute_id_idx` (`attribute_id` ASC),
@@ -192,11 +192,11 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `person` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `gender_id` INT(11) NULL DEFAULT NULL,
   `forename` VARCHAR(50) NULL DEFAULT NULL,
   `surname` VARCHAR(50) NULL DEFAULT NULL,
   `email` VARCHAR(254) NULL DEFAULT NULL,
   `birthday` DATE NULL DEFAULT NULL,
+  `gender_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `person_gender_id_idx` (`gender_id` ASC),
   CONSTRAINT `person_gender_id_fk`
@@ -238,9 +238,9 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `company` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NULL DEFAULT NULL,
+  `customer_number` INT(11) NULL DEFAULT NULL,
   `contact_person_id` INT(11) NULL DEFAULT NULL,
   `company_type_id` INT(11) NOT NULL,
-  `customer_number` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `company_name_uniq` (`name` ASC),
   INDEX `contact_person_id_idx` (`contact_person_id` ASC),
@@ -294,8 +294,8 @@ CREATE TABLE IF NOT EXISTS `inquiry` (
   `created_at` DATE NOT NULL,
   `reservation_until` DATE NOT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
-  `person_id` INT(11) NOT NULL,
   `special_request` TEXT NULL,
+  `person_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `inquiry_person_id_idx` (`person_id` ASC),
   CONSTRAINT `inquiry_person_id_fk`
@@ -335,12 +335,12 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `booking` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `guest_company_id` INT(11) NULL DEFAULT NULL,
-  `referring_company_id` INT(11) NULL DEFAULT NULL,
-  `referring_person_id` INT(11) NULL DEFAULT NULL,
   `checkin` DATE NULL DEFAULT NULL,
   `checkout` DATE NULL DEFAULT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
+  `guest_company_id` INT(11) NULL DEFAULT NULL,
+  `referring_company_id` INT(11) NULL DEFAULT NULL,
+  `referring_person_id` INT(11) NULL DEFAULT NULL,
   `referring_inquiry` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
@@ -601,8 +601,8 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `phone_number` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `phone_number_type_id` INT(11) NOT NULL,
   `number` VARCHAR(45) NULL DEFAULT NULL,
+  `phone_number_type_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `phone_number_phone_number_type_id_idx` (`phone_number_type_id` ASC),
   CONSTRAINT `phone_number_phone_number_type_id_fk`
