@@ -338,15 +338,22 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `checkin` DATE NULL DEFAULT NULL,
   `checkout` DATE NULL DEFAULT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
+  `responsible_person_id` INT(11) NOT NULL,
   `guest_company_id` INT(11) NULL DEFAULT NULL,
   `referring_company_id` INT(11) NULL DEFAULT NULL,
   `referring_person_id` INT(11) NULL DEFAULT NULL,
   `referring_inquiry` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
+  INDEX `booking_responsible_person_id_idx` (`responsible_person_id` ASC),
   INDEX `booking_guest_company_id_idx` (`guest_company_id` ASC),
+  INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
   INDEX `booking_referring_person_id_idx` (`referring_person_id` ASC),
-  INDEX `fk_inquiry` (`referring_inquiry` ASC),
+  INDEX `booking_referring_inquiry_id_idx` (`referring_inquiry` ASC),
+  CONSTRAINT `booking_responsible_person_id_fk`
+    FOREIGN KEY (`responsible_person_id`)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `booking_guest_company_id_fk`
     FOREIGN KEY (`guest_company_id`)
     REFERENCES `company` (`id`)
@@ -392,7 +399,6 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `booking_person` (
   `person_id` INT(11) NOT NULL,
   `booking_id` INT(11) NOT NULL,
-  `isResponsible` TINYINT(1) NULL DEFAULT '0',
   `payment_card_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`person_id`, `booking_id`),
   INDEX `booking_person_booking_id_idx` (`booking_id` ASC),
