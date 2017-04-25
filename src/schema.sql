@@ -339,12 +339,14 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `checkout` DATE NULL DEFAULT NULL,
   `cancelled_at` DATE NULL DEFAULT NULL,
   `responsible_person_id` INT(11) NOT NULL,
+  `payment_card_id` INT(11) NULL DEFAULT NULL,
   `guest_company_id` INT(11) NULL DEFAULT NULL,
   `referring_company_id` INT(11) NULL DEFAULT NULL,
   `referring_person_id` INT(11) NULL DEFAULT NULL,
   `referring_inquiry` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `booking_responsible_person_id_idx` (`responsible_person_id` ASC),
+  INDEX `booking_payment_card_id_idx` (`payment_card_id` ASC),
   INDEX `booking_guest_company_id_idx` (`guest_company_id` ASC),
   INDEX `booking_referring_company_id_idx` (`referring_company_id` ASC),
   INDEX `booking_referring_person_id_idx` (`referring_person_id` ASC),
@@ -352,6 +354,11 @@ CREATE TABLE IF NOT EXISTS `booking` (
   CONSTRAINT `booking_responsible_person_id_fk`
     FOREIGN KEY (`responsible_person_id`)
     REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `booking_payment_card_id_fk`
+    FOREIGN KEY (`payment_card_id`)
+    REFERENCES `payment_card` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_guest_company_id_fk`
@@ -399,19 +406,12 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `booking_person` (
   `person_id` INT(11) NOT NULL,
   `booking_id` INT(11) NOT NULL,
-  `payment_card_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`person_id`, `booking_id`),
   INDEX `booking_person_booking_id_idx` (`booking_id` ASC),
   INDEX `booking_person_person_id_idx` (`person_id` ASC),
-  INDEX `booking_person_payment_card_id_idx` (`payment_card_id` ASC),
   CONSTRAINT `booking_person_booking_id_fk`
     FOREIGN KEY (`booking_id`)
     REFERENCES `booking` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `booking_person_payment_card_id_fk`
-    FOREIGN KEY (`payment_card_id`)
-    REFERENCES `payment_card` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `booking_person_person_id_fk`
