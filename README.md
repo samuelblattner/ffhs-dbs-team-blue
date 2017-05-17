@@ -683,3 +683,31 @@ SELECT
   WHERE YEAR(b.checkin) = 2017 OR YEAR(b.checkout) = 2017;
 ```
 
+## Transactions and UI
+### Block 4 "Audgabe 1 - GUI Buchungen"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=23894
+> Skizzieren Sie ein GUI welches folgenden Anwendungsfall abdecken soll:
+> - Eine Buchung soll getätigt werden. Dabei soll es sich um eine Buchung für ein einzelnes Doppelzimmer handeln.
+> - Zuerst wird geprüft, ob ein Zimmer der gewünschten Kategorie frei ist.
+> - Falls dies zutrifft, wird die Buchung ausgeführt und es wird angezeigt, welches Zimmer gebucht wurde.
+> - Im Hotel tragen gleichzeitig mehrere Personen Buchungen ein. Diese können sich während des Vorgangs nicht absprechen.
+> 
+> Orientieren Sie sich dabei an den GUI-Elementen einer Web-Anwendung. Der Auftraggeber hat die folgenden Wünsche geäussert:
+> - Einfacher Aufbau des GUIs
+> - Keine unnötigen Elemente
+> - Möglichst wenige Klicks
+> - Schnelle Antwortzeiten
+> 
+> Halten Sie schriftlich fest, welche Aktionen (Klicks), welche SQL-Abfragen (select, insert, update, delete) auslösen sollen.
+>
+> Identifizieren Sie Transaktionen.
+
+Um die Aufgabe zu lösen mussten folgende Annahmen getroffen werden:
+ - Beim Überprüfen, ob ein freies Zimmer vorhanden ist, wird eine Zeitspanne angegeben.
+ - Beim Durchführen der Buchung wird die Zeitspanne aus dem Überprüfen, ob ein freies Zimmer vorhanden ist.
+
+Es geht um den einzelnen Anwendungsfall `Buchung vornehmen`.
+![Buchung vornehmen - Anwendungsfalldiagram](./docs/diagrams/4-buchung-use-case.png)
+
+Die Aktivität sieht wie folgt aus:
+![Buchung vornehmen - Aktivitätsdiagramm](./docs/diagrams/4-buchung-activity.png)
