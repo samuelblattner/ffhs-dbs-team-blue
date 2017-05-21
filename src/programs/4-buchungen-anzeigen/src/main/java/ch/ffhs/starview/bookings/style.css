@@ -1,0 +1,12 @@
+.content {
+    -fx-padding: 10;
+}
+
+.inputBox > *{
+    -fx-pref-height: 20;
+    -fx-padding: 0 10 0 0;
+}
+
+.inputBox > *:left {
+    -fx-padding: 0;
+}

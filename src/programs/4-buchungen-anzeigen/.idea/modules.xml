@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ch.ffhs.starview.bookings.iml" filepath="$PROJECT_DIR$/ch.ffhs.starview.bookings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ch.ffhs.starview.bookings_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ch.ffhs.starview.bookings_main.iml" group="ch.ffhs.starview.bookings" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ch.ffhs.starview.bookings_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ch.ffhs.starview.bookings_test.iml" group="ch.ffhs.starview.bookings" />
+    </modules>
+  </component>
+</project>
