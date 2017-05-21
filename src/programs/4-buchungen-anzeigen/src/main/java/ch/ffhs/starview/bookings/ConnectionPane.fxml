@@ -9,11 +9,15 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" stylesheets="@style.css" styleClass="content">
+            prefWidth="600.0" styleClass="content" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.112"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.ffhs.starview.bookings.ConnectionPane">
     <bottom>
         <AnchorPane>
             <children>
-                <Button mnemonicParsing="false" text="Verbinden" AnchorPane.rightAnchor="0"/>
+                <Button mnemonicParsing="false" onAction="#handleConnectAction" text="Verbinden"
+                        AnchorPane.rightAnchor="0"/>
+                <Button mnemonicParsing="false" onAction="#handleDefaultServerAction" text="Benutzer Standardserver"
+                        AnchorPane.leftAnchor="0"/>
             </children>
         </AnchorPane>
     </bottom>
@@ -23,7 +27,9 @@
                 <HBox styleClass="inputBox">
                     <children>
                         <Label text="Verbindungsangabe zum MySQL-Server"/>
-                        <TextField HBox.hgrow="ALWAYS" promptText="jdbc:mysql://localhost/test?user=example&amp;password=example"/>
+                        <TextField fx:id="connectionTextField"
+                                   promptText="jdbc:mysql://localhost/test?user=example&amp;password=example"
+                                   HBox.hgrow="ALWAYS"/>
                     </children>
                 </HBox>
             </children>
