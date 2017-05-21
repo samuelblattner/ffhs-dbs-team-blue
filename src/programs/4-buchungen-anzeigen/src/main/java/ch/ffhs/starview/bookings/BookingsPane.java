@@ -71,7 +71,6 @@ public class BookingsPane implements IConnectionHandler {
             for(int columnIndex=1 ; columnIndex<=metaData.getColumnCount(); columnIndex++){
                 row.add(resultSet.getString(columnIndex));
             }
-            System.out.println("Row [1] added "+row );
             resultData.add(row);
         }
         result.setItems(resultData);
