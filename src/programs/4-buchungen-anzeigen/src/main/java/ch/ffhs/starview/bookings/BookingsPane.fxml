@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css"
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            styleClass="content" fx:controller="ch.ffhs.starview.bookings.BookingsPane">
+    <center>
+        <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0" styleClass="content">
+                    <children>
+                        <Label text="Buchungen abfragen"/>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="inputBox"
+                              HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Von"/>
+                                <DatePicker HBox.hgrow="SOMETIMES" fx:id="from" />
+                                <Label text="Bis"/>
+                                <DatePicker HBox.hgrow="SOMETIMES" fx:id="to" />
+                            </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" text="Abfragen" onAction="#handleQuery"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <TableView prefHeight="300.0" prefWidth="528.0" HBox.hgrow="ALWAYS" fx:id="result" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

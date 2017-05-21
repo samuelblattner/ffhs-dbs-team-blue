@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.sql.Connection;
 
 public class MainForm implements IConnectionHandler{
@@ -29,6 +30,14 @@ public class MainForm implements IConnectionHandler{
 
     @Override
     public void setConnection(Connection connection) {
-        System.out.println(connection.toString());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BookingsPane.fxml"));
+            Pane bookingsPane = loader.load();
+            BookingsPane bookingsPaneController = loader.getController();
+            bookingsPaneController.setConnection(connection);
+            setContent(bookingsPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
