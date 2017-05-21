@@ -788,4 +788,37 @@ vielleicht auch sinnvoll `INSERT ... ON DUPLICATE KEY UPDATE` zu verwenden.
 
 Für die Anzeige wird die Buchung wieder selektiert:
 
-    SELECT ... FROM booking WHERE booking.id = 1; 
+    SELECT ... FROM booking WHERE booking.id = 1;
+     
+### Block 4 "Audgabe 4 - JDBC PreparedStatement"
+Source: https://moodle.ffhs.ch/mod/forum/discuss.php?d=23897
+> Erstellen Sie eine Java/JDBC-Programm, mit welchem alle Buchungen einer bestimmten Periode ausgegeben werden können.
+> 
+> Implementieren Sie mit Prepared Statements und verwenden Sie die Start- und Enddaten der abgefragen Periode als Parameter des Queries.
+
+Es wurde eine kleine JavaFX-GUI-Applikation gebaut, welche diese Aufgabe löst.
+
+![PreparedStatement Applikation](./docs/guis/4-buchungen-anzeigen.gif)
+
+Zuerst wird die Verbindung zum MySQL-Server über JDBC aufgebaut:
+
+    Connection connection = DriverManager.getConnection(/* Connection String */);
+
+Danach wird ein `PreparedStatement` erstellt:
+
+    PreparedStatement statement = this.connection.prepareStatement(
+                    "SELECT p.forename, p.surname, b.checkin, b.checkout FROM booking AS b" +
+                    "  LEFT JOIN person AS p ON b.responsible_person_id = p.id" +
+                    "  WHERE (b.checkin <= ?) AND (b.checkout >= ?);");
+
+Dieses wird mit den eingegebenen Parametern aus der UI befüllt:
+
+    statement.setDate(1,  new Date(Date.from(to.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+    statement.setDate(2,  new Date(Date.from(from.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+    
+Nun kann die Abfrage ausgeführt werden:
+
+    ResultSet statementResult = statement.executeQuery();
+    
+In der Variable `statementResult` befindet sich das Ergebnis. Dieses kann nun im UI angezeigt werden.
+
