@@ -1,3 +1,5 @@
+package ch.ffhs.starview.bookings;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
