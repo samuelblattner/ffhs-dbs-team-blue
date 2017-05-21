@@ -3,6 +3,7 @@ package ch.ffhs.starview.bookings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,11 +12,17 @@ import java.sql.SQLException;
 public class ConnectionPane {
     @FXML
     public TextField connectionTextField;
+    private IConnectionHandler connectionHandler;
+
+    public void setConnectionHandler(IConnectionHandler handler) {
+        connectionHandler = handler;
+    }
 
     @FXML
     public void handleConnectAction(ActionEvent actionEvent) {
         try {
             Connection connection = DriverManager.getConnection(connectionTextField.getText());
+            this.connectionHandler.setConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
