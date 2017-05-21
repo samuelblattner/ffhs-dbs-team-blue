@@ -14,7 +14,6 @@ import javafx.util.Callback;
 import java.sql.*;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BookingsPane implements IConnectionHandler {
     @FXML
