@@ -22,8 +22,8 @@ repositories {
 }
 
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:21.0'
+    // Use MySQL JDBC driver
+    compile 'mysql:mysql-connector-java:6.0.6'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
