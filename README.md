@@ -5,7 +5,7 @@ This repository contains the project and task of the module DBS (Datenbanksystem
  - [Presentation from block one](https://docs.google.com/presentation/d/1M0BOXiqj37ZzCPe8XAA4hvNnRSBWwDz9cL3_vbIhnko/edit)
  - [Presentation from block two](https://docs.google.com/presentation/d/1Mrge2X00FnNLM3Qv8dNb31wuHrijHLbOAu7NWB1KdUI/edit)
  - [Presentation from block three](https://docs.google.com/presentation/d/1gXLZm-lSGiKdzJUAG8ASnWOtasNjlJuV6WsPfpHri4o/edit)
- - [Presentation from block four](https://docs.google.com/presentation/d/1rkehVZQV18j10J-vCBzubFo4Tr_SihZaTODVXR38_-I/edit)
+ - [Presentation from block four](https://docs.google.com/presentation/d/11GV61Npwrz92yVTsfkUrJKQc0ZNuTQPMdR62kPtafC0/edit)
 
 ## Conventions
 Everything in this repository should follow these conventions.
